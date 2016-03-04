@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-  <script src="js/admin.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/simple-sidebar.css">
-</head>
+<?php include 'head.php'; ?>
 <title>TMY Admin Page</title>
 <body>
     <div id="wrapper">
@@ -20,10 +12,10 @@
           <a href="#">This Movie Year</a>
 <!--          <a href="#menu-toggle" class="pull-right" id="menu-toggle"><i class="fa fa-angle-double-left"></i></a>-->
         </li>
-        <li><a href="#"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-        <li><a href="#"><i class="fa fa-pencil"></i> Writer</a></li>
-        <li><a href="db_setup.php"><i class="fa fa-database"></i> Server</a></li>
-        <li><a href="#"><i class="fa fa-wrench"></i> Setup Guide</a></li>
+        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/index.php"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/writer.php"><i class="fa fa-pencil"></i> Writer</a></li>
+        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/db_setup.php"><i class="fa fa-database"></i> Server</a></li>
+        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/setup.html"><i class="fa fa-wrench"></i> Setup Guide</a></li>
       </ul>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -34,7 +26,10 @@
         <div class="row">
           <div class="col-lg-12">
             <h1>Writer</h1>
-            <p>Write your movie review here, rating, etc...</p>
+            <div class="search-field">
+              <p class="search-label">Search for movie:</p> <input class="search-box" type="text" name="search">
+            </div>
+            
             <form action="submit.php" method="post">
               <input type="text" name="movie_title"><br><br>
               <textarea name="review"></textarea><br>

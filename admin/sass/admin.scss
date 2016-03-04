@@ -1,0 +1,47 @@
+@import '../../sass/variables.scss';
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+table {
+  border: 1px solid #ccc;
+}
+
+th {
+  text-align: left;
+  font-weight: 100;
+  background: #ececec;
+  padding: 10 20px;
+  font-size: 12px;
+  color: #666;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid $blue;
+}
+
+.online {
+  color: #4ECDC4;
+}
+
+.offline {
+  color: #EC644B;
+}
+
+.search-field {
+  
+  font-size: 18px;
+  font-weight: 300;
+  
+  .search-label {
+    display: inline-block;
+  }
+
+  .search-box {
+    display: inline-block;
+    margin-left: 15px;
+    width: 500px;
+  } 
+}
