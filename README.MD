@@ -13,11 +13,17 @@
 4. Open `/etc/apache2/httpd.conf` and make sure these modules are NOT commented out:
 
   `LoadModule authz_core_module libexec/apache2/mod_authz_core.so`
+  
   `LoadModule authz_host_module libexec/apache2/mod_authz_host.so`
+  
   `LoadModule userdir_module libexec/apache2/mod_userdir.so`
+  
   `LoadModule include_module libexec/apache2/mod_include.so`
+  
   `LoadModule rewrite_module libexec/apache2/mod_rewrite.so`
+  
   `LoadModule php5_module libexec/apache2/libphp5.so`
+  
   `Include /private/etc/apache2/extra/httpd-userdir.conf`
   
 5. Open `/etc/apache2/extra/httpd-userdir.conf` and uncomment:
