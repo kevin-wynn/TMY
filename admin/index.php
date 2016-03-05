@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <?php include 'includes/head.php'; ?>
+
+<?php include 'includes/connection.php'; connect(); ?>
+
 <title>TMY Admin Page</title>
 <body>
     <div id="wrapper">
@@ -41,10 +44,20 @@
               ?>
             </div>
             <div class="col-md-4">
+              <?php
+                
+                $count = mysql_query("SELECT * FROM movies");
+                $num_rows = mysql_num_rows($count);
               
+              echo "<p>Total Movies:</p>";
+              echo "$num_rows";
+              
+              ?>
             </div>
             <div class="col-md-12">
-
+              <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/db_reset.php" method="post">
+                <input class="btn button-primary" type="submit" value="Reset Movies Table">
+              </form>
             </div>
           </div>
         </div>
