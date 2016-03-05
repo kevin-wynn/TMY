@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php include 'head.php'; ?>
+<?php include 'includes/head.php'; ?>
 <title>TMY Admin Page</title>
 <body>
     <div id="wrapper">
@@ -14,7 +14,7 @@
         </li>
         <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/index.php"><i class="fa fa-tachometer"></i> Dashboard</a></li>
         <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/writer.php"><i class="fa fa-pencil"></i> Writer</a></li>
-        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/db_setup.php"><i class="fa fa-database"></i> Server</a></li>
+        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/db_setup.php"><i class="fa fa-database"></i> Database Setup</a></li>
         <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/setup.html"><i class="fa fa-wrench"></i> Setup Guide</a></li>
       </ul>
     </div>
@@ -68,4 +68,5 @@
     </div>
     <!-- /#wrapper -->
 </body>
+<?php include 'includes/footer.php'; ?>
 </html>

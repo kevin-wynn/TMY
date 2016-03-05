@@ -1,47 +1,45 @@
-<link rel="stylesheet" href="css/admin_server.css" type="text/css">
+<!DOCTYPE html>
+<html>
+<?php include 'includes/head.php'; ?>
+<title>TMY Admin Page</title>
+<body>
+    <div id="wrapper">
 
- <?php
-  $link = mysql_connect("localhost", "root", "mariocart64");
-  mysql_select_db("tmydb");
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">This Movie Year</li>
+        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/index.php"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/writer.php"><i class="fa fa-pencil"></i> Writer</a></li>
+        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/db_setup.php"><i class="fa fa-database"></i> Database Setup</a></li>
+        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/setup.html"><i class="fa fa-wrench"></i> Setup Guide</a></li>
+      </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
 
-  $init = "CREATE TABLE IF NOT EXISTS movies (
-    movie_title varchar(255),
-    overview varchar(255),
-    director varchar(255),
-    cast varchar(255),
-    poster_path varchar(255),
-    backdrop_path varchar(255),
-    rating int,
-    review varchar(255),
-    release_date varchar(255),
-    publish_date varchar(255),
-    published boolean,
-    popular_vote varchar(255),
-    genre varchar(255)
-  )";
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>Database Setup</h1>
+            
+            <form class="server-setup" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/db_build.php" method="post">
+              <p>Mysql Username: </p>
+              <input class="tmy-input server" type="text" name="dbuser"><br>
+              <p>Mysql Password: </p>
+              <input class="tmy-input server" type="text" name="dbpass"><br>
+              <br>
+              <input class="btn button-primary" type="submit" value="Build">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
 
-  $run = mysql_query($init) or die(mysql_error());
-
-  $sql = "SELECT * FROM movies";
-  $result = mysql_query($sql) or die(mysql_error());
-
-  // Print the column names as the headers of a table
-  echo "<h1>Patch Scripts Successfully Run: </h1><table><tr>";
-  for($i = 0; $i < mysql_num_fields($result); $i++) {
-    $field_info = mysql_fetch_field($result, $i);
-    echo "<th>{$field_info->name}</th>";
-  }
-
-  // Print the data
-  while($row = mysql_fetch_row($result)) {
-      echo "<tr>";
-      foreach($row as $_column) {
-          echo "<td>{$_column}</td>";
-      }
-      echo "</tr>";
-  }
-
-  echo "</table>";
-
-  mysql_close($link);
-?>
+    </div>
+    <!-- /#wrapper -->
+</body>
+<?php include 'includes/footer.php'; ?>
+</html>
