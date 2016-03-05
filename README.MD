@@ -38,10 +38,10 @@
 
 9. Navigate to your `~username/sites` folder and `git clone https://github.com/kevin-wynn/TMY.git`
 
-10. Navigate to `http://localhost.com/~username/admin` and run the server setup guide.
+10. Navigate to your `~username/sites` folder and in the terminal do `npm install -g grunt-cli` to install the grunt client
 
-11. Navigate to your `~username/sites` folder and in the terminal do `npm install -g grunt-cli` to install the grunt client
+11. Then run `npm install` to install project dependencies
 
-12. Then run `npm install` to install project dependencies
+12. Navigate to `http://localhost.com/~username/admin` and run the database setup.
 
 13. Now you're all set up, please note, anytime you're working with SASS or JS run `grunt watch` in your terminal in the directory to actively compile your styles and run JS Lint to make sure nothing breaks
