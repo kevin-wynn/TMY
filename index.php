@@ -31,6 +31,13 @@
     </div>
   </div>
   <div class="container-fluid recent">
+    <div class="col-md-8 col-md-offset-2 sort" id="sortMovies">
+      <a id="sortAction">Sort Movies <i class="fa fa-sort"></i></a>
+      <ul id="sortItems" class="sort-dropdown">
+        <li id="sortReviewed">Recently Reviewed</li>
+        <li id="sortReleased">Recently Released</li>
+      </ul>
+    </div>
     <div class="col-md-8 col-md-offset-2" id="recentMovies">
     </div>
   </div>

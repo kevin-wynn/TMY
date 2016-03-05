@@ -1,11 +1,25 @@
 * {
   box-sizing: border-box; }
 
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #666666;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px; }
+
+a:link, a:visited, a:active {
+  color: #59ABE3; }
+
+a:hover {
+  color: #2d95dc;
+  text-decoration: none; }
+
 .main-holder {
   position: relative;
   height: 100vh; }
 
-.navbar .logo {
+.navbar .logo h1 {
   color: #fff;
   letter-spacing: 5px; }
 .navbar .login {
@@ -67,14 +81,64 @@
     display: block;
     text-align: center;
     width: 90%;
-    padding-left: 5%; }
+    padding-left: 10%; }
   .intro .score {
     color: #fff;
     font-size: 24px;
     text-align: center; }
 
-.recent .recent-item img {
-  width: 100%;
-  height: auto; }
+.recent {
+  margin-top: -100px; }
+  .recent .sort {
+    background: #fff;
+    cursor: pointer;
+    padding-top: 10px;
+    border-radius: 5px 5px 0 0;
+    padding-bottom: 10px; }
+    .recent .sort .sort-dropdown {
+      padding: 0; }
+      .recent .sort .sort-dropdown li {
+        display: inline-block;
+        color: #59ABE3;
+        font-size: 10px;
+        margin-right: 10px;
+        text-transform: uppercase;
+        cursor: pointer; }
+  .recent #recentMovies {
+    background: #fff; }
+    .recent #recentMovies .recent-item {
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      height: 425px; }
+      .recent #recentMovies .recent-item .info {
+        padding: 0; }
+        .recent #recentMovies .recent-item .info h2 {
+          font-size: 12px;
+          margin: 5px 0px;
+          letter-spacing: 2px; }
+        .recent #recentMovies .recent-item .info p {
+          font-size: 8px;
+          letter-spacing: 1px; }
+      .recent #recentMovies .recent-item .score-container {
+        padding: 0;
+        text-align: right;
+        padding-top: 5px; }
+        .recent #recentMovies .recent-item .score-container .score {
+          position: relative;
+          color: #E87E04; }
+          .recent #recentMovies .recent-item .score-container .score .rating-number {
+            color: #fff;
+            position: absolute;
+            font-size: 12px;
+            left: 10px;
+            top: 9px;
+            font-weight: 700; }
+          .recent #recentMovies .recent-item .score-container .score .fa {
+            font-size: 30px;
+            position: relative;
+            float: right; }
+      .recent #recentMovies .recent-item img {
+        width: 100%;
+        height: auto; }
 
 /*# sourceMappingURL=main.css.map */

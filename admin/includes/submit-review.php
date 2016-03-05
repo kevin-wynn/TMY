@@ -24,8 +24,11 @@
   // escape any quotes so it doesnt break sql insert
   $overview = addslashes($_POST[overview]);
   $review = addslashes($_POST[review]);
+  $director = addslashes($_POST[director]);
 
   $overview = iconv("UTF-8", "UTF-8//IGNORE", $overview);
+  $review = iconv("UTF-8", "UTF-8//IGNORE", $review);
+  $director = iconv("UTF-8", "UTF-8//IGNORE", $director);
 
   // build sql query
   $query = "INSERT INTO movies (
@@ -44,7 +47,7 @@
   ) VALUES (
     '$_POST[movie_title]',
     '$overview',
-    '$_POST[director]',
+    '$director',
     '$_POST[cast]',
     '$posterLocalPath',
     '$backdropLocalPath',

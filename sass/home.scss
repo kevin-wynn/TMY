@@ -1,27 +1,3 @@
-$blue : #59ABE3;
-$red  : #EF4836;
-$grey : #666666;
-$gold : #E87E04;
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Raleway', sans-serif;
-  color: $grey;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
-  text-shadow: rgba(0,0,0,.01) 0 0 1px;
-}
-
-a:link, a:visited, a:active {
-  color: $blue;
-}
-
-a:hover {
-  color: darken($blue, 10%);
-  text-decoration: none;
-}
 .main-holder {
   position: relative;
   height: 100vh;
