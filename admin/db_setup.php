@@ -32,6 +32,10 @@
               <br>
               <input class="btn button-primary" type="submit" value="Build">
             </form>
+            
+            <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/db_reset.php" method="post">
+              <input class="btn button-primary" type="submit" value="Reset Movies Table">
+            </form>
           </div>
         </div>
       </div>

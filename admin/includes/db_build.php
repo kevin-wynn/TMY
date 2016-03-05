@@ -16,12 +16,13 @@
     poster_path varchar(255),
     backdrop_path varchar(255),
     score int,
-    review varchar(255),
+    review varchar(10000),
     release_date varchar(255),
     publish_date varchar(255),
     published boolean,
     popular_vote varchar(255),
-    genre varchar(255)
+    genre varchar(255),
+    featured boolean
   )";
 
   $run = mysql_query($init) or die(mysql_error());

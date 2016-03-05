@@ -1,3 +1,80 @@
+* {
+  box-sizing: border-box; }
 
+.main-holder {
+  position: relative;
+  height: 100vh; }
+
+.navbar .logo {
+  color: #fff;
+  letter-spacing: 5px; }
+.navbar .login {
+  margin-top: 2.5%;
+  text-align: right; }
+  .navbar .login a:link, .navbar .login a:visited, .navbar .login a:active {
+    color: #fff;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 2px; }
+  .navbar .login a:hover {
+    text-decoration: none;
+    color: #e6e6e6; }
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover; }
+
+.intro {
+  margin-top: 5%;
+  color: #fff; }
+  .intro .title {
+    font-size: 75px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    width: 100%;
+    text-align: center; }
+  .intro .genres {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+    display: block;
+    width: 100%;
+    text-align: center; }
+  .intro .credits {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px; }
+    .intro .credits .director, .intro .credits .cast {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 300;
+      display: inline-block;
+      text-align: left;
+      margin-right: 10px; }
+      .intro .credits .director .intro-text, .intro .credits .cast .intro-text {
+        font-size: 10px; }
+  .intro .overview {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 300;
+    display: block;
+    text-align: center;
+    width: 90%;
+    padding-left: 5%; }
+  .intro .score {
+    color: #fff;
+    font-size: 24px;
+    text-align: center; }
+
+.recent .recent-item img {
+  width: 100%;
+  height: auto; }
 
 /*# sourceMappingURL=main.css.map */

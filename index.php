@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<?php include 'components/head.php' ?>
+<title>This Movie Year</title>
+<body>
+<div class="wrapper">
+  <div class="main-holder">
+    <div class="hero-image" id="heroImage"></div>
+    <div class="container-fluid navbar">
+      <div class="col-md-3 logo">
+        <h1>TMY</h1>
+      </div>
+      <div class="col-md-7">
+
+      </div>
+      <div class="col-md-2 login">
+        <a href="#">Login</a>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="col-md-8 col-md-offset-2 intro">
+        <div class="title" id="movieTitle"></div>
+        <div class="genres" id="movieGenres"></div>
+        <div class="credits">
+          <div class="director" id="movieDirector"></div>
+          <div class="cast" id="movieCast"></div>
+        </div>
+        <div class="overview" id="movieOverview"></div>
+        <div class="score" id="movieScore"></div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid recent">
+    <div class="col-md-8 col-md-offset-2" id="recentMovies">
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<?php include 'components/footer.php' ?>

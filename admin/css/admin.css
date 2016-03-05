@@ -30,6 +30,9 @@ th {
 .tmy-input.server {
   width: 500px; }
 
+.server-reset {
+  margin-top: 25px; }
+
 .online {
   color: #4ECDC4; }
 

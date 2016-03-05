@@ -23,6 +23,9 @@
 
   // escape any quotes so it doesnt break sql insert
   $overview = addslashes($_POST[overview]);
+  $review = addslashes($_POST[review]);
+
+  $overview = iconv("UTF-8", "UTF-8//IGNORE", $overview);
 
   // build sql query
   $query = "INSERT INTO movies (
@@ -49,7 +52,7 @@
     '$_POST[publish_date]',
     '$_POST[popular_vote]',
     '$_POST[genre]',
-    '$_POST[review]',
+    '$review',
     '$_POST[score]'
   )";
 
