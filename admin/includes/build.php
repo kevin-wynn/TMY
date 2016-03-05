@@ -13,7 +13,7 @@
 
     // select tmydb
     mysql_select_db($dbname);
-
+    
     // build table for credentials
     $buildCredDB = "CREATE TABLE IF NOT EXISTS credentials (
       dbuser varchar(255),
@@ -23,6 +23,10 @@
     )";
 
     $run = mysql_query($buildCredDB) or die(mysql_error());
+    
+    $clearfirst = "TRUNCATE TABLE credentials";
+    
+    $clear = mysql_query($clearfirst) or die(mysql_error());
 
     // insert credentials into columns
     $creds = "INSERT IGNORE INTO credentials (

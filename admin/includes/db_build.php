@@ -19,10 +19,9 @@
     review varchar(10000),
     release_date varchar(255),
     publish_date varchar(255),
-    published boolean,
+    featured boolean,
     popular_vote varchar(255),
-    genre varchar(255),
-    featured boolean
+    genre varchar(255)
   )";
 
   $run = mysql_query($init) or die(mysql_error());

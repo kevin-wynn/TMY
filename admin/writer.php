@@ -4,18 +4,8 @@
 <title>TMY Admin Page</title>
 <body>
     <div id="wrapper">
-
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <li class="sidebar-brand">This Movie Year</li>
-        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/index.php"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/writer.php"><i class="fa fa-pencil"></i> Writer</a></li>
-        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/db_setup.php"><i class="fa fa-database"></i> Database Setup</a></li>
-        <li><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/setup.html"><i class="fa fa-wrench"></i> Setup Guide</a></li>
-      </ul>
-    </div>
-    <!-- /#sidebar-wrapper -->
+    
+    <?php include 'includes/sidebar.php'; ?>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
@@ -56,4 +46,5 @@
     <!-- /#wrapper -->
 </body>
 <?php include 'includes/footer.php'; ?>
+<script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/admin.js"></script>
 </html>
