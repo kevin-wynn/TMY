@@ -84,14 +84,6 @@ $(document).ready(function() {
     }
   });
   
-  movieTitle.fitText( 0.75, {
-    minFontSize: '50px'
-  });
-  
-  movieGenres.fitText( 2.5, {
-    minFontSize: '10px'
-  });
-  
   var sortItems = $('#sortItems'),
       sortAction = $('#sortAction');
   

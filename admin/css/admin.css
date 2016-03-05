@@ -86,9 +86,13 @@ th {
 .recent #recentMovies {
   background: #fff; }
   .recent #recentMovies .recent-item {
-    margin-bottom: 25px;
+    padding-top: 10px;
+    margin-bottom: 15px;
     text-transform: uppercase;
-    height: 425px; }
+    height: 425px;
+    cursor: pointer; }
+    .recent #recentMovies .recent-item:hover {
+      background: #ececec; }
     .recent #recentMovies .recent-item .info {
       padding: 0; }
       .recent #recentMovies .recent-item .info h2 {
@@ -119,5 +123,10 @@ th {
     .recent #recentMovies .recent-item img {
       width: 100%;
       height: auto; }
+  .recent #recentMovies .featured {
+    background: #ececec; }
+    .recent #recentMovies .featured .featured-text {
+      font-weight: 700;
+      text-align: center; }
 
 /*# sourceMappingURL=admin.css.map */

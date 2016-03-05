@@ -5,6 +5,7 @@
 <body>
 <div class="wrapper">
   <div class="main-holder">
+    <div class="overlay"></div>
     <div class="hero-image" id="heroImage"></div>
     <div class="container-fluid navbar">
       <div class="col-md-3 logo">
@@ -18,7 +19,7 @@
       </div>
     </div>
     <div class="container-fluid">
-      <div class="col-md-8 col-md-offset-2 intro">
+      <div class="col-md-10 col-md-offset-1 intro">
         <div class="title" id="movieTitle"></div>
         <div class="genres" id="movieGenres"></div>
         <div class="credits">

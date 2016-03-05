@@ -4,7 +4,7 @@
   connect();
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies ORDER BY publish_date ASC LIMIT 1");
+  $result = mysql_query("SELECT * FROM movies WHERE featured = '1'");
 
   while($row = mysql_fetch_array($result))     
   {
@@ -20,7 +20,8 @@
       'release_date' => $row['release_date'],
       'published_date' => $row['published_date'],
       'popular_vote' => $row['popular_vote'],
-      'genre' => $row['genre']
+      'genre' => $row['genre'],
+      'featured' => $row['featured']
     );
     array_push($json, $bus);
   }
