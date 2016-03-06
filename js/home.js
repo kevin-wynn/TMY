@@ -28,6 +28,7 @@ $(document).ready(function() {
           cast = result[0].cast;
       
       heroImage.css('background-image', 'url('+backdrop+')');
+      $('.footer').css('background-image', 'url('+backdrop+')');
       movieTitle.html(title);
       movieGenres.html(genres);
       movieOverview.html(overview);
@@ -79,7 +80,7 @@ $(document).ready(function() {
         
         score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
         
-        $('#recentMovies').append('<div class="col-sm-4 recent-item">'+poster_recent+'<div class="col-md-11 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-1 score-container">'+score_recentContainer+'</div></div>');
+        $('#recentMovies').append('<div class="col-sm-3 recent-item">'+poster_recent+'<div class="col-md-11 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-1 score-container">'+score_recentContainer+'</div></div>');
       }
     }
   });
@@ -124,7 +125,7 @@ $(document).ready(function() {
 
           score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
 
-          $('#recentMovies').append('<div class="col-sm-4 recent-item">'+poster_recent+'<div class="col-md-11 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-1 score-container">'+score_recentContainer+'</div></div>');
+          $('#recentMovies').append('<div class="col-sm-3 recent-item">'+poster_recent+'<div class="col-md-11 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-1 score-container">'+score_recentContainer+'</div></div>');
         }
       }
     });
@@ -157,7 +158,7 @@ $(document).ready(function() {
 
           score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
 
-          $('#recentMovies').append('<div class="col-sm-4 recent-item">'+poster_recent+'<div class="col-md-11 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-1 score-container">'+score_recentContainer+'</div></div>');
+          $('#recentMovies').append('<div class="col-sm-3 recent-item">'+poster_recent+'<div class="col-md-11 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-1 score-container">'+score_recentContainer+'</div></div>');
         }
       }
     });

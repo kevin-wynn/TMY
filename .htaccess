@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^movies/([^/]*)$ page.php?movie_title=$1 [L]
