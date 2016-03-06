@@ -61,6 +61,7 @@
       </div>
       <!-- /#page-content-wrapper -->
       <?php } else {
+        include 'includes/sidebar.php';
         $message = 'You need to be logged in to see this page';
         echo '<div class="login">';
         echo $message;
@@ -77,6 +78,10 @@
               <input class="login-submit" type="submit" value="Log In" />
             </p>
           </fieldset>
+        </form>
+        <form class="login-form" action="signup.php" method="post">
+          <p>Or if you don't have an account...</p>
+          <p><input class="login-submit" type="submit" value="Sign Up" /></p>
         </form>
       <?php echo '</div>';  } ?>
     </div>

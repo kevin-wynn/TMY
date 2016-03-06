@@ -15,6 +15,7 @@ $_SESSION['form_token'] = $form_token;
 <?php include 'includes/head.php'; ?>
 <title>TMY Admin Page</title>
 <body>
+    <?php include 'includes/sidebar.php'; ?>
     <div id="wrapper">
       <div class="login">
       <h2>Sign Up</h2>

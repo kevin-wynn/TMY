@@ -45,6 +45,7 @@
 <?php include 'head.php'; ?>
 <title>TMY Admin Page</title>
 <body>
+  <?php include 'sidebar-signup.php'; ?>
   <div id="wrapper">
     <div class="login">
       <p><?php echo $message; ?></p>

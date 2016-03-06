@@ -47,6 +47,7 @@
       </div>
       <!-- /#page-content-wrapper -->
       <?php } else {
+        include 'includes/sidebar.php';
         $message = 'You need to be logged in to see this page';
         echo '<div class="login">';
         echo $message;
