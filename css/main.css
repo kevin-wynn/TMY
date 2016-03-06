@@ -152,7 +152,14 @@ a:hover {
     .recent #recentMovies .recent-item {
       margin-bottom: 25px;
       text-transform: uppercase;
-      height: 425px; }
+      height: 425px;
+      cursor: pointer;
+      padding-top: 15px;
+      border: 1px solid #ffffff;
+      border-radius: 3px;
+      transition: .2s ease all; }
+      .recent #recentMovies .recent-item:hover {
+        border: 1px solid #59ABE3; }
       .recent #recentMovies .recent-item .info {
         padding: 0; }
         .recent #recentMovies .recent-item .info h2 {
@@ -183,5 +190,19 @@ a:hover {
       .recent #recentMovies .recent-item img {
         width: 100%;
         height: auto; }
+
+.movie-details {
+  margin-top: -200;
+  border-radius: 3px 3px 0 0;
+  background: #ffffff;
+  padding: 35px 15px; }
+  .movie-details .poster {
+    width: 100%;
+    height: auto; }
+  .movie-details .movie-review h3 {
+    margin-top: 0; }
+  .movie-details .movie-review p {
+    font-size: 16px;
+    letter-spacing: 1px; }
 
 /*# sourceMappingURL=main.css.map */

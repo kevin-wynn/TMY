@@ -11,11 +11,8 @@
       <div class="col-md-3 logo">
         <h1>TMY</h1>
       </div>
-      <div class="col-md-7">
-
-      </div>
-      <div class="col-md-2 login">
-        <a href="#">Login</a>
+      <div class="col-md-2 col-md-offset-7 login">
+        <a href="admin/login.php">Log in</a>
       </div>
     </div>
     <div class="container-fluid">

@@ -127,6 +127,14 @@
       margin-bottom: 25px;
       text-transform: uppercase;
       height: 425px;
+      cursor: pointer;
+      padding-top: 15px;
+      border: 1px solid #ffffff;
+      border-radius: 3px;
+      transition: .2s ease all;
+      &:hover {
+        border: 1px solid $blue;
+      }
       
       .info {
         padding: 0;

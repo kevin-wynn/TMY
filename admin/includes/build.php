@@ -17,6 +17,16 @@
     // select tmydb
     mysql_select_db($dbname);
     
+    $usersDB = "CREATE TABLE users (
+      user_id int(11) NOT NULL auto_increment,
+      username varchar(20) NOT NULL,
+      password char(40) NOT NULL,
+      PRIMARY KEY (user_id),
+      UNIQUE KEY username (username)
+    )";
+    
+    $buildUsers = mysql_query($usersDB) or die(mysql_error());
+    
     // build table for credentials
     $buildCredDB = "CREATE TABLE IF NOT EXISTS credentials (
       dbuser varchar(255),
