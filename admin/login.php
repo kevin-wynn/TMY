@@ -4,6 +4,7 @@
     <title>Logged Out</title>
   </head>
   <body>
+   <?php include 'includes/sidebar.php'; ?>
    <div id="wrapper">
      <div class="login">
      <p>Log in fool</p>
