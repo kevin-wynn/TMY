@@ -1,8 +1,7 @@
 <?php
-  function build($dbuser, $dbpass) {
+  function build($dbuser, $dbpass, $dbname) {
     // these are defined for local and probably wont change
     $dbhost = "localhost";
-    $dbname = "tmydb";
 
     // connect to database based on submitted user/pass
     $connect = mysql_connect($dbhost, $dbuser, $dbpass);
@@ -10,6 +9,10 @@
        {
          die('Could not connect: ' . mysql_error());
        }
+    
+    $createDBrun = "CREATE DATABASE " . $dbname;
+    
+    $createDB = mysql_query($createDBrun);
 
     // select tmydb
     mysql_select_db($dbname);

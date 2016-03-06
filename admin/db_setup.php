@@ -19,6 +19,8 @@
               <input class="tmy-input server" type="text" name="dbuser"><br>
               <p>Mysql Password: </p>
               <input class="tmy-input server" type="text" name="dbpass"><br>
+              <p>Database Name: </p>
+              <input class="tmy-input server" type="text" name="dbname"><br>
               <br>
               <input class="btn button-primary" type="submit" value="Build">
             </form>

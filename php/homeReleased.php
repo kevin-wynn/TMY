@@ -1,4 +1,4 @@
-<?php include 'connection.php' ?>
+<?php include '../admin/includes/connection.php' ?>
 <?php
   
   connect();

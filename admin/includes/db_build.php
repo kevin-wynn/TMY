@@ -5,8 +5,9 @@
 <?php
   $dbuser = $_POST[dbuser];
   $dbpass = $_POST[dbpass];
+  $dbname = $_POST[dbname];
 
-  build($dbuser, $dbpass);
+  build($dbuser, $dbpass, $dbname);
 
   $init = "CREATE TABLE IF NOT EXISTS movies (
     movie_title varchar(255),
