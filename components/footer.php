@@ -14,7 +14,7 @@
   <div class="footer">
     <div class="overlay-footer"></div>
     <div class="col-md-3 logo">
-      <h1>TMY</h1>
+      <h1><a href="<?php echo $link ?>">TMY</a></h1>
     </div>
     <div class="col-md-9 nav">
       <ul>
@@ -33,7 +33,7 @@
   <div class="footer">
     <div class="overlay-footer"></div>
     <div class="col-md-3 logo">
-      <h1>TMY</h1>
+      <h1><a href="<?php echo $link ?>">TMY</a></h1>
     </div>
     <div class="col-md-9 nav">
       <ul>

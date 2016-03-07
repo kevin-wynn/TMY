@@ -7,14 +7,9 @@
   <div class="main-holder">
     <div class="overlay"></div>
     <div class="hero-image" id="heroImage"></div>
-    <div class="container-fluid navbar">
-      <div class="col-md-3 logo">
-        <h1>TMY</h1>
-      </div>
-      <div class="col-md-2 col-md-offset-7 login">
-        <a href="admin/login.php">Log in</a>
-      </div>
-    </div>
+    
+    <?php include 'components/navbar.php' ?>
+    
     <div class="container-fluid">
       <div class="col-md-10 col-md-offset-1 intro">
         <div class="title" id="movieTitle"></div>

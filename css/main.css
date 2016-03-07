@@ -32,6 +32,8 @@ a:hover {
   .footer .logo {
     z-index: 2;
     color: #fff; }
+    .footer .logo a {
+      color: #fff; }
     .footer .logo h1 {
       letter-spacing: 5px;
       margin-left: 25px;
@@ -54,21 +56,6 @@ a:hover {
 .main-holder {
   position: relative;
   height: 100vh; }
-
-.navbar .logo h1 {
-  color: #fff;
-  letter-spacing: 5px; }
-.navbar .login {
-  margin-top: 2.5%;
-  text-align: right; }
-  .navbar .login a:link, .navbar .login a:visited, .navbar .login a:active {
-    color: #fff;
-    font-weight: 100;
-    text-transform: uppercase;
-    letter-spacing: 2px; }
-  .navbar .login a:hover {
-    text-decoration: none;
-    color: #e6e6e6; }
 
 .overlay {
   width: 100%;
@@ -211,5 +198,23 @@ a:hover {
   margin-bottom: 25px; }
   .show-more-button:hover {
     color: #2d95dc; }
+
+.navbar .logo a {
+  color: #fff;
+  letter-spacing: 5px; }
+.navbar .logo h1 {
+  color: #fff;
+  letter-spacing: 5px; }
+.navbar .login {
+  margin-top: 2.5%;
+  text-align: right; }
+  .navbar .login a:link, .navbar .login a:visited, .navbar .login a:active {
+    color: #fff;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 2px; }
+  .navbar .login a:hover {
+    text-decoration: none;
+    color: #e6e6e6; }
 
 /*# sourceMappingURL=main.css.map */

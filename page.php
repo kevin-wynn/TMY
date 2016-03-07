@@ -27,14 +27,9 @@
   <div class="main-holder">
     <div class="overlay"></div>
     <div class="hero-image" id="heroImage" style="background-image:url('<?php echo $pagefinal; echo $backdrop; ?>')"></div>
-    <div class="container-fluid navbar">
-      <div class="col-md-3 logo">
-        <a href="../"><h1>TMY</h1></a>
-      </div>
-      <div class="col-md-2 col-md-offset-7 login">
-        <a href="#">Log in</a>
-      </div>
-    </div>
+    
+    <?php include 'components/navbar.php' ?>
+    
     <div class="container-fluid">
       <div class="col-md-10 col-md-offset-1 intro">
         <div class="title" id="movieTitle"><?php echo $row['movie_title']; ?></div>
@@ -65,7 +60,7 @@
 <div class="footer" style="background-image:url('<?php echo $pagefinal; echo $backdrop; ?>')">
   <div class="overlay-footer"></div>
   <div class="col-md-3 logo">
-    <h1>TMY</h1>
+    <h1><a href="<?php echo $link ?>">TMY</a></h1>
   </div>
   <div class="col-md-9 nav">
     <ul>

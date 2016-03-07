@@ -1,0 +1,27 @@
+.navbar {
+
+  .logo{
+    a {
+      color: #fff;
+      letter-spacing: 5px;
+    }
+    h1 {
+      color: #fff;
+      letter-spacing: 5px;
+    }
+  }
+  .login {
+    margin-top: 2.5%;
+    text-align: right;
+    a:link, a:visited, a:active {
+      color: #fff;
+      font-weight: 100;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    a:hover {
+      text-decoration: none;
+      color: darken(#fff, 10%);
+    }
+  }
+}

@@ -41,6 +41,9 @@ a:hover {
   .logo {
     z-index: 2;
     color: #fff;
+    a {
+      color: #fff;
+    }
     h1 {
       letter-spacing: 5px;
       margin-left: 25px;
@@ -71,30 +74,6 @@ a:hover {
 .main-holder {
   position: relative;
   height: 100vh;
-}
-
-.navbar {
-
-  .logo{
-    h1 {
-      color: #fff;
-      letter-spacing: 5px;
-    }
-  }
-  .login {
-    margin-top: 2.5%;
-    text-align: right;
-    a:link, a:visited, a:active {
-      color: #fff;
-      font-weight: 100;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    a:hover {
-      text-decoration: none;
-      color: darken(#fff, 10%);
-    }
-  }
 }
 
 .overlay {
@@ -272,5 +251,32 @@ a:hover {
   margin-bottom: 25px;
   &:hover {
     color: darken($blue, 10%);
+  }
+}
+.navbar {
+
+  .logo{
+    a {
+      color: #fff;
+      letter-spacing: 5px;
+    }
+    h1 {
+      color: #fff;
+      letter-spacing: 5px;
+    }
+  }
+  .login {
+    margin-top: 2.5%;
+    text-align: right;
+    a:link, a:visited, a:active {
+      color: #fff;
+      font-weight: 100;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    a:hover {
+      text-decoration: none;
+      color: darken(#fff, 10%);
+    }
   }
 }
