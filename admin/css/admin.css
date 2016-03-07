@@ -132,6 +132,8 @@ th {
     .recent #recentMovies .featured .featured-text {
       font-weight: 700;
       text-align: center; }
+.recent #users .user {
+  padding: 0; }
 
 .logout {
   position: absolute;

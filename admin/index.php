@@ -34,15 +34,22 @@
       <div id="page-content-wrapper">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 recent">
               <h1>Dashboard</h1>
-              <div class="col-md-12">
+               <div class="col-md-3">
+                 <h4>Database Tools:</h4>
                 <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/db_reset.php" method="post">
                   <input class="btn button-primary" type="submit" value="Reset Movies Table">
                 </form>
                 <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/users_reset.php" method="post">
                   <input class="btn button-primary" type="submit" value="Clear All Users">
                 </form>
+              </div>
+              <div class="col-md-5" id="users">
+                <h4>Users:</h4>
+              </div>
+              <div class="col-md-4" id="recentMovies">
+                <h4>Recently Added Movie:</h4>
               </div>
             </div>
           </div>
@@ -56,4 +63,5 @@
     <!-- /#wrapper -->
 </body>
 <?php include 'includes/footer.php'; ?>
+<script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/adminHome.js"></script>
 </html>
