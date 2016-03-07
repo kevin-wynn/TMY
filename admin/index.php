@@ -36,20 +36,26 @@
           <div class="row">
             <div class="col-lg-12 recent">
               <h1>Dashboard</h1>
-               <div class="col-md-3">
-                 <h4>Database Tools:</h4>
-                <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/db_reset.php" method="post">
-                  <input class="btn button-primary" type="submit" value="Reset Movies Table">
-                </form>
-                <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/users_reset.php" method="post">
-                  <input class="btn button-primary" type="submit" value="Clear All Users">
-                </form>
-              </div>
-              <div class="col-md-5" id="users">
-                <h4>Users:</h4>
+              <div class="col-md-8 controls">
+                <div class="col-md-12">
+                   <h5>Database Tools:</h5>
+                  <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/db_reset.php" method="post">
+                    <input class="btn button-primary" type="submit" value="Reset Movies">
+                  </form>
+                  <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/users_reset.php" method="post">
+                    <input class="btn button-primary" type="submit" value="Reset Users">
+                  </form>
+                </div>
+                <div class="col-md-12" id="users">
+                  <h5>Users:</h5>
+                  <div class="col-md-1 header">ID</div>
+                  <div class="col-md-4 header">Username</div>
+                  <div class="col-md-5 header">Email</div>
+                  <div class="col-md-2 header">Permissions</div>
+                </div>
               </div>
               <div class="col-md-4" id="recentMovies">
-                <h4>Recently Added Movie:</h4>
+                <h5>Recently Added Movie:</h5>
               </div>
             </div>
           </div>

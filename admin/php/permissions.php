@@ -1,17 +1,14 @@
 <?php include '../includes/connection.php' ?>
 <?php
-  
+  session_start();
   connect();
 
   $json = array();
-  $result = mysql_query("SELECT * FROM users ORDER BY user_id ASC");
+  $result = mysql_query("SELECT permissions FROM users WHERE user_id = " . $_SESSION['user_id'] . "");
 
   while($row = mysql_fetch_array($result))     
   {
     $bus = array(
-      'user_id' => $row['user_id'],
-      'username' => $row['username'],
-      'email' => $row['email'],
       'permissions' => $row['permissions']
     );
     array_push($json, $bus);

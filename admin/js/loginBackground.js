@@ -1,26 +1,24 @@
 var prefixUrl = window.location.pathname.slice(0, -1);
 
-$(document).ready(function(){
-  
-  $.ajax({
-    type: "GET",
-    url: "includes/background-image.php",             
-    dataType: "json",                
-    success: function(result) {
-      for(i=0; i<result.length; i++){
-        // grab content from json returned
-        var backdrop_path = prefixUrl + '/../../' + result[i].backdrop_path;
 
-        // build out html for injection
-        backdrop_path = '<div class="banner-image" style="background-image: url('+backdrop_path+');"></div>';
-        
-        // inject html into container
-        $('#bannerContainer').append(backdrop_path);
-      }
-      
-      setBackground();
+$.ajax({
+  type: "GET",
+  url: "includes/background-image.php",             
+  dataType: "json",                
+  success: function(result) {
+    for(i=0; i<result.length; i++){
+      // grab content from json returned
+      var backdrop_path = prefixUrl + '/../../' + result[i].backdrop_path;
+
+      // build out html for injection
+      backdrop_path = '<div class="banner-image" style="background-image: url('+backdrop_path+');"></div>';
+
+      // inject html into container
+      $('#bannerContainer').append(backdrop_path);
     }
-  });
+
+    setBackground();
+  }
 });
 
 function setBackground(){

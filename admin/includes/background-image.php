@@ -4,7 +4,7 @@
   connect();
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies ORDER BY publish_date ASC LIMIT 8");
+  $result = mysql_query("SELECT * FROM movies ORDER BY publish_date DESC LIMIT 4");
 
   while($row = mysql_fetch_array($result))     
   {

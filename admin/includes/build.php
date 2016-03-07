@@ -1,4 +1,7 @@
-<?php
+<?php include 'credentials.php'; ?>
+<?php include 'db_reset.php'; ?>
+
+ <?php
   function build($dbuser, $dbpass, $dbname) {
     // these are defined for local and probably wont change
     $dbhost = "localhost";
@@ -23,7 +26,8 @@
       password char(40) NOT NULL,
       PRIMARY KEY (user_id),
       UNIQUE KEY username (username),
-      email varchar(255) NOT NULL
+      email varchar(255) NOT NULL,
+      permissions int
     )";
     
     $buildUsers = mysql_query($usersDB) or die(mysql_error());
@@ -61,5 +65,8 @@
     $handle = fopen($config_file, 'w') or die('Cannot open file:  '.$config_file);
     $data = '<?php $dbuser = ' . $dbuser . '; $dbpass = ' . $dbpass . '; $dbhost = ' . $dbhost . '; $dbname = ' . $dbname . '?>';
     fwrite($handle, $data);
+    
   }
+
+  dbSeed();
 ?>

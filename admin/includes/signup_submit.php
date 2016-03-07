@@ -17,6 +17,8 @@
     $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
     $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+    
+    $permissions = 100;
   
     $password = sha1( $password );
 
@@ -25,10 +27,11 @@
           
         $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $dbh->prepare("INSERT INTO users (username, password, email) VALUES (:username, :password, :email)");
+        $stmt = $dbh->prepare("INSERT INTO users (username, password, email, permissions) VALUES (:username, :password, :email, :permissions)");
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->bindParam(':password', $password, PDO::PARAM_STR, 40);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':permissions', $permissions, PDO::PARAM_STR);
         $stmt->execute();
 
         unset( $_SESSION['form_token'] );

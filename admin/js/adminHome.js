@@ -44,9 +44,18 @@ $(document).ready(function(){
       for(i=0; i<result.length; i++){
         var user_id = result[i].user_id,
             username = result[i].username,
-            email = result[i].email;
+            email = result[i].email,
+            permissions = result[i].permissions;
         
-        $('#users').append('<div class="col-md-1 user-id user">'+user_id+'</div><div class="col-md-4 username user">'+username+'</div><div class="col-md-7 email user">'+email+'</div>');
+        if(permissions == 100){
+          permissions = 'user';
+        } else if (permissions == 200) {
+          permissions = 'admin';
+        } else if (permissions == 300) {
+          permissions = 'super admin'
+        }
+        
+        $('#users').append('<div class="col-md-1 user-id user">'+user_id+'</div><div class="col-md-4 username user">'+username+'</div><div class="col-md-5 email user">'+email+'</div><div class="col-md-2 permissions user">'+permissions+'</div>');
       }
     }
   });
