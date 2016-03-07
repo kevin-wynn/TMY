@@ -143,6 +143,43 @@ th {
   padding: 0;
   margin-bottom: 10px; }
 
+#usersContainer .row {
+  cursor: pointer;
+  padding: 5px 10px;
+  position: relative; }
+  #usersContainer .row:hover {
+    background: #ececec; }
+    #usersContainer .row:hover #edit {
+      color: #59ABE3; }
+  #usersContainer .row.nohover {
+    background: #fff;
+    cursor: default; }
+    #usersContainer .row.nohover:hover {
+      background: #fff; }
+#usersContainer .permissions {
+  color: #59ABE3;
+  cursor: pointer; }
+#usersContainer .header {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc; }
+#usersContainer #allPermissions {
+  right: 10px;
+  text-align: right;
+  position: absolute;
+  z-index: 9999;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 10px; }
+  #usersContainer #allPermissions li {
+    display: block;
+    margin-bottom: 10px; }
+    #usersContainer #allPermissions li:last-child {
+      margin-bottom: 0px; }
+    #usersContainer #allPermissions li:hover {
+      color: #59ABE3; }
+
 .logout {
   position: absolute;
   bottom: 50px;

@@ -4,7 +4,7 @@
   connect();
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies ORDER BY publish_date DESC");
+  $result = mysql_query("SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date DESC");
 
   while($row = mysql_fetch_array($result))     
   {

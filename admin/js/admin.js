@@ -114,10 +114,11 @@ $(document).ready(function(){
 
       var month = d.getMonth()+1;
       var day = d.getDate();
+      var time = d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
 
       var currentDate = d.getFullYear() + '-' +
           (month<10 ? '0' : '') + month + '-' +
-          (day<10 ? '0' : '') + day;
+          (day<10 ? '0' : '') + day + ' ' + time;
       
       // build genre listing
       theMovieDb.genres.getList({}, function(data){},errorCB);

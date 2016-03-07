@@ -205,6 +205,59 @@ th {
   }
 }
 
+#usersContainer {
+  .row {
+    cursor: pointer;
+    padding: 5px 10px;
+    position: relative;
+    &:hover {
+      background: #ececec;
+      #edit {
+        color: $blue;
+      }
+    }
+    &.nohover {
+      background: #fff;
+      cursor: default;
+      &:hover {
+        background: #fff;
+      }
+    }
+  }
+  .user {
+    
+  }
+  .permissions {
+    color: $blue;
+    cursor: pointer;
+  }
+  .header {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+  #allPermissions {
+    right: 10px;
+    text-align: right;
+    position: absolute;
+    z-index: 9999;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px;
+    li {
+      display: block;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0px;
+      }
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+}
+
 .logout {
   position: absolute;
   bottom: 50px;
