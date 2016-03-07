@@ -4,9 +4,9 @@
   connect();
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies ORDER BY publish_date ASC LIMIT 1");
+  $result = mysql_query("SELECT * FROM movies ORDER BY publish_date DESC LIMIT 1");
 
-  while($row = mysql_fetch_array($result))     
+  while($row = mysql_fetch_array($result))
   {
     $bus = array(
       'movie_title' => $row['movie_title'],
