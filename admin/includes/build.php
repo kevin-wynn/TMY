@@ -17,12 +17,13 @@
     // select tmydb
     mysql_select_db($dbname);
     
-    $usersDB = "CREATE TABLE users (
+    $usersDB = "CREATE TABLE IF NOT EXISTS users (
       user_id int(11) NOT NULL auto_increment,
-      username varchar(20) NOT NULL,
+      username varchar(100) NOT NULL,
       password char(40) NOT NULL,
       PRIMARY KEY (user_id),
-      UNIQUE KEY username (username)
+      UNIQUE KEY username (username),
+      email varchar(255) NOT NULL
     )";
     
     $buildUsers = mysql_query($usersDB) or die(mysql_error());

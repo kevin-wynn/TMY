@@ -61,29 +61,8 @@
       </div>
       <!-- /#page-content-wrapper -->
       <?php } else {
-        include 'includes/sidebar.php';
-        $message = 'You need to be logged in to see this page';
-        echo '<div class="login">';
-        echo $message;
-        ?>
-        <form class="login-form" action="includes/login_submit.php" method="post">
-          <fieldset>
-            <p>Username
-              <input class="tmy-input login-input" type="text" id="username" name="username" value="" maxlength="20" />
-            </p>
-            <p>Password
-              <input class="tmy-input login-input" type="text" id="password" name="password" value="" maxlength="20" />
-            </p>
-            <p>
-              <input class="login-submit" type="submit" value="Log In" />
-            </p>
-          </fieldset>
-        </form>
-        <form class="login-form" action="signup.php" method="post">
-          <p>Or if you don't have an account...</p>
-          <p><input class="login-submit" type="submit" value="Sign Up" /></p>
-        </form>
-      <?php echo '</div>';  } ?>
+        header('Location: ' . dirname($_SERVER['PHP_SELF']) . '/login.php');
+      } ?>
     </div>
     <!-- /#wrapper -->
 </body>

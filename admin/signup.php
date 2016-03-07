@@ -1,45 +1,52 @@
 <?php
-
-/*** begin our session ***/
-session_start();
-
-/*** set a form token ***/
-$form_token = md5( uniqid('auth', true) );
-
-/*** set the session form token ***/
-$_SESSION['form_token'] = $form_token;
+  session_start();
+  $form_token = md5( uniqid('auth', true) );
+  $_SESSION['form_token'] = $form_token;
 ?>
-
-<!DOCTYPE html>
 <html>
-<?php include 'includes/head.php'; ?>
-<title>TMY Admin Page</title>
-<body>
-    <?php include 'includes/sidebar.php'; ?>
-    <div id="wrapper">
-      <div class="login">
-      <h2>Sign Up</h2>
-      <form class="login-form" action="includes/signup_submit.php" method="post">
-        <fieldset>
-          <p>Username
-            <input class="tmy-input" type="text" id="username" name="username" value="" maxlength="20" />
-          </p>
-          <p>Password
-            <input class="tmy-input" type="text" id="password" name="password" value="" maxlength="20" />
-          </p>
-          <p>
-            <input type="hidden" name="form_token" value="<?php echo $form_token; ?>" />
-            <input class="login-submit" type="submit" value="Create" />
-          </p>
-        </fieldset>
-      </form>
-      <form class="login-form" action="login.php" method="post">
-        <p>Or if you have an account...</p>
-        <p><input class="login-submit" type="submit" value="Log In" /></p>
-      </form>
+  <head>
+    <?php include 'includes/head.php'; ?>'
+    <title>Sign Up</title>
+  </head>
+  <body>
+  
+  <div class="container-fluid navbar">
+    <div class="col-md-3 logo">
+      <h1>TMY</h1>
     </div>
-  </div>
+  </div>  
+  <div class="overlay"></div>
+  <div id="bannerContainer"></div>
+  
+   <div id="login-container">
+     <div class="col-md-8 col-md-offset-2 login-only">
+       <div class="center-form">
+        <form class="login-form" id="signupForm" action="includes/signup_submit.php" method="post">
+            <p>Username
+              <input class="tmy-input login-input" type="text" id="username" name="username" value="" maxlength="20" required/>
+            </p>
+            <p>Password
+              <input class="tmy-input login-input" type="text" id="password" name="password" value="" maxlength="20" required/>
+            </p>
+            <p>Confirm Password
+              <input class="tmy-input login-input" type="text" id="passwordConfirm" name="passwordConfirm" value="" maxlength="20" required/>
+            </p>
+            <p>Email
+              <input class="tmy-input login-input" type="text" id="email" name="email" value="" maxlength="50" required/>
+            </p>
+            <div class="login-signup">
+              <input type="hidden" name="form_token" value="<?php echo $form_token; ?>" />
+              <input class="login-submit" type="submit" value="Create" />
+              <p>Or... <a href="login.php">Log In Here</a></p>
+            </div>
+        </form>
+      </div>
+     </div>
+    </div>
+    
 </body>
-<?php include 'includes/footer.php'; ?>
-<script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/movies.js"></script>
+  <?php include 'includes/footer.php'; ?>
+  <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/loginBackground.js"></script>
+  <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/jquery.validate.min.js"></script>
+  <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/signup.js"></script>
 </html>

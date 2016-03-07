@@ -2,26 +2,16 @@
   session_start();
 
   if(isset( $_SESSION['user_id'] )) { 
-    $message = 'Users is already logged in';
-  }
-
-  if(!isset( $_POST['username'], $_POST['password'])) {
+    $message = 'User is already logged in';
+  } if(!isset( $_POST['username'], $_POST['password'])) {
     $message = 'Please enter a valid username and password';
-  }
-
-  elseif (strlen( $_POST['username']) > 20 || strlen($_POST['username']) < 4) {
+  } elseif (strlen( $_POST['username']) > 20 || strlen($_POST['username']) < 4) {
     $message = 'Incorrect Length for Username';
-  }
-
-  elseif (strlen( $_POST['password']) > 20 || strlen($_POST['password']) < 4) {
+  } elseif (strlen( $_POST['password']) > 20 || strlen($_POST['password']) < 4) {
     $message = 'Incorrect Length for Password';
-  }
-
-  elseif (ctype_alnum($_POST['username']) != true) {
+  } elseif (ctype_alnum($_POST['username']) != true) {
     $message = "Username must be alpha numeric";
-  }
-
-  elseif (ctype_alnum($_POST['password']) != true) {
+  } elseif (ctype_alnum($_POST['password']) != true) {
     $message = "Password must be alpha numeric";
   }
 
@@ -44,9 +34,7 @@
         $user_id = $stmt->fetchColumn();
         if($user_id == false) {
           $message = 'Login Failed';
-        }
-      
-        else {
+        } else {
           $_SESSION['user_id'] = $user_id;
           $message = 'You logged in, congratulations...';
         }
@@ -54,24 +42,7 @@
     catch(Exception $e) {
       $message = 'We are unable to process your request. Please try again later"';
     }
+    
+    header( 'Location: ' . dirname($_SERVER['PHP_SELF']) . '/../' ); 
   }
 ?>
-<?php include 'head.php'; ?>
-<html>
-  <head>
-    <title>Login</title>
-  </head>
-  <body>
-    <?php include 'sidebar.php'; ?>
-    <div id="wrapper">
-      <div class="container-fluid">
-         <div class="login">
-           <div class="logged-in">
-             <p><?php echo $message; ?></p>
-           </div> 
-         </div>
-      </div>
-    </div>  
-  </body>
-  <?php include 'footer.php'; ?>
-</html>
