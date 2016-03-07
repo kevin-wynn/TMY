@@ -1,0 +1,8 @@
+.show-more-button {
+  color: $blue;
+  cursor: pointer;
+  margin-bottom: 25px;
+  &:hover {
+    color: darken($blue, 10%);
+  }
+}

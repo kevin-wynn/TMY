@@ -8,7 +8,7 @@ body {
   -webkit-text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
   text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px; }
 
-a:link, a:visited, a:active {
+a, a:link, a:visited, a:active {
   color: #59ABE3; }
 
 a:hover {
@@ -204,5 +204,12 @@ a:hover {
   .movie-details .movie-review p {
     font-size: 16px;
     letter-spacing: 1px; }
+
+.show-more-button {
+  color: #59ABE3;
+  cursor: pointer;
+  margin-bottom: 25px; }
+  .show-more-button:hover {
+    color: #2d95dc; }
 
 /*# sourceMappingURL=main.css.map */

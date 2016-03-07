@@ -14,7 +14,7 @@ body {
   text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 
-a:link, a:visited, a:active {
+a, a:link, a:visited, a:active {
   color: $blue;
 }
 
@@ -264,5 +264,13 @@ a:hover {
       font-size: 16px;
       letter-spacing: 1px;
     }
+  }
+}
+.show-more-button {
+  color: $blue;
+  cursor: pointer;
+  margin-bottom: 25px;
+  &:hover {
+    color: darken($blue, 10%);
   }
 }
