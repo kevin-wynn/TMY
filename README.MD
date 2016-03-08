@@ -40,6 +40,6 @@
 
 10. Then run `npm install` to install project dependencies
 
-11. Navigate to `http://localhost.com/~username/admin` and run the database setup.
+11. Navigate to `http://localhost.com/~username/db_setup.php` and run the database setup.
 
 12. Now you're all set up, please note, anytime you're working with SASS or JS run `grunt watch` in your terminal in the directory to actively compile your styles and run JS Lint to make sure nothing breaks
