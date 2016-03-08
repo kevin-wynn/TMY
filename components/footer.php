@@ -8,9 +8,10 @@
   $page = substr($pageurl, strrpos($pageurl, '/') + 1);
 
   if (strpos($page, 'page.php') !== false) { ?>
+    <script src="../js/isotope.pkgd.min.js"></script>
     <script src="../js/themoviedb.js"></script>
-    <script src="../js/page.js"></script>
     <script src="../js/sortfilter.js"></script>
+    <script src="../js/page.js"></script>
 <?php } else if (strpos($page, 'all-movies.php') !== false) { ?>
   <div class="footer">
     <div class="overlay-footer"></div>
@@ -26,10 +27,10 @@
       </ul>
     </div>
   </div>
-
+  <script src="js/isotope.pkgd.min.js"></script>
   <script src="js/themoviedb.js"></script>
-  <script src="js/all-movies.js"></script>
   <script src="js/sortfilter.js"></script>
+  <script src="js/all-movies.js"></script>
 <?php } else { ?>
 
   <div class="footer">
@@ -46,8 +47,8 @@
       </ul>
     </div>
   </div>
-
+  <script src="js/isotope.pkgd.min.js"></script>
   <script src="js/themoviedb.js"></script>
-  <script src="js/home.js"></script>
   <script src="js/sortfilter.js"></script>
+  <script src="js/home.js"></script>
 <?php } ?>

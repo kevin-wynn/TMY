@@ -14,25 +14,6 @@
       }
       print "\r\n";
   }
-//  
-//  // get local instance of url and strip down to base
-//  $pageurl = $_SERVER['PHP_SELF'];
-//  $pagefinal = substr($pageurl, 0, strrpos( $pageurl, '/'));
-//
-//  // gather url for htaccess redirect
-//  $movie = mysql_real_escape_string($_GET['movie_title']);
-//  $movie = str_replace('-', ' ', $movie);
-//
-//  //Remove LIMIT 1 to show/do this to all results.
-//  $query = "SELECT * FROM movies WHERE movie_title = '" . $movie . "' LIMIT 1";
-//  $result = mysql_query($query);
-//  $row = mysql_fetch_array($result);
-//  
-//  // get backdrop path for css background image on hero
-//  $backdrop = $row['backdrop_path'];
-//  $poster = $row['poster_path'];
-//  $score = $row['score'];
-  
 ?>
 
 <div class="col-md-10 col-md-offset-1 sort" id="sortMovies">
