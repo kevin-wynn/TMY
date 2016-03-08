@@ -90,7 +90,18 @@ $(document).ready(function(){
 });
 
 function initControls() {
-  var filterAction = $('#filterAction'), genres;
+  var genres,
+      filterItems = $('#filterItems'),
+      filterAction = $('#filterAction');
+  
+  
+  filterItems.hide();
+  
+  filterItems.on('click', function(event){
+    console.log(event.target.id);
+    filterItems.slideToggle();
+  });
+  
   filterAction.on('click', function(){
     genres = $('#genres').html();
     genres = genres.split(' ');
@@ -100,6 +111,8 @@ function initControls() {
 
 function buildFilters(genres) {
   var filterItems = $('#filterItems');
+  filterItems.slideToggle();
+  filterItems.html('');
   for(i=0; i<genres.length; i++){
     filterItems.append('<li id="' + genres[i] + '">' + genres[i] + '</li>');
   }
