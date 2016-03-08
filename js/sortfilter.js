@@ -90,7 +90,7 @@ $(document).ready(function(){
 });
 
 function initControls() {
-  var genres,
+  var genres, arr,
       filterItems = $('#filterItems'),
       filterAction = $('#filterAction');
   
@@ -104,8 +104,8 @@ function initControls() {
   
   filterAction.on('click', function(){
     genres = $('#genres').html();
-    genres = genres.split(' ');
-    buildFilters(genres);
+    arr = $.unique(genres.split(' '));
+    buildFilters(arr);
   });
 }
 
