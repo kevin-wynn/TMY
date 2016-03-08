@@ -47,6 +47,10 @@
     $sample10 = "INSERT INTO `movies` (`movie_title`, `overview`, `director`, `cast`, `poster_path`, `backdrop_path`, `score`, `review`, `release_date`, `publish_date`, `featured`, `popular_vote`, `genre`)
 VALUES
 	('The Visit', 'The terrifying story of a brother and sister who are sent to their grandparents\' remote Pennsylvania farm for a weeklong trip. Once the children discover that the elderly couple is involved in something deeply disturbing, they see their chances of getting back home are growing smaller every day.', 'M. Night Shyamalan', '1385063, 1198286, 17696', '/assets/images/posters/7c4bc7d0e2202c7d8b8fd98408a29592a94d4014.jpg', '/assets/images/backdrops/c4fa2356e19f7af0034aaa51399accf08f54a10b.jpg', 3, 'A few things really freak me out when they try. Kids and old people in scary movies. The visit has both. Granted the kids aren\'t what\'s scary but if you\'re crawling under a house and your grandma is crawling around extremely crazy and creepy like. Get the fuck out of there.\r\n\r\nM Night has had his share of good movies and bad movies. Some really out there things. But it\'s nice to see he\'s coming back to life with some good movies. \r\n\r\nThe Visit was as strange and startling as it is scary. If you\'ve got a fear of old people this is going to kill it for you!', '2015-09-10', '2016-03-06', NULL, '5.8', 'Horror, Thriller');";
+    
+    $sample11 = "INSERT INTO `movies` (`movie_title`, `overview`, `director`, `cast`, `poster_path`, `backdrop_path`, `score`, `review`, `release_date`, `publish_date`, `featured`, `popular_vote`, `genre`)
+VALUES
+	('Spotlight', 'The true story of how The Boston Globe uncovered the massive scandal of child molestation and cover-up within the local Catholic Archdiocese, shaking the entire Catholic Church to its core.', 'Tom McCarthy', '103, 2232, 53714', '/assets/images/posters/14ab8041d7393ab5f6a808063ede63b7e9008775.jpg', '/assets/images/backdrops/8abe841959a58f1f16001d54d00a8cc71da69d7f.jpg', 5, 'I\'ll be honest I hadn\'t even heard of this movie until after the Oscars. With it winning best picture I had to check it out. What a surprise! WHAT A CAST! Wow this movie was on point! How had I not heard of it? It\'s so nice to see a movie fly under the radar and then all of a sudden pop up and be the best.\r\n\r\nThis movie was perfectly paced too. I was interested from the start all the way to the end. It\'s so nice to see a screenplay done so well to capture your attention for the entire movie. Mark Ruffalo really showed a powerful intensity in the entire movie. From his manner towards the subject at the start to consistently rising and rising until you can see it taking a toll on him.\r\n\r\nIt\'s interesting to see how someone can dig deeper into a dark subject and see how it changes them as a person and effects them on a personal level, and in this case, a spiritual level.\r\n\r\nAll in all, wonderful movie, this movie was for me and I couldn\'t have been more gracious to see it win like it did.', '2015-11-06', '2016-03-07 19:59:32', NULL, '7.7', 'Drama, History, Thriller');";
 
     $run = mysql_query($sample1) or die(mysql_error());
     $run = mysql_query($sample2) or die(mysql_error());
@@ -58,6 +62,7 @@ VALUES
     $run = mysql_query($sample8) or die(mysql_error());
     $run = mysql_query($sample9) or die(mysql_error());
     $run = mysql_query($sample10) or die(mysql_error());
+    $run = mysql_query($sample11) or die(mysql_error());
     
     echo "<h1>Movies tables reset</h1>";
   }
