@@ -43,15 +43,17 @@ $(document).ready(function() {
       cast = cast.split(',');
       
       for(i=0; i<cast.length; i++){
-        theMovieDb.people.getById({"id":cast[i]}, function(data){
+        theMovieDb.people.getById({"id":cast[i]}, parseCast, errorCB);
+      }
+      
+      function parseCast(data){
           var name = $.parseJSON(data).name;
-          wave++
+        
           if(wave == cast.length) {
-            movieCast.append(name)
+            movieCast.append(name);
           } else {
-            movieCast.append(name + ', ')
+            movieCast.append(name + ', ');
           }
-        }, errorCB)
       }
       
       for(i=0; i<score; i++){

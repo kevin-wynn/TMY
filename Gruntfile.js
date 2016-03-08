@@ -20,14 +20,18 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+    jshint: {
+        all: ['Gruntfile.js', 'js/all-movies.js', 'js/home.js', 'js/page.js', 'admin/admin.js', 'adminHome.js', 'loginBackground.js', 'movies.js', 'permissions.js', 'signup.js', 'users.js']
+    },
 		watch: {
 			css: {
-				files: '**/*.scss',
-				tasks: ['concat', 'sass']
+				files: ['**/*.scss', '**/*.js'],
+				tasks: ['concat', 'sass', 'jshint']
 			}
 		}
 	});
   grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-}
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+};
