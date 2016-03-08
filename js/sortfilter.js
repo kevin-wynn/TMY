@@ -88,3 +88,19 @@ $(document).ready(function(){
     });
   });
 });
+
+function initControls() {
+  var filterAction = $('#filterAction'), genres;
+  filterAction.on('click', function(){
+    genres = $('#genres').html();
+    genres = genres.split(' ');
+    buildFilters(genres);
+  });
+}
+
+function buildFilters(genres) {
+  var filterItems = $('#filterItems');
+  for(i=0; i<genres.length; i++){
+    filterItems.append('<li id="' + genres[i] + '">' + genres[i] + '</li>');
+  }
+}
