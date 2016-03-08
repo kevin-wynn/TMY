@@ -10,6 +10,7 @@
   if (strpos($page, 'page.php') !== false) { ?>
     <script src="../js/themoviedb.js"></script>
     <script src="../js/page.js"></script>
+    <script src="../js/sortfilter.js"></script>
 <?php } else if (strpos($page, 'all-movies.php') !== false) { ?>
   <div class="footer">
     <div class="overlay-footer"></div>
@@ -28,6 +29,7 @@
 
   <script src="js/themoviedb.js"></script>
   <script src="js/all-movies.js"></script>
+  <script src="js/sortfilter.js"></script>
 <?php } else { ?>
 
   <div class="footer">
@@ -47,4 +49,5 @@
 
   <script src="js/themoviedb.js"></script>
   <script src="js/home.js"></script>
+  <script src="js/sortfilter.js"></script>
 <?php } ?>

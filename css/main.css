@@ -119,20 +119,6 @@ a:hover {
 
 .recent {
   margin-top: -100px; }
-  .recent .sort {
-    background: #fff;
-    cursor: pointer;
-    border-radius: 5px 5px 0 0;
-    padding: 15px 30px 0px; }
-    .recent .sort .sort-dropdown {
-      padding: 0; }
-      .recent .sort .sort-dropdown li {
-        display: inline-block;
-        color: #59ABE3;
-        font-size: 10px;
-        margin-right: 10px;
-        text-transform: uppercase;
-        cursor: pointer; }
   .recent #recentMovies {
     background: #fff; }
     .recent #recentMovies .recent-item {
@@ -215,5 +201,22 @@ a:hover {
   .navbar .login a:hover {
     text-decoration: none;
     color: #e6e6e6; }
+
+.sort {
+  background: #fff;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  padding: 15px 30px 0px; }
+  .sort .sort-filter {
+    margin-right: 10px; }
+  .sort .sort-dropdown {
+    padding: 0; }
+    .sort .sort-dropdown li {
+      display: inline-block;
+      color: #59ABE3;
+      font-size: 10px;
+      margin-right: 10px;
+      text-transform: uppercase;
+      cursor: pointer; }
 
 /*# sourceMappingURL=main.css.map */
