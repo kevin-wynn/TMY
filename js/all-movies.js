@@ -59,6 +59,8 @@ $(document).ready(function() {
       for(i=0; i<score; i++){
         movieScore.append('<i class="fa fa-star"></i> ');
       }
+      
+      initControls();
     }
   });
   
@@ -113,6 +115,8 @@ $(document).ready(function() {
           // inject html into container
           $('#recentMovies').append('<div class="col-sm-3 recent-item" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></div>');
         }
+        
+        initControls();
       }
     });
   });
@@ -153,6 +157,8 @@ $(document).ready(function() {
           // inject html into container
           $('#recentMovies').append('<div class="col-sm-3 recent-item" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></div>');
         }
+        
+        initControls();
       }
     });
   });
