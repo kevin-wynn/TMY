@@ -18,3 +18,8 @@ a:hover {
   color: darken($blue, 10%);
   text-decoration: none;
 }
+
+.recent-item {
+    /*I removed "transform 0.5s" and "!important"*/
+    transition: opacity 0.5s, background-color 0.25s linear, border-color 0.25s linear;
+}

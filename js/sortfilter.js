@@ -1,4 +1,4 @@
-$(document).ready(function(){  
+$(document).ready(function(){
   var sortItems = $('#sortItems'),
       sortAction = $('#sortAction'),
       recentMovies = $('#recentMovies');
@@ -66,12 +66,12 @@ $(document).ready(function(){
       sortAscending: false
     });
   });
-});
-
-function buildFilters(genres) {
-  var filterItems = $('#filterItems');
-  filterItems.html('<li id="#all">#all</li>');
-  for(i=0; i<genres.length; i++){
-    filterItems.append('<li id="' + genres[i] + '">' + genres[i] + '</li>');
+  
+  function buildFilters(genres) {
+    var filterItems = $('#filterItems');
+    filterItems.html('<li id="#all">#all</li>');
+    for(i=0; i<genres.length; i++){
+      filterItems.append('<li id="' + genres[i] + '">' + genres[i] + '</li>');
+    }
   }
-}
+});
