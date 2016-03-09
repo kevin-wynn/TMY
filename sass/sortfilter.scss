@@ -1,0 +1,31 @@
+.sort {
+  background: #fff;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  padding: 15px 15px 0px;
+  .sort-filter {
+    margin-right: 10px;
+  }
+  .sort-dropdown {
+    padding: 0;
+    li {
+      display: inline-block;
+      color: $blue;
+      font-size: 10px;
+      margin-right: 10px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+}
+
+.no-filter-items {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 24px;
+  display: none;
+  img {
+    width: 250px;
+    height: auto;
+  }
+}

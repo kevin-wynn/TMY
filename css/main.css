@@ -15,6 +15,10 @@ a:hover {
   color: #2d95dc;
   text-decoration: none; }
 
+.wrapper {
+  display: block;
+  height: 100%; }
+
 .overlay-footer {
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
@@ -117,35 +121,48 @@ a:hover {
     font-size: 24px;
     text-align: center; }
 
+@-webkit-keyframes shine {
+  100% {
+    left: 125%; } }
+@keyframes shine {
+  100% {
+    left: 125%; } }
 .recent {
-  margin-top: -100px; }
-  .recent .sort {
-    background: #fff;
-    cursor: pointer;
-    border-radius: 5px 5px 0 0;
-    padding: 15px 30px 0px; }
-    .recent .sort .sort-dropdown {
-      padding: 0; }
-      .recent .sort .sort-dropdown li {
-        display: inline-block;
-        color: #59ABE3;
-        font-size: 10px;
-        margin-right: 10px;
-        text-transform: uppercase;
-        cursor: pointer; }
-  .recent #recentMovies {
+  margin-top: -100px;
+  display: block;
+  height: auto; }
+  .recent .col-md-10 {
     background: #fff; }
+  .recent #recentMovies {
+    padding: 0; }
     .recent #recentMovies .recent-item {
       margin-bottom: 25px;
       text-transform: uppercase;
-      height: 425px;
+      height: 450px;
+      width: 250px;
       cursor: pointer;
-      padding-top: 15px;
-      border: 1px solid #ffffff;
+      padding: 5px;
       border-radius: 3px;
-      transition: .2s ease all; }
-      .recent #recentMovies .recent-item:hover {
-        border: 1px solid #59ABE3; }
+      transition: .2s ease all;
+      position: relative;
+      overflow: hidden; }
+      .recent #recentMovies .recent-item:before {
+        position: absolute;
+        top: 0;
+        left: -90%;
+        z-index: 2;
+        display: block;
+        content: '';
+        width: 50%;
+        height: 100%;
+        background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+        background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+        -webkit-transform: skewX(-25deg);
+        transform: skewX(-25deg); }
+      .recent #recentMovies .recent-item:hover::before {
+        -webkit-animation: shine .75s;
+        animation: shine .75s; }
       .recent #recentMovies .recent-item .info {
         padding: 0; }
         .recent #recentMovies .recent-item .info h2 {
@@ -215,5 +232,31 @@ a:hover {
   .navbar .login a:hover {
     text-decoration: none;
     color: #e6e6e6; }
+
+.sort {
+  background: #fff;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  padding: 15px 15px 0px; }
+  .sort .sort-filter {
+    margin-right: 10px; }
+  .sort .sort-dropdown {
+    padding: 0; }
+    .sort .sort-dropdown li {
+      display: inline-block;
+      color: #59ABE3;
+      font-size: 10px;
+      margin-right: 10px;
+      text-transform: uppercase;
+      cursor: pointer; }
+
+.no-filter-items {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 24px;
+  display: none; }
+  .no-filter-items img {
+    width: 250px;
+    height: auto; }
 
 /*# sourceMappingURL=main.css.map */
