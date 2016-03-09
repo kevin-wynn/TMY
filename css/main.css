@@ -121,26 +121,48 @@ a:hover {
     font-size: 24px;
     text-align: center; }
 
+@-webkit-keyframes shine {
+  100% {
+    left: 125%; } }
+@keyframes shine {
+  100% {
+    left: 125%; } }
 .recent {
   margin-top: -100px;
   display: block;
   height: auto; }
+  .recent .col-md-10 {
+    background: #fff; }
   .recent #recentMovies {
-    background: #fff;
-    min-height: 450px;
-    padding: 0;
-    height: 100% !important; }
+    padding: 0; }
     .recent #recentMovies .recent-item {
       margin-bottom: 25px;
       text-transform: uppercase;
-      height: 425px;
+      height: 450px;
+      width: 250px;
       cursor: pointer;
-      padding-top: 15px;
-      border: 1px solid #ffffff;
+      padding: 5px;
       border-radius: 3px;
-      transition: .2s ease all; }
-      .recent #recentMovies .recent-item:hover {
-        border: 1px solid #59ABE3; }
+      transition: .2s ease all;
+      position: relative;
+      overflow: hidden; }
+      .recent #recentMovies .recent-item:before {
+        position: absolute;
+        top: 0;
+        left: -90%;
+        z-index: 2;
+        display: block;
+        content: '';
+        width: 50%;
+        height: 100%;
+        background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+        background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+        -webkit-transform: skewX(-25deg);
+        transform: skewX(-25deg); }
+      .recent #recentMovies .recent-item:hover::before {
+        -webkit-animation: shine .75s;
+        animation: shine .75s; }
       .recent #recentMovies .recent-item .info {
         padding: 0; }
         .recent #recentMovies .recent-item .info h2 {
@@ -231,7 +253,8 @@ a:hover {
 .no-filter-items {
   text-align: center;
   padding-top: 50px;
-  font-size: 24px; }
+  font-size: 24px;
+  display: none; }
   .no-filter-items img {
     width: 250px;
     height: auto; }

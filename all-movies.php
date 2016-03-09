@@ -25,9 +25,7 @@
   </div>
   <div class="container-fluid recent">
   <?php include 'components/sort.php' ?>
-    <div class="col-md-10 col-md-offset-1" id="recentMovies">
-      <div id="noFilterItems" class="col-md-12 no-filter-items"><img src="assets/images/no_filter_items.png"><p>No items to filter</p></div>
-    </div>
+  <?php include 'components/moviesContainer.php' ?>
     <div class="col-md-10 col-md-offset-1">
      <div class="show-more-button" id="getMore">
        Show More...

@@ -99,59 +99,33 @@ function getMovies(){
     success: function(result) {
       offset += 4;
       total = result[0].total;
-      console.log(total);
       for(i=0; i<result.length; i++){
-        // grab content from json returned
         var poster_recent = prefixUrl + result[i].poster_path,
             title_recent = result[i].movie_title,
             genres_recent = result[i].genre,
             overview_recent = result[i].overview,
             score_recent = result[i].score,
             director_recent = result[i].director,
+            publish_date = result[i].publish_date,
+            release_date = result[i].release_date,
             score_recentContainer;
-        
+
         var genres_forID = genres_recent.replace(/,/g, "");
             genres_forID = genres_forID.toLowerCase();
-        // build out html for injection
+
         poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
         title_recent = '<h2 id="movie_title">'+title_recent+'</h2>';
-        genres_recent = '<p>'+genres_recent+'</p>';
+        genres_recent = '<p id="genres">'+genres_recent+'</p>';
         overview_recent = '<p>'+overview_recent+'</p>';
         director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
         score_recentContainer = '<div class="score">';
-        
         score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
-        
-        // inject html into container
-        $('#recentMovies').append('<div class="col-sm-3 recent-item '+genres_forID+'" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></div>');
+
+        fullItems = $('<div data-released="'+release_date+'" data-published="'+publish_date+'" class="recent-item '+genres_forID+'" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></div>');
+
+        $('#recentMovies').isotope('insert', fullItems ).isotope('reloadItems');
       }
-      
       initControls();
     }
-  });
-}
-
-// sets up interation with clicking a movie poster - redirects them to /movies/clicked
-function initControls(){
-  var movie = $("[id=movie]"),
-      movie_title, url;
-  
-    movie.on('click', function(){
-    // get the h2 value that holds the movie title
-    movie_title = $(this).find($('h2')).html();
-    
-    // if movie title has a space, replace it with a dash
-    if(movie_title.indexOf(' ') != -1) {
-      movie_title = movie_title.replace(' ', '-');
-    }
-    
-    // make sure its lowercase
-    movie_title = movie_title.toLowerCase();
-    
-    // prepend location to url
-    url = prefixUrl+'/movies/'+movie_title;
-      
-    // redirect
-    window.location.href = url;
   });
 }
