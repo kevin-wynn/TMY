@@ -1,8 +1,11 @@
 $(document).ready(function(){  
   var sortItems = $('#sortItems'),
-      sortAction = $('#sortAction');
+      sortAction = $('#sortAction'),
+      noFilterItems = $('#noFilterItems'),
+      recentMovies = $('#recentMovies');
   
   sortItems.hide();
+  noFilterItems.hide();
   
   sortAction.on('click', function(){
     sortItems.slideToggle();
@@ -35,7 +38,7 @@ $(document).ready(function(){
               director_recent = result[i].director,
               score_recentContainer;
 
-          var genres_forID = genres_recent.replace(/,/g, ""),
+          var genres_forID = genres_recent.replace(/,/g, "");
               genres_forID = genres_forID.toLowerCase();
           // build out html for injection
           poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
@@ -79,7 +82,7 @@ $(document).ready(function(){
               director_recent = result[i].director,
               score_recentContainer;
 
-          var genres_forID = genres_recent.replace(/,/g, ""),
+          var genres_forID = genres_recent.replace(/,/g, "");
               genres_forID = genres_forID.toLowerCase();
           // build out html for injection
           poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
@@ -119,7 +122,7 @@ $(document).ready(function(){
               director_recent = result[i].director,
               score_recentContainer;
 
-          var genres_forID = genres_recent.replace(/,/g, ""),
+          var genres_forID = genres_recent.replace(/,/g, "");
               genres_forID = genres_forID.toLowerCase();
           // build out html for injection
           poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
@@ -159,7 +162,7 @@ $(document).ready(function(){
               director_recent = result[i].director,
               score_recentContainer;
           
-          var genres_forID = genres_recent.replace(/,/g, ""),
+          var genres_forID = genres_recent.replace(/,/g, "");
               genres_forID = genres_forID.toLowerCase();
           // build out html for injection
           poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
@@ -213,6 +216,9 @@ function buildCategories() {
   filterItems.hide();
   
   filterItems.on('click', function(event){
+    var noFilterItems = $('#noFilterItems');
+    noFilterItems.hide();
+    
     if(event.target.id == '#ScienceFiction'){
       event.target.id = '#Science Fiction';
     }
@@ -224,15 +230,27 @@ function buildCategories() {
     console.log(category.toLowerCase());
     
     // filter here
+    var $container = $('#recentMovies');
     
-    $('#recentMovies').isotope({ filter: '.'+category });
     
-    var categoriesSelected = $('*[data-genre="thriller"]');
+    function onLayout() {
+      // get Isotope instance, if using jQuery
+      var iso = $container.data('isotope');
+      
+      if(iso.filteredItems.length === 0) {
+        console.log( 'filtered ' + iso.filteredItems.length + ' items' );
+        noFilterItems.show();
+      }
+    }
     
-    $('[id=movie]').filter(function() {
-      var divs = $(this).data('genre', category)[0];
-      console.log(divs.getAttribute(category));
+    $container.isotope({
+      filter: '.'+category
     });
+    
+    // bind event listener
+    $container.isotope( 'on', 'layoutComplete', onLayout ); 
+    
+    $container.isotope('layout');
       
   });
   

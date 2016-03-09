@@ -110,7 +110,7 @@ function getMovies(){
             director_recent = result[i].director,
             score_recentContainer;
         
-        var genres_forID = genres_recent.replace(/,/g, ""),
+        var genres_forID = genres_recent.replace(/,/g, "");
             genres_forID = genres_forID.toLowerCase();
         // build out html for injection
         poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';

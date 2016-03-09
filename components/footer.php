@@ -9,6 +9,7 @@
 
   if (strpos($page, 'page.php') !== false) { ?>
     <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/fit-columns.js"></script>
     <script src="../js/themoviedb.js"></script>
     <script src="../js/sortfilter.js"></script>
     <script src="../js/page.js"></script>
@@ -28,6 +29,7 @@
     </div>
   </div>
   <script src="js/isotope.pkgd.min.js"></script>
+  <script src="js/fit-columns.js"></script>
   <script src="js/themoviedb.js"></script>
   <script src="js/sortfilter.js"></script>
   <script src="js/all-movies.js"></script>
@@ -48,6 +50,7 @@
     </div>
   </div>
   <script src="js/isotope.pkgd.min.js"></script>
+  <script src="js/fit-columns.js"></script>
   <script src="js/themoviedb.js"></script>
   <script src="js/sortfilter.js"></script>
   <script src="js/home.js"></script>

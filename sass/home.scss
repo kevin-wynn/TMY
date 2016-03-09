@@ -76,9 +76,14 @@
 
 .recent {
   margin-top: -100px;
+  display: block;
+  height: auto;
   
   #recentMovies {
     background: #fff;
+    min-height: 450px;
+    padding: 0;
+    height: 100% !important;
     
     .recent-item {
       margin-bottom: 25px;

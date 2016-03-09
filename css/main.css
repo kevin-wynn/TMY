@@ -15,6 +15,10 @@ a:hover {
   color: #2d95dc;
   text-decoration: none; }
 
+.wrapper {
+  display: block;
+  height: 100%; }
+
 .overlay-footer {
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
@@ -118,9 +122,14 @@ a:hover {
     text-align: center; }
 
 .recent {
-  margin-top: -100px; }
+  margin-top: -100px;
+  display: block;
+  height: auto; }
   .recent #recentMovies {
-    background: #fff; }
+    background: #fff;
+    min-height: 450px;
+    padding: 0;
+    height: 100% !important; }
     .recent #recentMovies .recent-item {
       margin-bottom: 25px;
       text-transform: uppercase;
@@ -206,7 +215,7 @@ a:hover {
   background: #fff;
   cursor: pointer;
   border-radius: 5px 5px 0 0;
-  padding: 15px 30px 0px; }
+  padding: 15px 15px 0px; }
   .sort .sort-filter {
     margin-right: 10px; }
   .sort .sort-dropdown {
@@ -218,5 +227,13 @@ a:hover {
       margin-right: 10px;
       text-transform: uppercase;
       cursor: pointer; }
+
+.no-filter-items {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 24px; }
+  .no-filter-items img {
+    width: 250px;
+    height: auto; }
 
 /*# sourceMappingURL=main.css.map */
