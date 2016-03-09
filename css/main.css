@@ -15,10 +15,6 @@ a:hover {
   color: #2d95dc;
   text-decoration: none; }
 
-.wrapper {
-  display: block;
-  height: 100%; }
-
 .overlay-footer {
   background: rgba(0, 0, 0, 0.5);
   width: 100%;
