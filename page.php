@@ -19,7 +19,23 @@
   $backdrop = $row['backdrop_path'];
   $poster = $row['poster_path'];
   $score = $row['score'];
+  $cast = $row['cast'];
+
+  $cast = preg_replace('/\.$/', '', $cast); //Remove dot at end if exists
+  $array = explode(', ', $cast); //split string into array seperated by ', '
 ?>
+<script>
+  var score = <?php echo $score ?>;
+  var <?php
+  
+  foreach($array as $key=>$value) //loop over values
+  {
+      echo 'cast' . $key . '=' . $value . ';'; //print value
+  }
+  
+  ?>
+  
+</script>
 <?php include 'components/head.php' ?>
 <title>This Movie Year</title>
 <body>
