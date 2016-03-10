@@ -28,7 +28,7 @@ th {
   margin-bottom: 15px; }
   .tmy-input.login-input {
     margin-left: 25px;
-    width: 250px;
+    width: 75%;
     background: none; }
 
 .tmy-input.server {
@@ -192,10 +192,15 @@ th {
     border: none; }
 
 .navbar {
-  z-index: 9999; }
+  z-index: 9999;
+  margin-top: -20px; }
   .navbar .logo h1 {
     color: #fff;
-    letter-spacing: 5px; }
+    letter-spacing: 5px;
+    font-weight: 400; }
+  .navbar .logo a {
+    color: #fff;
+    text-decoration: none; }
   .navbar .login {
     margin-top: 2.5%;
     text-align: right; }
@@ -230,19 +235,25 @@ th {
     text-align: left; }
   .login-only .center-form {
     margin: 0 auto;
-    width: 420px; }
+    width: 75%;
+    display: block;
+    position: relative; }
+    .login-only .center-form .form-header {
+      font-weight: 100; }
   .login-only p {
-    font-weight: 100;
     font-size: 16px;
+    text-align: left; }
+  .login-only .login-form p.form-label {
+    margin-top: 25px;
+    display: inline-block;
+    width: 15%;
     text-align: right; }
-  .login-only .login-form p {
-    margin-top: 25px; }
   .login-only .login-form .login-submit {
     background: #59ABE3;
     color: #fff;
     border: none;
     border-radius: 3px;
-    font-weight: 100;
+    letter-spacing: 1px;
     padding: 10px 20px; }
     .login-only .login-form .login-submit:hover {
       background: #2d95dc; }

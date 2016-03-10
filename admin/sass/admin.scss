@@ -35,7 +35,7 @@ th {
   margin-bottom: 15px;
   &.login-input {
     margin-left: 25px;
-    width: 250px;
+    width: 75%;
     background: none;
   }
 }
@@ -273,10 +273,16 @@ th {
 
 .navbar {
   z-index: 9999;
+  margin-top: -20px;
   .logo{
     h1 {
       color: #fff;
       letter-spacing: 5px;
+      font-weight: 400;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
     }
   }
   .login {
@@ -319,23 +325,30 @@ th {
   }
   .center-form {
     margin: 0 auto;
-    width: 420px;
+    width: 75%;
+    display: block;
+    position: relative;
+    .form-header {
+      font-weight: 100;
+    }
   }
   p {
-    font-weight: 100;
     font-size: 16px;
-    text-align: right;
+    text-align: left;
   }
   .login-form {
-    p {
+    p.form-label {
       margin-top: 25px;
+      display: inline-block;
+      width: 15%;
+      text-align: right;
     }
     .login-submit {
       background: $blue;
       color: #fff;
       border: none;
       border-radius: 3px;
-      font-weight: 100;
+      letter-spacing: 1px;
       padding: 10px 20px;
       &:hover {
         background: darken($blue, 10%);
