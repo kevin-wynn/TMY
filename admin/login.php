@@ -24,7 +24,7 @@
             <input class="tmy-input login-input" type="text" id="password" name="password" value="" maxlength="20" />
             <div class="login-signup">
               <input class="login-submit" type="submit" value="Log In" />
-              <p>Or... <a href="signup.php">Sign Up Here</a></p>
+              <p><a href="signup.php">I forgot my password</a> | <a href="signup.php">Sign Up</a></p>
             </div>
         </form>
        </div>

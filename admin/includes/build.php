@@ -27,7 +27,11 @@
       PRIMARY KEY (user_id),
       UNIQUE KEY username (username),
       email varchar(255) NOT NULL,
-      permissions int
+      permissions int,
+      last_login DATE,
+      url_slug varchar(255),
+      f_name varchar(128),
+      l_name varchar(128)
     )";
     
     $buildUsers = mysql_query($usersDB) or die(mysql_error());

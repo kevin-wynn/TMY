@@ -30,7 +30,6 @@
                 echo $_GET["q"];
               } ?>'" />
               <input class="login-submit" name="ResetPasswordForm" type="submit" value="Create" />
-              <p>Or... <a href="login.php">Log In Here</a></p>
             </div>
         </form>
       </div>

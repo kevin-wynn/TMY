@@ -22,7 +22,7 @@
             <input class="tmy-input login-input" type="text" id="email" name="email" value="" maxlength="50" required/>
             <div class="login-signup">
               <input class="login-submit" type="submit" value="Submit" />
-              <p>Or... <a href="login.php">Log In Here</a></p>
+              <p>Already a member? <a href="login.php">Login Here</a></p>
             </div>
         </form>
       </div>

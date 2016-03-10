@@ -38,10 +38,13 @@
                 <h5>Users:</h5>
                 <div class="row nohover">
                   <div class="col-md-1 header">Edit</div>
+                  <div class="col-md-1 header">First</div>
+                  <div class="col-md-1 header">Last</div>
                   <div class="col-md-1 header">ID</div>
-                  <div class="col-md-4 header">Username</div>
-                  <div class="col-md-4 header">Email</div>
-                  <div class="col-md-2 header">Permission</div>
+                  <div class="col-md-3 header">Username/Email</div>
+                  <div class="col-md-2 header">URL</div>
+                  <div class="col-md-2 header">Level</div>
+                  <div class="col-md-1 header">Login</div>
                 </div>
               </div>
             </div>
