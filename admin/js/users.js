@@ -69,7 +69,6 @@ $(document).ready(function() {
 
   function initCreateControls(){
     $('[name=add]').on('click', function(){
-      console.log($(this));
       createUser();
     });
   }
@@ -83,7 +82,10 @@ $(document).ready(function() {
       type: "GET",
       url: "php/adminUserCreate.php",
       data: form.serialize(),
-      dataType: "json"
+      dataType: "json",
+      success: function(result) {
+        console.log(result);
+      }
       });
   }
 
@@ -127,9 +129,10 @@ $(document).ready(function() {
                                             '<option value="100">user</option>'+
                                             '</select>'+
                                             '<input type="hidden" name="id" value="'+userId+'">'+
-                                            '</div><div class="col-md-12"><button type="button" class="login-submit save" value="SAVE" name="save">SAVE</button><div class="cancel">Cancel</div></div></form>');
+                                            '</div><div class="col-md-12"><button type="button" class="login-submit save pull-left" value="SAVE" name="save">SAVE</button><div class="cancel pull-left">Cancel</div><button type="button" class="login-submit  delete pull-right" vale="DELETE" name="delete">DELETE</button></div></form>');
 
         initSaveControls();
+        initDeleteUserControls();
 
         console.log('user-id: ', userId);
         console.log('firstName: ', firstName);
@@ -153,10 +156,10 @@ $(document).ready(function() {
     var form = $('[name=detailsForm]');
 
     $.ajax({
-      type: "GET",
-      url: "php/adminUserEdit.php",
-      data: form.serialize(),
-      dataType: "json"
+        type: "GET",
+        url: "php/adminUserEdit.php",
+        data: form.serialize(),
+        dataType: "json"
       });
     
     var divs = $('[id=row]').length;
@@ -168,6 +171,28 @@ $(document).ready(function() {
       if( divs === 0 ){
         getUsers();
       }
+    });
+  }
+  
+  function initDeleteUserControls(){
+    $('[name=delete]').on('click', function(){
+      var user = $('[name=id]').val();
+      $.ajax({
+          type: "GET",
+          url: "php/adminUserDelete.php",
+          data: {user:user},
+          dataType: "json"
+        });
+
+      var divs = $('[id=row]').length;
+
+      $('[id=row]').find('.user-details').slideUp('fast', function(){
+        --divs;
+        if( divs === 0 ){
+          getUsers();
+        }
+      });
+
     });
   }
 });

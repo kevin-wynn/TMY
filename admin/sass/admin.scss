@@ -288,11 +288,16 @@ th {
         letter-spacing: 1px;
         padding: 10px 20px;
         height: 32px;
-        width: 70px;
         margin-top: 25px;
         margin-bottom: 15px;
         &:hover {
           background: darken($blue, 10%);
+        }
+        &.delete {
+          background: $red;
+          &:hover {
+            background: darken($red, 10%);
+          }
         }
       }
       .login-form {
@@ -313,7 +318,7 @@ th {
         .cancel {
           display: inline-block;
           vertical-align: bottom;
-          margin-bottom: 13px;
+          margin-top: 40px;
           margin-left: 10px;
           color: $red;
           font-size: 14px;

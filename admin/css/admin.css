@@ -206,11 +206,14 @@ th {
       letter-spacing: 1px;
       padding: 10px 20px;
       height: 32px;
-      width: 70px;
       margin-top: 25px;
       margin-bottom: 15px; }
       #usersContainer .row .user-details .login-submit:hover {
         background: #2d95dc; }
+      #usersContainer .row .user-details .login-submit.delete {
+        background: #EF4836; }
+        #usersContainer .row .user-details .login-submit.delete:hover {
+          background: #e02612; }
     #usersContainer .row .user-details .login-form .editing p {
       margin: 0px; }
     #usersContainer .row .user-details .login-form .editing .dropdown {
@@ -224,7 +227,7 @@ th {
     #usersContainer .row .user-details .login-form .cancel {
       display: inline-block;
       vertical-align: bottom;
-      margin-bottom: 13px;
+      margin-top: 40px;
       margin-left: 10px;
       color: #EF4836;
       font-size: 14px;
