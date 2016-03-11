@@ -10,62 +10,160 @@ function errorCB(data){
 $(document).ready(function() {
   var usersContainer = $('#usersContainer');
   
-  $.ajax({
-    type: "GET",
-    url: "php/adminUsers.php",             
-    dataType: "json",                
-    success: function(result) {
-      for(i=0; i<result.length; i++){
-        var user_id = result[i].user_id,
-            username = result[i].username,
-            email = result[i].email,
-            permissions = result[i].permissions;
-            f_name = result[i].f_name;
-            l_name = result[i].l_name;
-            last_login = result[i].last_login;
-            url_slug = result[i].url_slug;
-        
-        if(permissions == 100){
-          permissions = 'user';
-        } else if (permissions == 200) {
-          permissions = 'admin';
-        } else if (permissions == 300) {
-          permissions = 'superAdmin'
-        }
-        
-        usersContainer.append('<div id="row" class="row"><div id="edit" class="col-md-1"><i class="fa fa-pencil"></i></div><div class="col-md-1 first user">'+f_name+'</div><div class="col-md-1 last user">'+l_name+'</div><div class="col-md-1 user-id user">'+user_id+'</div><div class="col-md-3 username user">'+username+'</div><div class="col-md-2 url user">'+url_slug+'</div><div id="permissionsToggle" class="col-md-2 permissions user">'+permissions+'</div><div class="col-md-1 date user">'+last_login+'</div><div class="col-md-12 user-details"></div></div>');
-      }
-      initControls();
-    }
-  });
-});
+  function getUsers(){
+    usersContainer.empty();
+    
+    $.ajax({
+      type: "GET",
+      url: "php/adminUsers.php",             
+      dataType: "json",                
+      success: function(result) {
+        for(i=0; i<result.length; i++){
+          var user_id = result[i].user_id,
+              username = result[i].username,
+              email = result[i].email,
+              permissions = result[i].permissions;
+              f_name = result[i].f_name;
+              l_name = result[i].l_name;
+              last_login = result[i].last_login;
+              url_slug = result[i].url_slug;
 
-function initControls(){
-  // get the row
-  $('[id=row]').on('click', function(){
-    var userId = $(this).find('.user-id').html(),
-        firstName = $(this).find('.first').html(),
-        lastName = $(this).find('.last').html(),
-        email = $(this).find('.username').html(),
-        url = $(this).find('.url').html();
-        permissions = $(this).find('.permissions').html();
+          if(permissions == 100){
+            permissions = 'user';
+          } else if (permissions == 200) {
+            permissions = 'admin';
+          } else if (permissions == 300) {
+            permissions = 'superAdmin'
+          }
+
+          usersContainer.append('<div id="row" class="row"><div id="edit" class="col-md-1"><i class="fa fa-pencil"></i></div><div class="col-md-1 first user">'+f_name+'</div><div class="col-md-1 last user">'+l_name+'</div><div class="col-md-1 user-id user">'+user_id+'</div><div class="col-md-3 username user">'+username+'</div><div class="col-md-2 url user">'+url_slug+'</div><div id="permissionsToggle" class="col-md-2 permissions user">'+permissions+'</div><div class="col-md-1 date user">'+last_login+'</div><div class="col-md-12 user-details"></div></div>');
+        }
+        initControls();
+      }
+    });
+  }
+  
+  getUsers();
+  
+  $('.add-user').on('click', function(){
+    addUserForm();
+  });
+  
+  function addUserForm(){
+    $('#usersContainer').append('<h3>New User:</span></h3>'+
+                                '<div id="row adding" class="row"><div class="col-md-12 user-details">'+
+                                '<form class="login-form" name="createUser" method="post">'+
+                                '<div class="col-md-3 editing"><p>First:</p><input name="f_name" value=""></div>'+
+                                '<div class="col-md-3 editing"><p>Last:</p><input name="l_name" value=""></div>'+
+                                '<div class="col-md-4 editing"><p>URL:</p><input name="url" value=""></div>'+
+                                '<div class="col-md-2 editing"><p>Level:</p>'+
+                                '<select name="permissions" class="dropdown">'+
+                                '<option value="300">superAdmin</option>'+
+                                '<option value="200">admin</option>'+
+                                '<option value="100" selected>user</option>'+
+                                '</select>'+
+                                '</div><div class="col-md-12"><button type="button" class="login-submit" value="ADD" name="add">ADD</button><div class="cancel">Cancel</div></div></form></div></div>').find('.user-details').slideDown();
+    initCreateControls();
+  }
+
+  function initCreateControls(){
+    $('[name=add]').on('click', function(){
+      console.log($(this));
+      createUser();
+    });
+  }
+
+  function createUser(){
+    var form = $('[name=createUser]');
+    $.ajax({
+      type: "GET",
+      url: "php/adminUserCreate.php",
+      data: form.serialize(),
+      dataType: "json"
+      });
+  }
+
+  function initControls(){
+    $('[id=row]').on('click', function(){
+      var permissionsValue;
+      if($('[id=row]').find('.user-details').is(':visible')) {
+        return false;
+      } else {
+        var userId = $(this).find('.user-id').html(),
+            firstName = $(this).find('.first').html(),
+            lastName = $(this).find('.last').html(),
+            email = $(this).find('.username').html(),
+            url = $(this).find('.url').html();
+            permissions = $(this).find('.permissions').html();
+
+        if(permissions == 'user') {
+          permissionsValue = 100;
+        } else if (permissions == 'admin') {
+          permissionsValue = 200;
+        } else if (permissions == 'superAdmin') {
+          permissionsValue = 300;
+        }
+
+        if ($(this).find('.user-details').is(':visible')){
+          console.log('hello please submit or hit cancel thats what its there for');
+        } else {
+          $(this).find('.user-details').slideDown();
+        }
+
+        $(this).find('.user-details').html('<h3>'+firstName+' '+lastName+' <span class="email-small">'+email+'</span></h3>'+
+                                            '<form class="login-form" name="detailsForm" method="post">' +
+                                            '<div class="col-md-3 editing"><p>First:</p><input name="f_name" value='+firstName+'></div>'+
+                                            '<div class="col-md-3 editing"><p>Last:</p><input name="l_name" value='+lastName+'></div>'+
+                                            '<div class="col-md-4 editing"><p>URL:</p><input name="url" value="'+url+'"></div>'+
+                                            '<div class="col-md-2 editing"><p>Level:</p>'+
+                                            '<select name="permissions" class="dropdown">'+
+                                            '<option value="'+permissionsValue+'" selected>'+permissions+'</option>'+
+                                            '<option value="300">superAdmin</option>'+
+                                            '<option value="200">admin</option>'+
+                                            '<option value="100">user</option>'+
+                                            '</select>'+
+                                            '<input type="hidden" name="id" value="'+userId+'">'+
+                                            '</div><div class="col-md-12"><button type="button" class="login-submit save" value="SAVE" name="save">SAVE</button><div class="cancel">Cancel</div></div></form>');
+
+        initSaveControls();
+
+        console.log('user-id: ', userId);
+        console.log('firstName: ', firstName);
+        console.log('lastName: ', lastName);
+        console.log('permissions: ', permissions); 
+      }
+    })
+  }
+
+  function initSaveControls(){
+    $('.cancel').on('click', function(){
+      console.log($(this));
+      $(this).parents('.user-details').slideUp();
+    });
+    $('[name=save]').on('click', function(){
+      submitForm();
+    });
+  }
+
+  function submitForm(formValue){
+    var form = $('[name=detailsForm]');
+
+    $.ajax({
+      type: "GET",
+      url: "php/adminUserEdit.php",
+      data: form.serialize(),
+      dataType: "json"
+      });
     
-    if ($(this).find('.user-details').is(':visible')){
-      console.log('hello please submit or hit cancel thats what its there for');
-    } else {
-      $(this).find('.user-details').slideDown();
-    }
+    var divs = $('[id=row]').length;
     
-    $(this).find('.user-details').html('<h3>'+firstName+' '+lastName+' <span class="email-small">'+email+'</span></h3>'+
-                                        '<div class="col-md-3 editing"><p>First:</p><input name="f_name" value='+firstName+'></div>'+
-                                        '<div class="col-md-3 editing"><p>Last:</p><input name="l_name" value='+lastName+'></div>'+
-                                        '<div class="col-md-4 editing"><p>URL:</p><input name="url" value="'+url+'"></div>'+
-                                        '<div class="col-md-2 editing"><p>Level:</p><input name="permissions" value='+permissions+'></div>'+
-                                        '<div class="col-md-12"><input class="login-submit" type="submit" value="Save" /></div>');
-     
-    console.log('user-id: ', userId);
-    console.log('firstName: ', firstName);
-    console.log('lastName: ', lastName);
-    console.log('permissions: ', permissions);
-  })
-};
+    console.log(divs.length);
+
+    $('[id=row]').find('.user-details').slideUp('fast', function(){
+      --divs;
+      if( divs === 0 ){
+        getUsers();
+      }
+    });
+  }
+});

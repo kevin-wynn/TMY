@@ -20,10 +20,13 @@
 
 ?>
 <?php if($username == true) { ?>
-  <div class="logout">
-     <form class="logout-form" action="logout.php" method="post">
-       <input class="logout-submit" type="submit" value="Log Out" /> <i class="fa fa-sign-out"></i>
-     </form>
+  <div class="user-actions">
+    <div class="profile">
+      <a href="profile.php"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profile</a>
+    </div>
+    <div class="logout">
+      <a href="logout.php"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Logout</a>
+    </div>
   </div>
 <?php }; ?>
 
