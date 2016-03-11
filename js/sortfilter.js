@@ -8,6 +8,11 @@ $(document).ready(function(){
     getSortData: {
       published: '[data-published]',
       released: '[data-released]'
+    },
+    percentPosition: true,
+    masonry: {
+      // use element for option
+      columnWidth: '.recent-item'
     }
   });
   

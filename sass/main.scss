@@ -142,7 +142,7 @@ $gold : #E87E04;
 .recent {
   margin-top: -100px;
   display: block;
-  height: auto;
+  height: 100%;
   
   .col-md-10 {
     background: #fff;
@@ -152,10 +152,9 @@ $gold : #E87E04;
     padding: 0;
     
     .recent-item {
+      width: 25% !important;
       margin-bottom: 25px;
       text-transform: uppercase;
-      height: 450px;
-      width: 250px;
       cursor: pointer;
       padding: 5px;
       border-radius: 3px;
