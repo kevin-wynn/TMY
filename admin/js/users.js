@@ -54,8 +54,9 @@ $(document).ready(function() {
                                 '<div id="row adding" class="row"><div class="col-md-12 user-details">'+
                                 '<form class="login-form" name="createUser" method="post">'+
                                 '<div class="col-md-3 editing"><p>First:</p><input name="f_name" value=""></div>'+
-                                '<div class="col-md-3 editing"><p>Last:</p><input name="l_name" value=""></div>'+
-                                '<div class="col-md-4 editing"><p>URL:</p><input name="url" value=""></div>'+
+                                '<div class="col-md-2 editing"><p>Last:</p><input name="l_name" value=""></div>'+
+                                '<div class="col-md-2 editing"><p>Email/Username:</p><input name="email" value=""><input type="hidden" value="" name="username"></div>'+
+                                '<div class="col-md-3 editing"><p>URL:</p><input name="url" value=""></div>'+
                                 '<div class="col-md-2 editing"><p>Level:</p>'+
                                 '<select name="permissions" class="dropdown">'+
                                 '<option value="300">superAdmin</option>'+
@@ -74,6 +75,9 @@ $(document).ready(function() {
   }
 
   function createUser(){
+    var email= $('[name=email]').val();
+    $('[name=username]').val(email);
+
     var form = $('[name=createUser]');
     $.ajax({
       type: "GET",
