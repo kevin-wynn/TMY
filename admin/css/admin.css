@@ -156,6 +156,14 @@ th {
     .recent #recentMovies .featured .featured-text {
       font-weight: 700;
       text-align: center; }
+.recent.home #recentMovies .recent-item {
+  padding-top: 10px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  height: 425px;
+  cursor: pointer; }
+  .recent.home #recentMovies .recent-item:hover {
+    background: #ffffff; }
 .recent #users .user {
   font-size: 10px;
   padding: 0; }

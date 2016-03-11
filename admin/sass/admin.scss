@@ -219,6 +219,21 @@ th {
     }
   }
   
+  &.home {
+    #recentMovies {
+      .recent-item {
+        padding-top: 10px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        height: 425px;
+        cursor: pointer;
+        &:hover {
+          background: #ffffff;
+        }
+      }
+    }
+  }
+  
   #users {
     .user {
       font-size: 10px;
