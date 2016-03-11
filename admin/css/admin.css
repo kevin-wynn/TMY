@@ -21,6 +21,18 @@ th {
     color: #fff;
     background: #2d95dc; }
 
+.tmy-button {
+  background: #59ABE3;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  margin-top: 15px;
+  margin-bottom: 15px; }
+  .tmy-button:hover {
+    background: #2d95dc; }
+
 .tmy-input {
   border: none;
   border-bottom: 1px solid #59ABE3;
@@ -28,7 +40,7 @@ th {
   margin-bottom: 15px; }
   .tmy-input.login-input {
     margin-left: 25px;
-    width: 250px;
+    width: 75%;
     background: none; }
 
 .tmy-input.server {
@@ -46,6 +58,15 @@ th {
 
 .search-field .search-box {
   width: 500px; }
+
+.users-header h1 {
+  display: inline-block; }
+.users-header .add-user {
+  color: #59ABE3;
+  display: inline-block;
+  font-size: 24px;
+  margin-left: 15px;
+  cursor: pointer; }
 
 .review {
   margin-top: 25px; }
@@ -135,6 +156,14 @@ th {
     .recent #recentMovies .featured .featured-text {
       font-weight: 700;
       text-align: center; }
+.recent.home #recentMovies .recent-item {
+  padding-top: 10px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  height: 425px;
+  cursor: pointer; }
+  .recent.home #recentMovies .recent-item:hover {
+    background: #ffffff; }
 .recent #users .user {
   font-size: 10px;
   padding: 0; }
@@ -146,7 +175,8 @@ th {
 #usersContainer .row {
   cursor: pointer;
   padding: 5px 10px;
-  position: relative; }
+  position: relative;
+  font-size: 10px; }
   #usersContainer .row:hover {
     background: #ececec; }
     #usersContainer .row:hover #edit {
@@ -156,6 +186,53 @@ th {
     cursor: default; }
     #usersContainer .row.nohover:hover {
       background: #fff; }
+  #usersContainer .row .user-details {
+    display: none; }
+    #usersContainer .row .user-details .email-small {
+      font-size: 12px;
+      color: #E87E04; }
+    #usersContainer .row .user-details input {
+      width: 100%;
+      height: 25px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      background: #fff;
+      border-radius: 3px; }
+    #usersContainer .row .user-details .login-submit {
+      background: #59ABE3;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      letter-spacing: 1px;
+      padding: 10px 20px;
+      height: 32px;
+      width: 70px;
+      margin-top: 25px;
+      margin-bottom: 15px; }
+      #usersContainer .row .user-details .login-submit:hover {
+        background: #2d95dc; }
+    #usersContainer .row .user-details .login-form .editing p {
+      margin: 0px; }
+    #usersContainer .row .user-details .login-form .editing .dropdown {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      padding: 5px 20px;
+      border-radius: 3px;
+      position: relative;
+      border: 1px solid #59ABE3; }
+    #usersContainer .row .user-details .login-form .cancel {
+      display: inline-block;
+      vertical-align: bottom;
+      margin-bottom: 13px;
+      margin-left: 10px;
+      color: #EF4836;
+      font-size: 14px;
+      cursor: pointer; }
+      #usersContainer .row .user-details .login-form .cancel:hover {
+        color: #e02612; }
+#usersContainer .date {
+  font-size: 9px; }
 #usersContainer .permissions {
   color: #59ABE3;
   cursor: pointer; }
@@ -180,22 +257,33 @@ th {
     #usersContainer #allPermissions li:hover {
       color: #59ABE3; }
 
-.logout {
+.user-actions {
   position: absolute;
   bottom: 50px;
   left: 40px;
-  color: #59ABE3;
   z-index: 9999; }
-  .logout .logout-submit {
-    background: none;
+  .user-actions .logout {
+    color: #59ABE3; }
+    .user-actions .logout .logout-submit {
+      background: none;
+      color: #59ABE3;
+      border: none; }
+  .user-actions .profile {
     color: #59ABE3;
-    border: none; }
+    margin-bottom: 15px; }
+  .user-actions a {
+    text-decoration: none; }
 
 .navbar {
-  z-index: 9999; }
+  z-index: 9999;
+  margin-top: -20px; }
   .navbar .logo h1 {
     color: #fff;
-    letter-spacing: 5px; }
+    letter-spacing: 5px;
+    font-weight: 400; }
+  .navbar .logo a {
+    color: #fff;
+    text-decoration: none; }
   .navbar .login {
     margin-top: 2.5%;
     text-align: right; }
@@ -230,19 +318,25 @@ th {
     text-align: left; }
   .login-only .center-form {
     margin: 0 auto;
-    width: 420px; }
+    width: 75%;
+    display: block;
+    position: relative; }
+    .login-only .center-form .form-header {
+      font-weight: 100; }
   .login-only p {
-    font-weight: 100;
     font-size: 16px;
+    text-align: left; }
+  .login-only .login-form p.form-label {
+    margin-top: 25px;
+    display: inline-block;
+    width: 15%;
     text-align: right; }
-  .login-only .login-form p {
-    margin-top: 25px; }
   .login-only .login-form .login-submit {
     background: #59ABE3;
     color: #fff;
     border: none;
     border-radius: 3px;
-    font-weight: 100;
+    letter-spacing: 1px;
     padding: 10px 20px; }
     .login-only .login-form .login-submit:hover {
       background: #2d95dc; }
@@ -251,7 +345,9 @@ th {
     font-size: 16px;
     text-transform: uppercase; }
   .login-only .login-form .login-signup p {
-    display: inline-block;
+    display: block;
+    text-align: center;
+    margin-top: 15px;
     margin-bottom: 0;
     vertical-align: bottom; }
   .login-only .login-form .login-signup a:hover, .login-only .login-form .login-signup a:link, .login-only .login-form .login-signup a:active, .login-only .login-form .login-signup a:visited {
@@ -294,5 +390,30 @@ th {
     border-radius: 3px;
     font-weight: 100;
     padding: 10px 20px; }
+
+.user-profile {
+  padding-top: 25px; }
+  .user-profile .headshot-container .headshot {
+    background: #ececec;
+    border-radius: 50%;
+    width: 250px;
+    heighT: 250px;
+    overflow: hidden; }
+    .user-profile .headshot-container .headshot .fa {
+      margin-top: 50px;
+      margin-left: 25px;
+      font-size: 250px; }
+  .user-profile .headshot-container .headshot-upload {
+    margin-top: 15px; }
+  .user-profile .headshot-container input {
+    border: none; }
+  .user-profile .user-account .userdeets {
+    display: block; }
+
+.user-header .email {
+  color: #E87E04;
+  font-size: 18px;
+  font-weight: 100;
+  margin-left: 15px; }
 
 /*# sourceMappingURL=admin.css.map */

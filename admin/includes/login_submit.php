@@ -5,20 +5,16 @@
     $message = 'User is already logged in';
   } if(!isset( $_POST['username'], $_POST['password'])) {
     $message = 'Please enter a valid username and password';
-  } elseif (strlen( $_POST['username']) > 20 || strlen($_POST['username']) < 4) {
-    $message = 'Incorrect Length for Username';
-  } elseif (strlen( $_POST['password']) > 20 || strlen($_POST['password']) < 4) {
-    $message = 'Incorrect Length for Password';
-  } elseif (ctype_alnum($_POST['username']) != true) {
-    $message = "Username must be alpha numeric";
-  } elseif (ctype_alnum($_POST['password']) != true) {
-    $message = "Password must be alpha numeric";
   }
 
   else {
     $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
     $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
-    $password = sha1( $password );
+
+    $salt = "69#77234020$20134230942356";
+    
+    $password = hash('sha512', $salt.$password);
+    
     try {
         include 'credentials.php';
           
@@ -28,7 +24,7 @@
                     WHERE username = :username AND password = :password");
 
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $password, PDO::PARAM_STR, 40);
+        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
       
         $stmt->execute();
         $user_id = $stmt->fetchColumn();

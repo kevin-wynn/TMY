@@ -23,11 +23,16 @@
     $usersDB = "CREATE TABLE IF NOT EXISTS users (
       user_id int(11) NOT NULL auto_increment,
       username varchar(100) NOT NULL,
-      password char(40) NOT NULL,
+      password char(128) NOT NULL,
       PRIMARY KEY (user_id),
       UNIQUE KEY username (username),
       email varchar(255) NOT NULL,
-      permissions int
+      permissions int,
+      last_login DATE,
+      url_slug varchar(255),
+      f_name varchar(128),
+      l_name varchar(128),
+      headshot varchar(1000)
     )";
     
     $buildUsers = mysql_query($usersDB) or die(mysql_error());

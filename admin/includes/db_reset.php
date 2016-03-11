@@ -51,6 +51,10 @@ VALUES
     $sample11 = "INSERT INTO `movies` (`movie_title`, `overview`, `director`, `cast`, `poster_path`, `backdrop_path`, `score`, `review`, `release_date`, `publish_date`, `featured`, `popular_vote`, `genre`)
 VALUES
 	('Spotlight', 'The true story of how The Boston Globe uncovered the massive scandal of child molestation and cover-up within the local Catholic Archdiocese, shaking the entire Catholic Church to its core.', 'Tom McCarthy', '103, 2232, 53714', '/assets/images/posters/14ab8041d7393ab5f6a808063ede63b7e9008775.jpg', '/assets/images/backdrops/8abe841959a58f1f16001d54d00a8cc71da69d7f.jpg', 5, 'I\'ll be honest I hadn\'t even heard of this movie until after the Oscars. With it winning best picture I had to check it out. What a surprise! WHAT A CAST! Wow this movie was on point! How had I not heard of it? It\'s so nice to see a movie fly under the radar and then all of a sudden pop up and be the best.\r\n\r\nThis movie was perfectly paced too. I was interested from the start all the way to the end. It\'s so nice to see a screenplay done so well to capture your attention for the entire movie. Mark Ruffalo really showed a powerful intensity in the entire movie. From his manner towards the subject at the start to consistently rising and rising until you can see it taking a toll on him.\r\n\r\nIt\'s interesting to see how someone can dig deeper into a dark subject and see how it changes them as a person and effects them on a personal level, and in this case, a spiritual level.\r\n\r\nAll in all, wonderful movie, this movie was for me and I couldn\'t have been more gracious to see it win like it did.', '2015-11-06', '2016-03-07 19:59:32', NULL, '7.7', 'Drama, History, Thriller');";
+    
+    $sample12 = "INSERT INTO `movies` (`movie_title`, `overview`, `director`, `cast`, `poster_path`, `backdrop_path`, `score`, `review`, `release_date`, `publish_date`, `featured`, `popular_vote`, `genre`)
+VALUES
+	('The Hateful Eight', 'Bounty hunters seek shelter from a raging blizzard and get caught up in a plot of betrayal and deception.', 'Quentin Tarantino', '2231, 6856, 10431', '/assets/images/posters/36178d9ecac549c14273553673088b719e16c12d.jpg', '/assets/images/backdrops/64689020b4734a97e1bc5ad283a50c71fde74178.jpg', 5, 'One of my favorite things about this movie was the storytelling. Tarantino has a remarkable way of telling a story and then he finds the absolute best characters to do it with. His eye to detail is definitely one to admire.\r\n\r\nFor the first half of this movie, its pretty much uneventful when it comes to action or what have you. It\'s basically just a buncha dudes sitting around telling stories and talking. Getting to know one another. And then of course after intermission its a whole different story.\r\n\r\nBut it kind of reminded me of his work in Death Proof with there being a lot of down time and chill, conversational areas. And for the most part I usually tend to balk at that, but not with Tarantino. He just does such a good way of getting you wrapped up in the story. This movie is a long one, and I couldn\'t be happier about that. With a story this good I didn\'t want to see it come to an end.', '2015-12-25', '2016-03-09 23:11:51', NULL, '7.3', 'Drama, Mystery, Thriller, Western');";
 
     $run = mysql_query($sample1) or die(mysql_error());
     $run = mysql_query($sample2) or die(mysql_error());
@@ -63,6 +67,7 @@ VALUES
     $run = mysql_query($sample9) or die(mysql_error());
     $run = mysql_query($sample10) or die(mysql_error());
     $run = mysql_query($sample11) or die(mysql_error());
+    $run = mysql_query($sample12) or die(mysql_error());
     
     echo "<h1>Movies tables reset</h1>";
   }

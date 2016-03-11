@@ -67,7 +67,7 @@ $(document).ready(function() {
       type: "GET",
       url: "php/moviesReviewed.php",             
       dataType: "json",
-      data: {offset:offset, limit:8},
+      data: {offset:0, limit:8},
       success: function(result) {
         // clear current movies here
         $('#recentMovies').html('');

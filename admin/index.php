@@ -34,7 +34,7 @@
       <div id="page-content-wrapper">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-lg-12 recent">
+            <div class="col-lg-12 recent home">
               <h1>Dashboard</h1>
               <div class="col-md-8 controls">
                 <div class="col-md-12">
