@@ -206,8 +206,7 @@ th {
       letter-spacing: 1px;
       padding: 10px 20px;
       height: 32px;
-      margin-top: 25px;
-      margin-bottom: 15px; }
+      margin-top: 25px; }
       #usersContainer .row .user-details .login-submit:hover {
         background: #2d95dc; }
       #usersContainer .row .user-details .login-submit.delete {

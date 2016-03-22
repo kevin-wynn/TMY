@@ -40,7 +40,11 @@
     '$lname'
   )";
 
-  $run = mysql_query($query) or die(mysql_error());
+  $run = mysql_query($query);
 
-  echo 'User Created';
+  if (!$run) {
+    die('Failure');
+  } else {
+    echo 'Created';
+  }
 ?>

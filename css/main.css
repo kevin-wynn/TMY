@@ -122,7 +122,8 @@
       padding: 5px;
       border-radius: 3px;
       position: relative;
-      overflow: hidden; }
+      overflow: hidden;
+      height: 450px; }
       .recent #recentMovies .recent-item:before {
         position: absolute;
         top: 0;

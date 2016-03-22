@@ -57,6 +57,23 @@
       } ?>
     </div>
     <!-- /#wrapper -->
+    
+    <div class="modal fade" tabindex="-1" role="dialog" id="alert">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default login-submit" data-dismiss="modal">Okay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
 </body>
 <?php include 'includes/footer.php'; ?>
 <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/users.js"></script>

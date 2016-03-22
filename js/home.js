@@ -97,7 +97,7 @@ $(document).ready(function() {
           
           fullItems = $('<div data-released="'+release_date+'" data-published="'+publish_date+'" class="recent-item '+genres_forID+'" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></div>');
         
-          $('#recentMovies').isotope('insert', fullItems ).isotope('reloadItems');
+          $('#recentMovies').isotope('insert', fullItems ).isotope('layout');
         }
         
         initControls();

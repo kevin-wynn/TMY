@@ -50,8 +50,10 @@ $(document).ready(function() {
   });
   
   function addUserForm(){
-    $('#usersContainer').append('<h3>New User:</span></h3>'+
-                                '<div id="row adding" class="row"><div class="col-md-12 user-details">'+
+    $('#usersContainer').find('.new-user').html('');
+    
+    $('#usersContainer').append('<div id="row adding" class="row"><div class="col-md-12 user-details new-user">'+
+                                '<h3>New User:</span></h3>' +
                                 '<form class="login-form" name="createUser" method="post">'+
                                 '<div class="col-md-3 editing"><p>First:</p><input name="f_name" value=""></div>'+
                                 '<div class="col-md-2 editing"><p>Last:</p><input name="l_name" value=""></div>'+
@@ -63,15 +65,29 @@ $(document).ready(function() {
                                 '<option value="200">admin</option>'+
                                 '<option value="100" selected>user</option>'+
                                 '</select>'+
-                                '</div><div class="col-md-12"><button type="button" class="login-submit" value="ADD" name="add">ADD</button><div class="cancel">Cancel</div></div></form></div></div>').find('.user-details').slideDown();
+                                '</div><div class="col-md-12"><button type="button" class="login-submit" value="ADD" name="add">ADD</button><div class="cancel">Cancel</div></div></form></div></div>').find('.new-user').slideDown();
+    
     initCreateControls();
   }
 
   function initCreateControls(){
+    $('.cancel').on('click', function(){
+      $(this).parents('.new-user').slideUp();
+    });
     $('[name=add]').on('click', function(){
       createUser();
     });
   }
+  
+  $('#exampleModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var recipient = button.data('whatever') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text('New message to ' + recipient)
+    modal.find('.modal-body input').val(recipient)
+  });
 
   function createUser(){
     var email= $('[name=email]').val();
@@ -82,9 +98,17 @@ $(document).ready(function() {
       type: "GET",
       url: "php/adminUserCreate.php",
       data: form.serialize(),
-      dataType: "json",
+      dataType: "html",
       success: function(result) {
-        console.log(result);
+        if(result.indexOf("Failure") > -1) {
+          var user = $('[name=f_name]').val();
+          $('#alert').modal().find('.modal-title').text('Could Not Create User');
+          $('#alert').modal().find('.modal-body').html('<p>There must have been an error with the database. Please try again later.</p><p>To report this issue - <a href="mailto:kevin@thismovieyear.com">send support an email</a>.</p>');
+        } else {
+          $('.new-user').slideUp().html('');
+          $('#alert').modal().find('.modal-title').text('Created New User');
+          $('#alert').modal().find('.modal-body').html('<p>Cool man you created a new user, they should be getting an email soon to set up their account.</p>');
+        }
       }
       });
   }
@@ -130,7 +154,7 @@ $(document).ready(function() {
                                             '</select>'+
                                             '<input type="hidden" name="id" value="'+userId+'">'+
                                             '</div><div class="col-md-12"><button type="button" class="login-submit save pull-left" value="SAVE" name="save">SAVE</button><div class="cancel pull-left">Cancel</div><button type="button" class="login-submit  delete pull-right" vale="DELETE" name="delete">DELETE</button></div></form>');
-
+        
         initSaveControls();
         initDeleteUserControls();
 
@@ -144,7 +168,6 @@ $(document).ready(function() {
 
   function initSaveControls(){
     $('.cancel').on('click', function(){
-      console.log($(this));
       $(this).parents('.user-details').slideUp();
     });
     $('[name=save]').on('click', function(){
