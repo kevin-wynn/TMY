@@ -165,7 +165,7 @@ th {
     background: #fff;
     
     .recent-item {
-      width: 20% !important;
+      width: 18% !important;
       margin-bottom: 25px;
       text-transform: uppercase;
       cursor: pointer;
@@ -173,9 +173,9 @@ th {
       border-radius: 3px;
       position: relative;
       overflow: hidden;
-      height: 375px;
+      height: 360px;
       &:hover {
-        background: #ececec;
+        background: #ffffff;
       }
       
       .info {
@@ -218,7 +218,7 @@ th {
       }
     } 
     .featured {
-      background: #ececec;
+      background: #ffffff;
       
       .featured-text {
         font-weight: 700;

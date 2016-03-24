@@ -83,7 +83,7 @@ $(document).ready(function() {
   
   //get inital movies and set up interaction with show more button to more more calls
   $('#getMore').on('click', function(){
-    if(offset > limit){
+    if(offset+4 > total){
       $('#getMore').hide();
     }
     getMovies();

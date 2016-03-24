@@ -36,6 +36,10 @@
               <h1>Dashboard</h1>
               <div class="col-md-8 controls">
                 <div class="col-md-12">
+                  <h5>Movies Added:</h5>
+                  <canvas id="moviesAdded" style="width:100%; height: 300px;"></canvas> 
+                </div>
+                <div class="col-md-12">
                    <h5>Database Tools:</h5>
                   <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/db_reset.php" method="post">
                     <input class="btn button-primary" type="submit" value="Reset All">

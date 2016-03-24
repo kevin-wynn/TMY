@@ -117,7 +117,7 @@ th {
 .recent #recentMovies {
   background: #fff; }
   .recent #recentMovies .recent-item {
-    width: 20% !important;
+    width: 18% !important;
     margin-bottom: 25px;
     text-transform: uppercase;
     cursor: pointer;
@@ -125,9 +125,9 @@ th {
     border-radius: 3px;
     position: relative;
     overflow: hidden;
-    height: 375px; }
+    height: 360px; }
     .recent #recentMovies .recent-item:hover {
-      background: #ececec; }
+      background: #ffffff; }
     .recent #recentMovies .recent-item .info {
       padding: 0; }
       .recent #recentMovies .recent-item .info h2 {
@@ -159,7 +159,7 @@ th {
       width: 100%;
       height: auto; }
   .recent #recentMovies .featured {
-    background: #ececec; }
+    background: #ffffff; }
     .recent #recentMovies .featured .featured-text {
       font-weight: 700;
       text-align: center; }

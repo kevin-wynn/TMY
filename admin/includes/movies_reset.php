@@ -56,6 +56,10 @@ VALUES
 VALUES
 ('The Hateful Eight', 'Bounty hunters seek shelter from a raging blizzard and get caught up in a plot of betrayal and deception.', 'Quentin Tarantino', '2231, 6856, 10431', '/assets/images/posters/36178d9ecac549c14273553673088b719e16c12d.jpg', '/assets/images/backdrops/64689020b4734a97e1bc5ad283a50c71fde74178.jpg', 5, 'One of my favorite things about this movie was the storytelling. Tarantino has a remarkable way of telling a story and then he finds the absolute best characters to do it with. His eye to detail is definitely one to admire.\r\n\r\nFor the first half of this movie, its pretty much uneventful when it comes to action or what have you. It\'s basically just a buncha dudes sitting around telling stories and talking. Getting to know one another. And then of course after intermission its a whole different story.\r\n\r\nBut it kind of reminded me of his work in Death Proof with there being a lot of down time and chill, conversational areas. And for the most part I usually tend to balk at that, but not with Tarantino. He just does such a good way of getting you wrapped up in the story. This movie is a long one, and I couldn\'t be happier about that. With a story this good I didn\'t want to see it come to an end.', '2015-12-25', '2016-03-09 23:11:51', NULL, '7.3', 'Drama, Mystery, Thriller, Western');";
 
+  $sample13 = "INSERT INTO `movies` (`movie_title`, `overview`, `director`, `cast`, `poster_path`, `backdrop_path`, `score`, `review`, `release_date`, `publish_date`, `featured`, `popular_vote`, `genre`)
+VALUES
+	('Southbound', 'The film contains five stories set on desolate stretches of a desert highway. Two men on the run from their past, a band on its way to a gig, a man struggling to get home, a brother in search of his long-lost sister and a family on vacation are forced to confront their worst fears and darkest secrets in these interwoven tales.', 'Roxanne Benjamin', '57278, 66681, 1499906', '/assets/images/posters/c1f1267319b440eebfbc2102a177eafcf4e8fb39.jpg', '/assets/images/backdrops/3bc0813f0ff1f1ccff65dc45de0ed44500babb36.jpg', 2, 'This was an interesting watch. Have you seen the movie VCR? It\'s sort of similar to that if instead all the stories somehow intertwined together and everything was caused and effected by the other stories.\r\n\r\nI definitely enjoyed it, however when it comes to a horror movie I wasn\'t entirely impressed. I was hoping for a little more depth to it. The stories lacked depth and the characters weren\'t built in a way to where you cared about them. \r\n\r\nIt didn\'t really have any cheap thrills to it either, no pop out and startle scares. And I\'ve come to expect if a movie lacks a certain build of character or story, then it should at least give me a scare you know. Its either or in this world now. This movie was mediocre on both levels.\r\n\r\n2 out of 5, probably won\'t watch again.\r\n\r\nWell maybe, maybe if I pay more attention I\'d enjoy it? Or if I watched it with someone else? I don\'t know, environment can change a lot.', '2016-02-05', '2016-03-23 23:42:27', NULL, '6.2', 'Thriller, Horror, Science Fiction');";
+
   $run = mysql_query($sample1) or die(mysql_error());
   $run = mysql_query($sample2) or die(mysql_error());
   $run = mysql_query($sample3) or die(mysql_error());
@@ -68,6 +72,7 @@ VALUES
   $run = mysql_query($sample10) or die(mysql_error());
   $run = mysql_query($sample11) or die(mysql_error());
   $run = mysql_query($sample12) or die(mysql_error());
+  $run = mysql_query($sample13) or die(mysql_error());
 
   header('Location: ../');
 

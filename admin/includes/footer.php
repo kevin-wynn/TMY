@@ -11,6 +11,7 @@ if (strpos($pageurl, 'includes') !== false) { ?>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/../js/jquery.raty.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/../js/permissions.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/../js/sortfilter.js"></script>
+  <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/../js/chart.min.js"></script>
 <?php } else { ?>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/jquery-2.2.1.min.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/bootstrap.min.js"></script>
@@ -20,4 +21,5 @@ if (strpos($pageurl, 'includes') !== false) { ?>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/jquery.raty.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/permissions.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/sortfilter.js"></script>
+  <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/chart.min.js"></script>
 <?php }; ?>

@@ -3,7 +3,7 @@ var prefixUrl = window.location.pathname;
     prefixUrl = prefixUrl.substr(0, prefixUrl.lastIndexOf("/"));
     prefixUrl = prefixUrl.substr(0, prefixUrl.lastIndexOf("/"));
 
-var offset = 0, limit = 4, total = 0;
+var offset = 0, limit = 8, total = 0;
 
 function errorCB(data){
   console.log('error');
@@ -48,7 +48,7 @@ $(document).ready(function() {
       url: "php/adminReviewed.php",             
       dataType: "json",                
       success: function(result) {
-        offset += 4;
+        offset += 8;
         total = result[0].total;
         for(i=0; i<result.length; i++){
           var poster_recent = prefixUrl + result[i].poster_path,

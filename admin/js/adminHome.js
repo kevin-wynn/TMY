@@ -60,4 +60,69 @@ $(document).ready(function(){
       }
     }
   });
+  
+  var ctx = $("#moviesAdded").get(0).getContext("2d"),
+      dates = [];
+  
+  // get chart dates
+  $.ajax({
+    type: "GET",
+    url: "php/dashDates.php",             
+    dataType: "json",                
+    success: function(result) {
+      for(i=0; i<result.length; i++){
+        var publish_date = result[i].publish_date;
+        dates.push(publish_date);
+      }
+      console.log(dates);
+      
+      var chartData = dates,
+          counts = {};
+
+      $.each(chartData, function(key,value) {
+        if (!counts.hasOwnProperty(value)) {
+          counts[value] = 1;
+        } else {
+          counts[value]++;
+        }
+      });
+      
+      console.log(counts);
+
+      var chartDates = [];
+      for ( property in counts ) {
+        chartDates.push(property);
+        console.log(chartDates);
+      }
+      
+      var chartData = [0];
+      $.each(counts, function(key, element) {
+        chartData.push(element);
+        console.log(chartData);
+      });
+      
+      var data = {
+          labels: chartDates,
+          datasets: [
+              {
+                  label: "My First dataset",
+                  fillColor: "rgba(89,171,227,.2)",
+                  strokeColor: "#59ABE3",
+                  pointColor: "#59ABE3",
+                  pointStrokeColor: "#fff",
+                  pointHighlightFill: "#fff",
+                  pointHighlightStroke: "rgba(220,220,220,1)",
+                  data: chartData
+              }
+          ]
+      };
+      
+      // This will get the first returned node in the jQuery collection.
+      var myLineChart = new Chart(ctx).Line(data, {
+        bezierCurve: true,
+        scaleShowGridLines: false
+      });
+    }
+  });
+  
 });
