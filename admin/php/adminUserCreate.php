@@ -27,7 +27,9 @@
     last_login,
     url_slug,
     f_name,
-    l_name
+    l_name,
+    headshot,
+    signup_date
   ) VALUES (
     '$userId',
     '$username',
@@ -37,7 +39,9 @@
     '$date',
     '$url',
     '$fname',
-    '$lname'
+    '$lname',
+    'NULL',
+    '$date'
   )";
 
   $run = mysql_query($query);

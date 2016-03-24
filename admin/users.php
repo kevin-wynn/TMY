@@ -34,8 +34,7 @@
               <h1>Users</h1> <i class="fa fa-plus-circle add-user"></i>
             </div>
             <div class="container-fluid list-users">
-              <div class="col-md-12" id="usersContainer">
-                <h5>Users:</h5>
+             <div class="col-md-12">
                 <div class="row nohover">
                   <div class="col-md-1 header">Edit</div>
                   <div class="col-md-1 header">First</div>
@@ -43,9 +42,13 @@
                   <div class="col-md-1 header">ID</div>
                   <div class="col-md-3 header">Username/Email</div>
                   <div class="col-md-2 header">URL</div>
-                  <div class="col-md-2 header">Level</div>
+                  <div class="col-md-1 header">Level</div>
                   <div class="col-md-1 header">Login</div>
+                  <div class="col-md-1 header">Signup</div>
                 </div>
+             </div>
+              <div class="col-md-12" id="usersContainer">
+                <h5>Users:</h5>
               </div>
             </div>
           </div>

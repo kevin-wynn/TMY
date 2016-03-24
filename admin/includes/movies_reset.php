@@ -69,4 +69,6 @@ VALUES
   $run = mysql_query($sample11) or die(mysql_error());
   $run = mysql_query($sample12) or die(mysql_error());
 
+  header('Location: ../');
+
 ?>

@@ -92,6 +92,8 @@ VALUES
     $run = mysql_query($user2) or die(mysql_error());
     $run = mysql_query($user3) or die(mysql_error());
     $run = mysql_query($user4) or die(mysql_error());
+    
+    header('Location: ../');
   }
 
   dbSeed()

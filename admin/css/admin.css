@@ -170,11 +170,16 @@ th {
   .recent .show-more-button:hover {
     color: #2d95dc; }
 .recent.home #recentMovies .recent-item {
+  width: 100% !important;
+  padding: 5px;
+  border-radius: 3px;
+  position: relative;
+  overflow: visible;
   padding-top: 10px;
   margin-bottom: 15px;
   text-transform: uppercase;
   height: 425px;
-  cursor: pointer; }
+  cursor: default; }
   .recent.home #recentMovies .recent-item:hover {
     background: #ffffff; }
 .recent #users .user {
@@ -185,6 +190,14 @@ th {
   padding: 0;
   margin-bottom: 10px; }
 
+.nohover {
+  background: #fff;
+  cursor: default;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px; }
+  .nohover:hover {
+    background: #fff; }
+
 #usersContainer .row {
   cursor: pointer;
   padding: 5px 10px;
@@ -194,11 +207,6 @@ th {
     background: #ececec; }
     #usersContainer .row:hover #edit {
       color: #59ABE3; }
-  #usersContainer .row.nohover {
-    background: #fff;
-    cursor: default; }
-    #usersContainer .row.nohover:hover {
-      background: #fff; }
   #usersContainer .row .user-details {
     display: none; }
     #usersContainer .row .user-details .email-small {

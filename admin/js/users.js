@@ -27,6 +27,7 @@ $(document).ready(function() {
               l_name = result[i].l_name;
               last_login = result[i].last_login;
               url_slug = result[i].url_slug;
+              signup = result[i].signup_date;
 
           if(permissions == 100){
             permissions = 'user';
@@ -36,7 +37,7 @@ $(document).ready(function() {
             permissions = 'superAdmin'
           }
 
-          usersContainer.append('<div id="row" class="row"><div id="edit" class="col-md-1"><i class="fa fa-pencil"></i></div><div class="col-md-1 first user">'+f_name+'</div><div class="col-md-1 last user">'+l_name+'</div><div class="col-md-1 user-id user">'+user_id+'</div><div class="col-md-3 username user">'+username+'</div><div class="col-md-2 url user">'+url_slug+'</div><div id="permissionsToggle" class="col-md-2 permissions user">'+permissions+'</div><div class="col-md-1 date user">'+last_login+'</div><div class="col-md-12 user-details"></div></div>');
+          usersContainer.append('<div id="row" class="row"><div id="edit" class="col-md-1"><i class="fa fa-pencil"></i></div><div class="col-md-1 first user">'+f_name+'</div><div class="col-md-1 last user">'+l_name+'</div><div class="col-md-1 user-id user">'+user_id+'</div><div class="col-md-3 username user">'+username+'</div><div class="col-md-2 url user">'+url_slug+'</div><div id="permissionsToggle" class="col-md-1 permissions user">'+permissions+'</div><div class="col-md-1 date user">'+last_login+'</div><div class="col-md-1 date user">'+signup+'</div><div class="col-md-12 user-details"></div></div>');
         }
         initControls();
       }

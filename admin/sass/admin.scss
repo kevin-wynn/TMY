@@ -239,11 +239,16 @@ th {
   &.home {
     #recentMovies {
       .recent-item {
+        width: 100% !important;
+        padding: 5px;
+        border-radius: 3px;
+        position: relative;
+        overflow: visible;
         padding-top: 10px;
         margin-bottom: 15px;
         text-transform: uppercase;
         height: 425px;
-        cursor: pointer;
+        cursor: default;
         &:hover {
           background: #ffffff;
         }
@@ -264,6 +269,16 @@ th {
   }
 }
 
+.nohover {
+  background: #fff;
+  cursor: default;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
+  &:hover {
+    background: #fff;
+  }
+}
+
 #usersContainer {
   .row {
     cursor: pointer;
@@ -274,13 +289,6 @@ th {
       background: #ececec;
       #edit {
         color: $blue;
-      }
-    }
-    &.nohover {
-      background: #fff;
-      cursor: default;
-      &:hover {
-        background: #fff;
       }
     }
     .user-details {
