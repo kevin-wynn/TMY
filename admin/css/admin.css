@@ -13,6 +13,9 @@ th {
   font-size: 12px;
   color: #666; }
 
+.sidebar-item {
+  display: none; }
+
 .button-primary {
   background: #59ABE3;
   color: #fff;
@@ -114,11 +117,15 @@ th {
 .recent #recentMovies {
   background: #fff; }
   .recent #recentMovies .recent-item {
-    padding-top: 10px;
-    margin-bottom: 15px;
+    width: 20% !important;
+    margin-bottom: 25px;
     text-transform: uppercase;
-    height: 425px;
-    cursor: pointer; }
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    height: 375px; }
     .recent #recentMovies .recent-item:hover {
       background: #ececec; }
     .recent #recentMovies .recent-item .info {
@@ -156,6 +163,12 @@ th {
     .recent #recentMovies .featured .featured-text {
       font-weight: 700;
       text-align: center; }
+.recent .show-more-button {
+  color: #59ABE3;
+  cursor: pointer;
+  margin-bottom: 25px; }
+  .recent .show-more-button:hover {
+    color: #2d95dc; }
 .recent.home #recentMovies .recent-item {
   padding-top: 10px;
   margin-bottom: 15px;

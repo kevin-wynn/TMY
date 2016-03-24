@@ -43,6 +43,11 @@
               </div>
               <div class="col-md-12" id="recentMovies">
               </div>
+              <div class="col-md-12">
+               <div class="show-more-button" id="getMore">
+                 Show More...
+               </div>
+              </div>
             </div>
           </div>
         </div>

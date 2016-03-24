@@ -19,16 +19,6 @@
   }
 
 ?>
-<?php if($username == true) { ?>
-  <div class="user-actions">
-    <div class="profile">
-      <a href="profile.php"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profile</a>
-    </div>
-    <div class="logout">
-      <a href="logout.php"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Logout</a>
-    </div>
-  </div>
-<?php }; ?>
 
 <!-- Sidebar -->
 <div id="sidebar-wrapper">
@@ -41,18 +31,30 @@
       $page = substr($pageurl, strrpos($pageurl, '/') + 1);
   
       if (strpos($pageurl, 'includes') !== false) { ?>
-        <li id="dashboard"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../index.php"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-        <li id="sidebar-movies"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../movies.php"><i class="fa fa-film"></i> Movies</a></li>
-        <li id="sidebar-writer"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../writer.php"><i class="fa fa-pencil"></i> Writer</a></li>
-        <li id="sidebar-rating"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../rating.php"><i class="fa fa-star"></i> Rating</a></li>
-        <li id="sidebar-users"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../users.php"><i class="fa fa-users"></i> Users</a></li>
+        <li class="sidebar-item" id="dashboard"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../index.php"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+        <li class="sidebar-item" id="sidebar-movies"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../movies.php"><i class="fa fa-film"></i> Movies</a></li>
+        <li class="sidebar-item" id="sidebar-writer"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../writer.php"><i class="fa fa-pencil"></i> Writer</a></li>
+        <li class="sidebar-item" id="sidebar-rating"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../rating.php"><i class="fa fa-star"></i> Rating</a></li>
+        <li class="sidebar-item" id="sidebar-users"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../users.php"><i class="fa fa-users"></i> Users</a></li>
       <?php } else { ?>
-        <li id="sidebar-dashboard"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/index.php"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-        <li id="sidebar-movies"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/movies.php"><i class="fa fa-film"></i> Movies</a></li>
-        <li id="sidebar-writer"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/writer.php"><i class="fa fa-pencil"></i> Writer</a></li>
-        <li id="sidebar-rating"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/rating.php"><i class="fa fa-star"></i> Rating</a></li>
-        <li id="sidebar-users"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/users.php"><i class="fa fa-users"></i> Users</a></li>
+        <li class="sidebar-item" id="sidebar-dashboard"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/index.php"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+        <li class="sidebar-item" id="sidebar-movies"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/movies.php"><i class="fa fa-film"></i> Movies</a></li>
+        <li class="sidebar-item" id="sidebar-writer"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/writer.php"><i class="fa fa-pencil"></i> Writer</a></li>
+        <li class="sidebar-item" id="sidebar-rating"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/rating.php"><i class="fa fa-star"></i> Rating</a></li>
+        <li class="sidebar-item" id="sidebar-users"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/users.php"><i class="fa fa-users"></i> Users</a></li>
       <?php }; ?>
+      
+      <?php if($username == true) { ?>
+        <div class="user-actions">
+          <div class="profile">
+            <a href="profile.php"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Profile</a>
+          </div>
+          <div class="logout">
+            <a href="logout.php"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;Logout</a>
+          </div>
+        </div>
+      <?php }; ?>
+      
   </ul>
 </div>
 <!-- /#sidebar-wrapper -->

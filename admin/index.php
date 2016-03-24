@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include 'includes/head.php'; ?>
-
 <?php include 'includes/connection.php'; connect(); ?>
-
 <title>TMY Admin Page</title>
 <body>
     <div id="wrapper">
@@ -40,6 +38,9 @@
                 <div class="col-md-12">
                    <h5>Database Tools:</h5>
                   <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/db_reset.php" method="post">
+                    <input class="btn button-primary" type="submit" value="Reset All">
+                  </form>
+                  <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/movies_reset.php" method="post">
                     <input class="btn button-primary" type="submit" value="Reset Movies">
                   </form>
                   <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/users_reset.php" method="post">
@@ -50,8 +51,9 @@
                   <h5>Users:</h5>
                   <div class="col-md-1 header">ID</div>
                   <div class="col-md-4 header">Username</div>
-                  <div class="col-md-5 header">Email</div>
+                  <div class="col-md-3 header">Email</div>
                   <div class="col-md-2 header">Permissions</div>
+                  <div class="col-md-2 header">Signup</div>
                 </div>
               </div>
               <div class="col-md-4" id="recentMovies">

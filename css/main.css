@@ -172,6 +172,16 @@
         width: 100%;
         height: auto; }
 
+.about {
+  margin-top: -200px;
+  display: block;
+  height: 100%; }
+  .about .col-md-10 {
+    min-height: 500px;
+    background: #fff;
+    padding: 2.5%;
+    border-radius: 5px 5px 0 0; }
+
 .movie-details {
   margin-top: -200;
   border-radius: 3px 3px 0 0;

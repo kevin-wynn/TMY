@@ -16,7 +16,8 @@
       'last_login' => $row['last_login'],
       'url_slug' => $row['url_slug'],
       'f_name' => $row['f_name'],
-      'l_name' => $row['l_name']
+      'l_name' => $row['l_name'],
+      'signup_date' => $row['signup_date']
     );
     array_push($json, $bus);
   }

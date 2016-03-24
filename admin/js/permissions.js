@@ -20,12 +20,6 @@ function buildNavigation(){
       rating = $('#sidebar-rating'),
       users = $('#sidebar-users');
   
-  dashboard.hide();
-  movies.hide();
-  writer.hide();
-  rating.hide();
-  users.hide();
-  
   // user
   if(permissionLevel == 100) {
     dashboard.show();

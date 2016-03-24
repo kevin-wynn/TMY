@@ -18,6 +18,10 @@ th {
   color: #666;
 }
 
+.sidebar-item {
+  display: none;
+}
+
 .button-primary {
   background: $blue;
   color: #fff;
@@ -161,11 +165,15 @@ th {
     background: #fff;
     
     .recent-item {
-      padding-top: 10px;
-      margin-bottom: 15px;
+      width: 20% !important;
+      margin-bottom: 25px;
       text-transform: uppercase;
-      height: 425px;
       cursor: pointer;
+      padding: 5px;
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+      height: 375px;
       &:hover {
         background: #ececec;
       }
@@ -218,6 +226,15 @@ th {
       }
     }
   }
+  
+.show-more-button {
+  color: $blue;
+  cursor: pointer;
+  margin-bottom: 25px;
+  &:hover {
+    color: darken($blue, 10%);
+  }
+}
   
   &.home {
     #recentMovies {

@@ -78,16 +78,6 @@ $(document).ready(function() {
       createUser();
     });
   }
-  
-  $('#exampleModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var recipient = button.data('whatever') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
-    modal.find('.modal-title').text('New message to ' + recipient)
-    modal.find('.modal-body input').val(recipient)
-  });
 
   function createUser(){
     var email= $('[name=email]').val();
@@ -109,6 +99,10 @@ $(document).ready(function() {
           $('#alert').modal().find('.modal-title').text('Created New User');
           $('#alert').modal().find('.modal-body').html('<p>Cool man you created a new user, they should be getting an email soon to set up their account.</p>');
         }
+        // refresh users
+        $('.submit-modal').on('click', function(){
+          getUsers();
+        });
       }
       });
   }
@@ -200,20 +194,31 @@ $(document).ready(function() {
   function initDeleteUserControls(){
     $('[name=delete]').on('click', function(){
       var user = $('[name=id]').val();
-      $.ajax({
-          type: "GET",
-          url: "php/adminUserDelete.php",
-          data: {user:user},
-          dataType: "json"
+      
+      $('#alert').modal().find('.modal-title').text('Deleting User');
+      $('#alert').modal().find('.modal-body').html('<p>Are you sure you want to delete this user?</p>');
+      
+      $('.cancel-button').show();
+      
+      // refresh users
+      $('.submit-modal').on('click', function(){
+        
+        $.ajax({
+            type: "GET",
+            url: "php/adminUserDelete.php",
+            data: {user:user},
+            dataType: "json"
+          });
+
+        var divs = $('[id=row]').length;
+
+        $('[id=row]').find('.user-details').slideUp('fast', function(){
+          --divs;
+          if( divs === 0 ){
+            getUsers();
+            $('.cancel-button').hide();
+          }
         });
-
-      var divs = $('[id=row]').length;
-
-      $('[id=row]').find('.user-details').slideUp('fast', function(){
-        --divs;
-        if( divs === 0 ){
-          getUsers();
-        }
       });
 
     });

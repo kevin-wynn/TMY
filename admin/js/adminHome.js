@@ -45,7 +45,8 @@ $(document).ready(function(){
         var user_id = result[i].user_id,
             username = result[i].username,
             email = result[i].email,
-            permissions = result[i].permissions;
+            permissions = result[i].permissions,
+            signup = result[i].signup_date;
         
         if(permissions == 100){
           permissions = 'user';
@@ -55,7 +56,7 @@ $(document).ready(function(){
           permissions = 'super admin'
         }
         
-        $('#users').append('<div class="col-md-1 user-id user">'+user_id+'</div><div class="col-md-4 username user">'+username+'</div><div class="col-md-5 email user">'+email+'</div><div class="col-md-2 permissions user">'+permissions+'</div>');
+        $('#users').append('<div class="col-md-1 user-id user">'+user_id+'</div><div class="col-md-4 username user">'+username+'</div><div class="col-md-3 email user">'+email+'</div><div class="col-md-2 permissions user">'+permissions+'</div><div class="col-md-2 signup user">'+signup+'</div>');
       }
     }
   });

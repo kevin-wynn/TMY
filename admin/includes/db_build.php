@@ -27,11 +27,32 @@
 
   $run = mysql_query($init) or die(mysql_error());
 
+  $usersDB = "CREATE TABLE IF NOT EXISTS users (
+    user_id int(11) NOT NULL auto_increment,
+    username varchar(100) NOT NULL,
+    password char(128) NOT NULL,
+    PRIMARY KEY (user_id),
+    UNIQUE KEY username (username),
+    email varchar(255) NOT NULL,
+    permissions int,
+    last_login DATE,
+    url_slug varchar(255),
+    f_name varchar(128),
+    l_name varchar(128),
+    headshot varchar(1000),
+    signup_date DATE
+  )";
+
+  $buildUsers = mysql_query($usersDB) or die(mysql_error());
+
   $sql = "SELECT * FROM movies";
   $result = mysql_query($sql) or die(mysql_error());
 
   $sql2 = "SELECT * FROM credentials";
   $result2 = mysql_query($sql2) or die(mysql_error());
+
+  $sql3 = "SELECT * from users";
+  $result3 = mysql_query($sql3) or die(mysql_error());
 
   // Print the column names as the headers of a table
   echo "<h1>Patch Scripts Successfully Run: </h1><h3>Movies Table:</h3><table><tr>";
@@ -58,6 +79,22 @@
   }
 
   while($row = mysql_fetch_row($result2)) {
+      echo "<tr>";
+      foreach($row as $_column) {
+          echo "<td>{$_column}</td>";
+      }
+      echo "</tr>";
+  }
+
+  echo "</table>";
+
+  echo "<h3>Users:</h3><table><tr>";
+  for($i = 0; $i < mysql_num_fields($result3); $i++) {
+    $field_info = mysql_fetch_field($result3, $i);
+    echo "<th>{$field_info->email}</th>";
+  }
+
+  while($row = mysql_fetch_row($result3)) {
       echo "<tr>";
       foreach($row as $_column) {
           echo "<td>{$_column}</td>";

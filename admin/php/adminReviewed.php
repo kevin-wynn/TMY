@@ -3,8 +3,14 @@
   
   connect();
 
+  $limit = $_GET['limit'];
+  $offset = $_GET['offset'];
+
+  $count = mysql_query("SELECT * FROM movies");
+  $num_rows = mysql_num_rows($count);
+
   $json = array();
-  $result = mysql_query("SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date DESC");
+  $result = mysql_query("SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT $limit OFFSET $offset");
 
   while($row = mysql_fetch_array($result))     
   {
@@ -21,7 +27,8 @@
       'published_date' => $row['published_date'],
       'popular_vote' => $row['popular_vote'],
       'genre' => $row['genre'],
-      'featured' => $row['featured']
+      'featured' => $row['featured'],
+      'total' => $num_rows
     );
     array_push($json, $bus);
   }
