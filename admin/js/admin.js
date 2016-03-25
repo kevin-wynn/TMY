@@ -7,7 +7,6 @@ $(document).ready(function(){
       searchBox = $('#searchBox'),
       resultsContainer = $('#resultsContainer'),
       movieDetails = $('#movieDetails'),
-      moviePoster = $('#moviePoster'),
       movie_title = $('[name=movie_title]'),
       movieOverview = $('[name=overview]'),
       movieDirector = $('[name=director]'),
@@ -23,11 +22,11 @@ $(document).ready(function(){
       posterSize, baseUrl, title, cast, firstThree, director, genreId, genres, popularVote;
   
   // define success and error callback functions
-  function successCB(data) { console.log("Success callback: " + data); };
-  function errorCB(data) { console.log("Error callback: " + data); };
+  function successCB(data) { console.log("Success callback: " + data); }
+  function errorCB(data) { console.log("Error callback: " + data); }
   
   // get config from tMDB
-  theMovieDb.configurations.getConfiguration(getConfig, errorCB)
+  theMovieDb.configurations.getConfiguration(getConfig, errorCB);
   function getConfig(data) {
     posterSize = $.parseJSON(data).images.poster_sizes;
     baseUrl = $.parseJSON(data).images.base_url.slice(0,-1);
@@ -56,25 +55,25 @@ $(document).ready(function(){
       
       // FOR NOW TEMPORARY FIX JUST LIMIT TO ONE PAGE
       if (length > 20) {
-        length = 20
+        length = 20;
       }
       // TODO: need to make this paginate or infinite scroll multiple pages
       //       20 results per page
       //       console.log(data);
       //       console.log(length);
       for(i=0; i < length; ++i) {
-        categories = $.parseJSON(data).results[i].genre_ids,
-        movieData = $.parseJSON(data).results[i],
-        movieId = $.parseJSON(data).results[i].id,
-        movieName = $.parseJSON(data).results[i].original_title,
-        posterPath = $.parseJSON(data).results[i].poster_path,
-        posterUrl = baseUrl + '/w500' + posterPath,
-        overview = $.parseJSON(data).results[i].overview,
-        releaseDate = $.parseJSON(data).results[i].release_date,
-        posterBackdrop = $.parseJSON(data).results[i].backdrop_path,
+        categories = $.parseJSON(data).results[i].genre_ids;
+        movieData = $.parseJSON(data).results[i];
+        movieId = $.parseJSON(data).results[i].id;
+        movieName = $.parseJSON(data).results[i].original_title;
+        posterPath = $.parseJSON(data).results[i].poster_path;
+        posterUrl = baseUrl + '/w500' + posterPath;
+        overview = $.parseJSON(data).results[i].overview;
+        releaseDate = $.parseJSON(data).results[i].release_date;
+        posterBackdrop = $.parseJSON(data).results[i].backdrop_path;
         posterBackdropUrl = baseUrl + '/original' + posterBackdrop;
 
-        if (posterPath != null && categories != '') {
+        if (posterPath !== null && categories !== '') {
           resultsContainer.append('<div id="posterContainer" class="col-md-12" data-movieId="' + movieId + '"><div class="col-md-3 poster-item">' +
           '<img id="posterUrlContainer" src=' + posterUrl + '/></div>' +
           '<div class="poster-text col-md-9"><h2 data-title="' + movieName + '">' + movieName + '</h2><p data-release-date="' + releaseDate + '">' + releaseDate + ' - ' + movieId + '</p>' +
@@ -94,20 +93,20 @@ $(document).ready(function(){
         movieId = $(this).data('movieid');
         getSelected(movieId);
       });
-    }, errorCB)
+    }, errorCB);
   }
   
   // build movie data into form fields
   function getSelected(movieId){
     theMovieDb.movies.getById({"id":movieId}, function(data){
-      title = $.parseJSON(data).title,
-      overview = $.parseJSON(data).overview,
-      posterPath = $.parseJSON(data).poster_path,
-      posterUrl = baseUrl + '/w500' + posterPath,
-      posterBackdrop = $.parseJSON(data).backdrop_path,
-      posterBackdropUrl = baseUrl + '/original' + posterBackdrop,
-      releaseDate = $.parseJSON(data).release_date,
-      genres = $.parseJSON(data).genres,
+      title = $.parseJSON(data).title;
+      overview = $.parseJSON(data).overview;
+      posterPath = $.parseJSON(data).poster_path;
+      posterUrl = baseUrl + '/w500' + posterPath;
+      posterBackdrop = $.parseJSON(data).backdrop_path;
+      posterBackdropUrl = baseUrl + '/original' + posterBackdrop;
+      releaseDate = $.parseJSON(data).release_date;
+      genres = $.parseJSON(data).genres;
       popularVote = $.parseJSON(data).vote_average;
       
       // get current date for publish_date
@@ -144,8 +143,8 @@ $(document).ready(function(){
     },errorCB);
     
     theMovieDb.movies.getCredits({"id":movieId}, function(data){
-      cast = $.parseJSON(data).cast,
-      director = $.parseJSON(data).crew,
+      cast = $.parseJSON(data).cast;
+      director = $.parseJSON(data).crew;
       firstThree = cast.splice(0,3);
       
       // find the director in the crew credits
@@ -181,7 +180,7 @@ $(document).ready(function(){
     theMovieDb.movies.getTrailers({"id":movieId}, function(data){
       var youtubePrefix = 'https://www.youtube.com/embed/',
           youtubeTrailer = $.parseJSON(data).youtube;
-      if(youtubeTrailer==''){
+      if(youtubeTrailer===''){
         alert('no trailers for this movie');
       } else {
         youtubeTrailer = youtubeTrailer[0].source;
@@ -191,4 +190,4 @@ $(document).ready(function(){
     }, errorCB);
     
   }
-})
+});

@@ -60,7 +60,7 @@ $(document).ready(function(){
         } else if (permissions == 200) {
           permissions = 'admin';
         } else if (permissions == 300) {
-          permissions = 'super admin'
+          permissions = 'super admin';
         }
         
         $('#users').append('<div class="col-md-1 user-id user">'+user_id+'</div><div class="col-md-4 username user">'+username+'</div><div class="col-md-3 email user">'+email+'</div><div class="col-md-2 permissions user">'+permissions+'</div><div class="col-md-2 signup user">'+signup+'</div>');
@@ -114,18 +114,18 @@ $(document).ready(function(){
       });
       
       var chartDates = [];
-      for ( property in counts ) {
+      for ( var property in counts ) {
         chartDates.push(property);
       }
       
-      var chartData = [];
+      var chartDataArr = [];
       $.each(counts, function(key, element) {
-        chartData.push(element);
+        chartDataArr.push(element);
       });
       
-      var chartData2 = [];
+      var chartData2Arr = [];
       $.each(counts2, function(key, element) {
-        chartData2.push(element);
+        chartData2Arr.push(element);
       });
       
       var data = {
@@ -139,7 +139,7 @@ $(document).ready(function(){
                   pointStrokeColor: "#fff",
                   pointHighlightFill: "#fff",
                   pointHighlightStroke: "rgba(220,220,220,1)",
-                  data: chartData
+                  data: chartDataArr
               },{
                   label: "Users Signed Up",
                   fillColor: "rgba(3,166,120,.2)",
@@ -148,7 +148,7 @@ $(document).ready(function(){
                   pointStrokeColor: "#fff",
                   pointHighlightFill: "#fff",
                   pointHighlightStroke: "rgba(220,220,220,1)",
-                  data: chartData2
+                  data: chartData2Arr
               }
           ]
       };
@@ -187,18 +187,20 @@ $(document).ready(function(){
                 discovery_id = result[i].discovery_id,
                 featured = result[i].featured;
             
-            console.log(featured);
-            
-            if (featured == 1){featured = 'discovery-featured'} else {featured = ''}
+            if (featured == 1){
+              featured = 'discovery-featured';
+            } else {
+              featured = '';
+            }
             poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
             fullItems = $('<div class="discovery-item '+featured+'" id="movie" data-discovery_id="'+discovery_id+'">'+poster_recent+'</div>');
             discoveryMovies.isotope('insert', fullItems );
-            // layout Isotope after each image loads
-            discoveryMovies.imagesLoaded().progress( function() {
-              discoveryMovies.isotope('layout');
-            });
             initDiscoveryFeature();
           }
+          // layout Isotope after each image loads
+          discoveryMovies.imagesLoaded().progress( function() {
+            discoveryMovies.isotope('layout');
+          });
       }
     }); 
   }
@@ -218,7 +220,7 @@ $(document).ready(function(){
         addFeatured(discoveryId);
       }
         
-    })
+    });
   }
   
   function addFeatured(discoveryId){
@@ -232,9 +234,7 @@ $(document).ready(function(){
       success: function(result){
         initDiscoveryItems();
       }
-    })
-    
-    console.log(discoveryId);
+    });
   }
   
   function removeFeatured(discoveryId){
@@ -248,14 +248,12 @@ $(document).ready(function(){
       success: function(result){
         initDiscoveryItems();
       }
-    })
-    
-    console.log(discoveryId);
+    });
   }
   
   $('.getmovies').on('click', function(){
     discoveryMovies.css({height:'200px'});
-    discoveryMovies.html('<div class="loading"><i class="fa fa-film"></i><br>Loading...</div>')
+    discoveryMovies.html('<div class="loading"><i class="fa fa-film"></i><br>Loading...</div>');
     
     $('.loading').bind('fade-cycle', function() {
         $(this).fadeOut('slow', function() {
@@ -279,80 +277,29 @@ $(document).ready(function(){
   
   function seedDiscoveryTable(){
     // get config from tMDB
-    theMovieDb.configurations.getConfiguration(getConfig, errorCB)
-    function getConfig(data) {
-      posterSize = $.parseJSON(data).images.poster_sizes;
-      baseUrl = $.parseJSON(data).images.base_url.slice(0,-1);
-    }
+    theMovieDb.configurations.getConfiguration(function(data){
+          posterSize = $.parseJSON(data).images.poster_sizes;
+          baseUrl = $.parseJSON(data).images.base_url.slice(0,-1);
+    }, errorCB);
     
     // get new discovery items
     theMovieDb.discover.getMovies({"vote_average.gte": 7}, function(data){
       var discovery = $.parseJSON(data).results;
       for(i=0; i < discovery.length; ++i) {
-        categories = $.parseJSON(data).results[i].genre_ids,
-        movieData = $.parseJSON(data).results[i],
-        movieId = $.parseJSON(data).results[i].id,
-        movieName = $.parseJSON(data).results[i].original_title,
-        posterPath = $.parseJSON(data).results[i].poster_path,
-        posterUrl = baseUrl + '/w500' + posterPath,
-        overview = $.parseJSON(data).results[i].overview,
-        releaseDate = $.parseJSON(data).results[i].release_date,
-        posterBackdrop = $.parseJSON(data).results[i].backdrop_path,
-        posterBackdropUrl = baseUrl + '/original' + posterBackdrop,
+        categories = $.parseJSON(data).results[i].genre_ids;
+        movieData = $.parseJSON(data).results[i];
+        movieId = $.parseJSON(data).results[i].id;
+        movieName = $.parseJSON(data).results[i].original_title;
+        posterPath = $.parseJSON(data).results[i].poster_path;
+        posterUrl = baseUrl + '/w500' + posterPath;
+        overview = $.parseJSON(data).results[i].overview;
+        releaseDate = $.parseJSON(data).results[i].release_date;
+        posterBackdrop = $.parseJSON(data).results[i].backdrop_path;
+        posterBackdropUrl = baseUrl + '/original' + posterBackdrop;
         popularVote = $.parseJSON(data).results[i].vote_average;
         
-        theMovieDb.movies.getCredits({"id":movieId}, function(data){
-          cast = $.parseJSON(data).cast,
-          director = $.parseJSON(data).crew,
-          firstThree = cast.splice(0,3);
-
-          // find the director in the crew credits
-          function getObjects(obj, key, val) {
-              var objects = [];
-              for (var i in obj) {
-                  if (!obj.hasOwnProperty(i)) continue;
-                  if (typeof obj[i] == 'object') {
-                      objects = objects.concat(getObjects(obj[i], key, val));
-                  } else if (i == key && obj[key] == val) {
-                      objects.push(obj);
-                  }
-              }
-              return objects;
-          }
-
-          director = getObjects(director, 'job', 'Director');
-
-          for(i = 0; i < firstThree.length; ++i) {
-            if (i+1 == firstThree.length){
-              actorIds += firstThree[i].id;
-            } else {
-              actorIds += firstThree[i].id + ', ';
-            }
-          }
-
-        }, errorCB);
-        
-        $.ajax({
-          type: "POST",
-          url: "php/discoverInsert.php",
-          data: {
-            categories:categories,
-            movieName:movieName,
-            posterUrl:posterUrl,
-            overview:overview,
-            releaseDate:releaseDate,
-            posterBackdropUrl:posterBackdropUrl,
-            actorIds:actorIds,
-            director:director,
-            popularVote:popularVote
-          }, 
-          dataType: "html",                
-          success: function(result) {
-            if(result == 20){
-              getMovies();
-            }
-          }
-        });
+        getCredits();
+        insertData();
       }
 
     }, errorCB); 
@@ -371,17 +318,78 @@ $(document).ready(function(){
           var poster_recent = prefixUrl + result[i].poster_path,
               featured_recent = result[i].featured;
               
-              if (featured_recent){featured_recent = 'featured'} else {featured_recent = ''}
+              if (featured_recent){
+                featured_recent = 'featured';
+              } else {
+                featured_recent = '';
+              }
 
           poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
 
           fullItems = $('<div class="discovery-item '+featured_recent+'" id="movie">'+poster_recent+'</div>');
 
-          discoveryMovies.isotope('insert', fullItems ).isotope('layout');;
+          discoveryMovies.isotope('insert', fullItems ).isotope('layout');
         }
         initControls();
       }
     });
+  }
+  
+  function insertData(){
+    $.ajax({
+      type: "POST",
+      url: "php/discoverInsert.php",
+      data: {
+        categories:categories,
+        movieName:movieName,
+        posterUrl:posterUrl,
+        overview:overview,
+        releaseDate:releaseDate,
+        posterBackdropUrl:posterBackdropUrl,
+        actorIds:actorIds,
+        director:director,
+        popularVote:popularVote
+      }, 
+      dataType: "html",                
+      success: function(result) {
+        if(result == 20){
+          getMovies();
+        }
+      }
+    });
+  }
+  
+  function getCredits(){
+    theMovieDb.movies.getCredits({"id":movieId}, function(data){
+      cast = $.parseJSON(data).cast;
+      director = $.parseJSON(data).crew;
+      firstThree = cast.splice(0,3);
+
+      // find the director in the crew credits
+      function getObjects(obj, key, val) {
+          var objects = [];
+          for (var i in obj) {
+              if (!obj.hasOwnProperty(i)) continue;
+              if (typeof obj[i] == 'object') {
+                  objects = objects.concat(getObjects(obj[i], key, val));
+              } else if (i == key && obj[key] == val) {
+                  objects.push(obj);
+              }
+          }
+          return objects;
+      }
+
+      director = getObjects(director, 'job', 'Director');
+
+      for(i = 0; i < firstThree.length; ++i) {
+        if (i+1 == firstThree.length){
+          actorIds += firstThree[i].id;
+        } else {
+          actorIds += firstThree[i].id + ', ';
+        }
+      }
+
+    }, errorCB);
   }
   
   function initControls(){

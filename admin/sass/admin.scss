@@ -649,7 +649,20 @@ th {
       overflow: hidden;
       display: inline-block;
       &.discovery-featured {
-        border: 1px solid $blue;
+        position: relative;
+        &::after {
+          font-family: 'fontAwesome';
+          content: '\f0e7';
+          position: absolute;
+          left: 11px;
+          top: 5px;
+          color: $red;
+          font-size: 20px;
+          z-index: 9999;
+        }
+        .poster {
+          border-bottom: 2px solid $red;
+        }
       }
       
       .info {

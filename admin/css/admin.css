@@ -477,7 +477,18 @@ th {
   overflow: hidden;
   display: inline-block; }
   .discovery-movies .discovery-item.discovery-featured {
-    border: 1px solid #59ABE3; }
+    position: relative; }
+    .discovery-movies .discovery-item.discovery-featured::after {
+      font-family: 'fontAwesome';
+      content: '\f0e7';
+      position: absolute;
+      left: 11px;
+      top: 5px;
+      color: #EF4836;
+      font-size: 20px;
+      z-index: 9999; }
+    .discovery-movies .discovery-item.discovery-featured .poster {
+      border-bottom: 2px solid #EF4836; }
   .discovery-movies .discovery-item .info {
     padding: 0; }
     .discovery-movies .discovery-item .info h2 {

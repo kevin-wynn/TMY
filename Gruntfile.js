@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 //          '<%= grunt.template.today("yyyy-mm-dd") %> */',
       },
       dist: {
-        src: ['sass/variables.scss', 'sass/footer.scss', 'sass/home.scss', 'sass/about.scss', 'sass/movie.scss', 'sass/all-movies.scss', 'sass/navbar.scss', 'sass/sortfilter.scss', 'sass/discover.scss', 'sass/globals.scss'],
+        src: ['sass/variables.scss', 'sass/*.scss'],
         dest: 'sass/main.scss',
       },
     },
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 			}
 		},
     jshint: {
-        all: ['Gruntfile.js', 'js/all-movies.js', 'js/home.js', 'js/about.js', 'js/page.js', 'admin/admin.js', 'admin/adminHome.js', 'admin/loginBackground.js', 'admin/movies.js', 'admin/permissions.js', 'admin/signup.js', 'admin/users.js', 'js/sortfilter.js']
+        all: ['Gruntfile.js', 'js/*.js', 'admin/js/*.js', '!js/vender/*.js', '!admin/js/vender/*.js']
     },
 		watch: {
 			css: {

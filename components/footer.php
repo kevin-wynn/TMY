@@ -4,14 +4,14 @@
   $page = substr($pageurl, strrpos($pageurl, '/') + 1);
 
   if (strpos($page, 'page.php') !== false) { ?>
-    <script src="../js/jquery-2.2.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/vender/jquery-2.2.1.min.js"></script>
+    <script src="../js/vender/bootstrap.min.js"></script>
     <script src="../js/initControls.js"></script>
-    <script src="../js/imagesloaded.pkgd.min"></script>
-    <script src="../js/isotope.pkgd.min.js"></script>
-    <script src="../js/themoviedb.js"></script>
+    <script src="../js/vender/imagesloaded.pkgd.min"></script>
+    <script src="../js/vender/isotope.pkgd.min.js"></script>
+    <script src="../js/vender/themoviedb.js"></script>
     <script src="../js/page.js"></script>
-    <script src="../js/jquery.fitvids.js"></script>
+    <script src="../js/vender/jquery.fitvids.js"></script>
 <?php } else if (strpos($page, 'all-movies.php') !== false) { ?>
   <div class="footer">
     <div class="overlay-footer"></div>
@@ -26,16 +26,16 @@
       </ul>
     </div>
   </div>
-  <script src="js/jquery-2.2.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="js/vender/jquery-2.2.1.min.js"></script>
+  <script src="js/vender/bootstrap.min.js"></script>
   <script src="js/initControls.js"></script>
-  <script src="js/imagesloaded.pkgd.min"></script>
-  <script src="js/isotope.pkgd.min.js"></script>
-  <script src="js/fit-columns.js"></script>
-  <script src="js/themoviedb.js"></script>
+  <script src="js/vender/imagesloaded.pkgd.min"></script>
+  <script src="js/vender/isotope.pkgd.min.js"></script>
+  <script src="js/vender/fit-columns.js"></script>
+  <script src="js/vender/themoviedb.js"></script>
   <script src="js/sortfilter.js"></script>
   <script src="js/all-movies.js"></script>
-  <script src="js/jquery.fitvids.js"></script>
+  <script src="js/vender/jquery.fitvids.js"></script>
   
 <?php } else if (strpos($page, 'about.php') !== false) { ?>
   <div class="footer">
@@ -51,16 +51,16 @@
       </ul>
     </div>
   </div>
-  <script src="js/jquery-2.2.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="js/vender/jquery-2.2.1.min.js"></script>
+  <script src="js/vender/bootstrap.min.js"></script>
   <script src="js/initControls.js"></script>
-  <script src="js/imagesloaded.pkgd.min"></script>
-  <script src="js/isotope.pkgd.min.js"></script>
-  <script src="js/fit-columns.js"></script>
-  <script src="js/themoviedb.js"></script>
+  <script src="js/vender/imagesloaded.pkgd.min"></script>
+  <script src="js/vender/isotope.pkgd.min.js"></script>
+  <script src="js/vender/fit-columns.js"></script>
+  <script src="js/vender/themoviedb.js"></script>
   <script src="js/sortfilter.js"></script>
   <script src="js/about.js"></script>
-  <script src="js/jquery.fitvids.js"></script>
+  <script src="js/vender/jquery.fitvids.js"></script>
   
 <?php } else { ?>
 
@@ -77,14 +77,14 @@
       </ul>
     </div>
   </div>
-  <script src="js/jquery-2.2.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="js/vender/jquery-2.2.1.min.js"></script>
+  <script src="js/vender/bootstrap.min.js"></script>
   <script src="js/initControls.js"></script>
-  <script src="js/imagesloaded.pkgd.min"></script>
-  <script src="js/isotope.pkgd.min.js"></script>
-  <script src="js/fit-columns.js"></script>
-  <script src="js/themoviedb.js"></script>
+  <script src="js/vender/imagesloaded.pkgd.min"></script>
+  <script src="js/vender/isotope.pkgd.min.js"></script>
+  <script src="js/vender/fit-columns.js"></script>
+  <script src="js/vender/themoviedb.js"></script>
   <script src="js/sortfilter.js"></script>
   <script src="js/home.js"></script>
-  <script src="js/jquery.fitvids.js"></script>
+  <script src="js/vender/jquery.fitvids.js"></script>
 <?php } ?>

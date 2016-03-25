@@ -29,7 +29,7 @@ $(document).ready(function() {
               l_name = result[i].l_name;
               last_login = result[i].last_login;
               url_slug = result[i].url_slug;
-        }
+          
         console.log(result);
         
         header = $('#profile').html(f_name + ' ' + l_name);
@@ -38,6 +38,7 @@ $(document).ready(function() {
         userContainer = userContainer.append('<span class="userdeets">'+url_slug+'</span>');
         
         initControls();
+        }
       }
     });
   }

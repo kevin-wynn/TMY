@@ -63,7 +63,11 @@ $(document).ready(function() {
               movie_id = result[i].movie_id,
               score_recentContainer;
               
-              if (featured_recent){featured_recent = 'featured'} else {featured_recent = ''}
+              if (featured_recent){
+                featured_recent = 'featured';
+              } else {
+                featured_recent = '';
+              }
 
           var genres_forID = genres_recent.replace(/,/g, "");
               genres_forID = genres_forID.toLowerCase();
