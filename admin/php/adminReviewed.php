@@ -15,6 +15,7 @@
   while($row = mysql_fetch_array($result))     
   {
     $bus = array(
+      'movie_id' => $row['movie_id'],
       'movie_title' => $row['movie_title'],
       'overview' => $row['overview'],
       'director' => $row['director'],

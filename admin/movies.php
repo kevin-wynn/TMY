@@ -51,14 +51,6 @@
             </div>
           </div>
         </div>
-        <div class="container-fluid">
-          <div class="col-md-12 save">
-            <form class="server-setup" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/db_featured.php" method="post">
-              <input type="hidden" name="movie_title" value="">
-              <input class="btn button-primary hidden" name="submit" type="submit" value="Save">
-            </form>
-          </div>
-        </div>
       </div>
       <!-- /#page-content-wrapper -->
       <?php } else {

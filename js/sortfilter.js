@@ -1,7 +1,8 @@
 $(document).ready(function(){
   var sortItems = $('#sortItems'),
       sortAction = $('#sortAction'),
-      recentMovies = $('#recentMovies');
+      recentMovies = $('#recentMovies'),
+      discover = $('#discover');
   
   recentMovies.isotope({
     itemSelector: '#movie',
@@ -15,6 +16,19 @@ $(document).ready(function(){
       columnWidth: '.recent-item'
     }
   });
+  
+  discover.isotope({
+    itemSelector: '#movie',
+    getSortData: {
+      published: '[data-published]',
+      released: '[data-released]'
+    },
+    percentPosition: true,
+    masonry: {
+      // use element for option
+      columnWidth: '.recent-item'
+    }
+  });  
   
   sortItems.hide();
   

@@ -1,14 +1,14 @@
+<?php include '../includes/connection.php' ?>
 <?php
-  include 'connection.php';
-
   connect();
 
-  $movieTitle = $_POST[movie_title];
+  $id = $_POST[id];
 
-  // this clears entire database
   $reset = "UPDATE movies SET featured = null WHERE featured = '1' AND !isnull( featured );";
   $run = mysql_query($reset) or die(mysql_error());
 
-  $setfeatured = "UPDATE movies SET featured = '1' WHERE movie_title = '" . $movieTitle . "'";
+  $setfeatured = "UPDATE movies SET featured = '1' WHERE movie_id = " . $id . "";
   $run = mysql_query($setfeatured) or die(mysql_error());
+
+  echo 'sweet';
 ?>

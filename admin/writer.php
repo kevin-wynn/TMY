@@ -51,6 +51,7 @@
                 <input class="tmy-input-hidden" type="hidden" name="published">
                 <input class="tmy-input-hidden" type="hidden" name="popular_vote">
                 <input class="tmy-input-hidden" type="hidden" name="genre">
+                <input class="tmy-input-hidden" type="hidden" name="trailer"
                 <p>Review: </p>
                 <textarea class="editor" name="review"></textarea><br>
                 <input class="btn button-primary" type="submit" value="Submit">

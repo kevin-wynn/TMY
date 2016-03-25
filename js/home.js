@@ -16,12 +16,12 @@ $(document).ready(function() {
       movieCast = $('#movieCast'),
       wave = 0;
   
+  // FEATURED HERO IMAGE
   $.ajax({
     type: "GET",
     url: "php/heroImage.php",             
     dataType: "json",                
     success: function(result) {
-      // grab content from json returned
       var backdrop = prefixUrl + result[0].backdrop_path,
           title = result[0].movie_title,
           genres = result[0].genre,
@@ -30,7 +30,6 @@ $(document).ready(function() {
           director = result[0].director,
           cast = result[0].cast;
       
-      // build out and inject html for injection
       heroImage.css('background-image', 'url('+backdrop+')');
       $('.footer').css('background-image', 'url('+backdrop+')');
       movieTitle.html(title);
@@ -63,44 +62,84 @@ $(document).ready(function() {
     }
   });
   
-    $.ajax({
-      type: "GET",
-      url: "php/moviesReviewed.php",             
-      dataType: "json",
-      data: {offset:0, limit:8},
-      success: function(result) {
-        // clear current movies here
-        $('#recentMovies').html('');
-        
-        for(i=0; i<result.length; i++){
-          // grab content from json returned
-          var poster_recent = prefixUrl + result[i].poster_path,
-              title_recent = result[i].movie_title,
-              genres_recent = result[i].genre,
-              overview_recent = result[i].overview,
-              score_recent = result[i].score,
-              director_recent = result[i].director,
-              publish_date = result[i].publish_date,
-              release_date = result[i].release_date,
-              score_recentContainer;
+  // GET MOST RECENT MOVIES ADDED
+  $.ajax({
+    type: "GET",
+    url: "php/moviesReviewed.php",             
+    dataType: "json",
+    data: {offset:0, limit:8},
+    success: function(result) {
+      // clear current movies here
+      $('#recentMovies').html('');
 
-          var genres_forID = genres_recent.replace(/,/g, "");
-              genres_forID = genres_forID.toLowerCase();
-          
-          poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
-          title_recent = '<h2 id="movie_title">'+title_recent+'</h2>';
-          genres_recent = '<p id="genres">'+genres_recent+'</p>';
-          overview_recent = '<p>'+overview_recent+'</p>';
-          director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
-          score_recentContainer = '<div class="score">';
-          score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
-          
-          fullItems = $('<div data-released="'+release_date+'" data-published="'+publish_date+'" class="recent-item '+genres_forID+'" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></div>');
-        
-          $('#recentMovies').isotope('insert', fullItems ).isotope('layout');
-        }
-        
-        initControls();
+      for(i=0; i<result.length; i++){
+        // grab content from json returned
+        var poster_recent = prefixUrl + result[i].poster_path,
+            title_recent = result[i].movie_title,
+            genres_recent = result[i].genre,
+            overview_recent = result[i].overview,
+            score_recent = result[i].score,
+            director_recent = result[i].director,
+            publish_date = result[i].publish_date,
+            release_date = result[i].release_date,
+            score_recentContainer;
+
+        var genres_forID = genres_recent.replace(/,/g, "");
+            genres_forID = genres_forID.toLowerCase();
+
+        poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
+        title_recent = '<h2 id="movie_title">'+title_recent+'</h2>';
+        genres_recent = '<p id="genres">'+genres_recent+'</p>';
+        overview_recent = '<p>'+overview_recent+'</p>';
+        director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
+        score_recentContainer = '<div class="score">';
+        score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
+
+        fullItems = $('<div data-released="'+release_date+'" data-published="'+publish_date+'" class="recent-item '+genres_forID+'" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></div>');
+
+        $('#recentMovies').isotope('insert', fullItems ).isotope('layout');
       }
-    });
+
+      initControls();
+    }
+  });
+  
+  // GET DISCOVERY MOVIES
+  $.ajax({
+    type: "GET",
+    url: "php/discovery.php",             
+    dataType: "json",
+    success: function(result) {
+      // clear current movies here
+      $('#discover').html('');
+
+      for(i=0; i<result.length; i++){
+        // grab content from json returned
+        var poster_recent = prefixUrl + result[i].poster_path,
+            title_recent = result[i].movie_title,
+            genres_recent = result[i].genre,
+            overview_recent = result[i].overview,
+            score_recent = result[i].score,
+            director_recent = result[i].director,
+            publish_date = result[i].publish_date,
+            release_date = result[i].release_date,
+            score_recentContainer;
+
+        var genres_forID = genres_recent.replace(/,/g, "");
+            genres_forID = genres_forID.toLowerCase();
+
+        poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
+        title_recent = '<h2 id="movie_title">'+title_recent+'</h2>';
+        genres_recent = '<p id="genres">'+genres_recent+'</p>';
+        overview_recent = '<p>'+overview_recent+'</p>';
+        director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
+
+        fullItems = $('<div data-released="'+release_date+'" class="recent-item '+genres_forID+'" id="movie">'+poster_recent+'<div class="col-md-12 info">'+title_recent+genres_recent+director_recent+'</div></div>');
+
+        $('#discover').isotope('insert', fullItems ).isotope('layout');
+      }
+        initControls();
+    }
+  });
+  
 });

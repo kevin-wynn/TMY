@@ -14,6 +14,16 @@
     array_push($json, $bus);
   }
 
+  $result2 = mysql_query("SELECT DATE_FORMAT(signup_date, '%Y-%m-%d') AS 'signup_date' FROM users");
+
+  while($row = mysql_fetch_array($result2))
+  {
+    $bus = array(
+      'signup_date' => $row['signup_date']
+    );
+    array_push($json, $bus);
+  }
+
   $jsonstring = json_encode($json);
   echo $jsonstring;
 

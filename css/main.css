@@ -56,25 +56,23 @@
 
 .intro {
   margin-top: 5%;
-  color: #fff; }
+  color: #fff;
+  text-align: center; }
   .intro .title {
-    font-size: 75px;
+    font-size: 55px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     display: block;
-    width: 100%;
-    text-align: center; }
+    width: 100%; }
   .intro .genres {
     font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 100;
     display: block;
-    width: 100%;
-    text-align: center; }
+    width: 100%; }
   .intro .credits {
-    text-align: center;
     width: 100%;
     margin-bottom: 10px; }
     .intro .credits .director, .intro .credits .cast {
@@ -92,13 +90,9 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 300;
-    display: block;
-    text-align: center;
-    width: 90%;
-    padding-left: 10%; }
+    display: block; }
   .intro .score {
-    font-size: 24px;
-    text-align: center; }
+    font-size: 24px; }
 
 @-webkit-keyframes shine {
   100% {
@@ -106,15 +100,18 @@
 @keyframes shine {
   100% {
     left: 125%; } }
+.trailer-container {
+  margin-bottom: 25px; }
+
 .recent {
-  margin-top: -100px;
+  margin-top: -200px;
   display: block;
   height: 100%; }
   .recent .col-md-10 {
     background: #fff; }
-  .recent #recentMovies {
+  .recent #recentMovies, .recent .discover {
     padding: 0; }
-    .recent #recentMovies .recent-item {
+    .recent #recentMovies .recent-item, .recent .discover .recent-item {
       width: 25% !important;
       margin-bottom: 25px;
       text-transform: uppercase;
@@ -124,7 +121,7 @@
       position: relative;
       overflow: hidden;
       height: 450px; }
-      .recent #recentMovies .recent-item:before {
+      .recent #recentMovies .recent-item:before, .recent .discover .recent-item:before {
         position: absolute;
         top: 0;
         left: -90%;
@@ -138,37 +135,39 @@
         background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
         -webkit-transform: skewX(-25deg);
         transform: skewX(-25deg); }
-      .recent #recentMovies .recent-item:hover::before {
+      .recent #recentMovies .recent-item:hover::before, .recent .discover .recent-item:hover::before {
         -webkit-animation: shine .75s;
         animation: shine .75s; }
-      .recent #recentMovies .recent-item .info {
+      .recent #recentMovies .recent-item .poster, .recent .discover .recent-item .poster {
+        height: 365px; }
+      .recent #recentMovies .recent-item .info, .recent .discover .recent-item .info {
         padding: 0; }
-        .recent #recentMovies .recent-item .info h2 {
+        .recent #recentMovies .recent-item .info h2, .recent .discover .recent-item .info h2 {
           font-size: 12px;
           margin: 5px 0px;
           letter-spacing: 2px; }
-        .recent #recentMovies .recent-item .info p {
+        .recent #recentMovies .recent-item .info p, .recent .discover .recent-item .info p {
           font-size: 8px;
           letter-spacing: 1px; }
-      .recent #recentMovies .recent-item .score-container {
+      .recent #recentMovies .recent-item .score-container, .recent .discover .recent-item .score-container {
         padding: 0;
         text-align: right;
         padding-top: 5px; }
-        .recent #recentMovies .recent-item .score-container .score {
+        .recent #recentMovies .recent-item .score-container .score, .recent .discover .recent-item .score-container .score {
           position: relative;
           color: #E87E04; }
-          .recent #recentMovies .recent-item .score-container .score .rating-number {
+          .recent #recentMovies .recent-item .score-container .score .rating-number, .recent .discover .recent-item .score-container .score .rating-number {
             color: #fff;
             position: absolute;
             font-size: 12px;
             left: 10px;
             top: 9px;
             font-weight: 700; }
-          .recent #recentMovies .recent-item .score-container .score .fa {
+          .recent #recentMovies .recent-item .score-container .score .fa, .recent .discover .recent-item .score-container .score .fa {
             font-size: 30px;
             position: relative;
             float: right; }
-      .recent #recentMovies .recent-item img {
+      .recent #recentMovies .recent-item img, .recent .discover .recent-item img {
         width: 100%;
         height: auto; }
 
@@ -224,7 +223,6 @@
 .sort {
   background: #fff;
   cursor: pointer;
-  border-radius: 5px 5px 0 0;
   padding: 15px 15px 0px; }
   .sort .sort-filter {
     margin-right: 10px; }
@@ -246,6 +244,11 @@
   .no-filter-items img {
     width: 250px;
     height: auto; }
+
+.discover {
+  background: #fff;
+  border-radius: 5px 5px 0 0;
+  padding: 15px 15px 0px; }
 
 * {
   box-sizing: border-box; }

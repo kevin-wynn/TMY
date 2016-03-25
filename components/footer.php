@@ -11,6 +11,7 @@
     <script src="../js/isotope.pkgd.min.js"></script>
     <script src="../js/themoviedb.js"></script>
     <script src="../js/page.js"></script>
+    <script src="../js/jquery.fitvids.js"></script>
 <?php } else if (strpos($page, 'all-movies.php') !== false) { ?>
   <div class="footer">
     <div class="overlay-footer"></div>
@@ -34,6 +35,7 @@
   <script src="js/themoviedb.js"></script>
   <script src="js/sortfilter.js"></script>
   <script src="js/all-movies.js"></script>
+  <script src="js/jquery.fitvids.js"></script>
   
 <?php } else if (strpos($page, 'about.php') !== false) { ?>
   <div class="footer">
@@ -58,6 +60,7 @@
   <script src="js/themoviedb.js"></script>
   <script src="js/sortfilter.js"></script>
   <script src="js/about.js"></script>
+  <script src="js/jquery.fitvids.js"></script>
   
 <?php } else { ?>
 
@@ -83,4 +86,5 @@
   <script src="js/themoviedb.js"></script>
   <script src="js/sortfilter.js"></script>
   <script src="js/home.js"></script>
+  <script src="js/jquery.fitvids.js"></script>
 <?php } ?>

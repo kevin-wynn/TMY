@@ -14,11 +14,14 @@ $(document).ready(function() {
       movieScore = $('#movieScore'),
       movieDirector = $('#movieDirector'),
       movieCast = $('#movieCast'),
+      movieTrailer = $('#movieTrailer'),
       wave = 0;
   
       for(i=0; i<score; i++){
         movieScore.append('<i class="fa fa-star"></i> ');
       }
+
+      movieTrailer.fitVids();  
   
       cast = cast0 + ',' + cast1 + ',' + cast2;
       cast = cast.replace(/ /g,'');

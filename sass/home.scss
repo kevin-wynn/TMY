@@ -22,15 +22,15 @@
 .intro {
   margin-top: 5%;
   color: #fff;
+  text-align: center;
   
   .title {
-    font-size: 75px;
+    font-size: 55px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     display: block;
     width: 100%;
-    text-align: center;
   }
   .genres {
     font-size: 20px;
@@ -39,10 +39,8 @@
     font-weight: 100;
     display: block;
     width: 100%;
-    text-align: center;
   }
   .credits {
-    text-align: center;
     width: 100%;
     margin-bottom: 10px;
     .director, .cast {
@@ -64,13 +62,9 @@
     letter-spacing: 1px;
     font-weight: 300;
     display: block;
-    text-align: center;
-    width: 90%;
-    padding-left: 10%;
   }
   .score {
     font-size: 24px;
-    text-align: center;
   }
 }
 
@@ -85,9 +79,13 @@
 	}
 }
 
+.trailer-container {
+  margin-bottom: 25px;
+}
+
 
 .recent {
-  margin-top: -100px;
+  margin-top: -200px;
   display: block;
   height: 100%;
   
@@ -95,7 +93,7 @@
     background: #fff;
   }
   
-  #recentMovies {
+  #recentMovies, .discover {
     padding: 0;
     
     .recent-item {
@@ -126,6 +124,9 @@
       &:hover::before {
 	      -webkit-animation: shine .75s;
         animation: shine .75s;
+      }
+      .poster {
+        height: 365px;
       }
       .info {
         padding: 0;

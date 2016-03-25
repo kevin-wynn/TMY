@@ -3,7 +3,7 @@ var prefixUrl = window.location.pathname;
     prefixUrl = prefixUrl.substr(0, prefixUrl.lastIndexOf("/"));
     prefixUrl = prefixUrl.substr(0, prefixUrl.lastIndexOf("/"));
 
-var offset = 0, limit = 8, total = 0;
+var offset = 0, limit = 10, total = 0;
 
 function errorCB(data){
   console.log('error');
@@ -35,7 +35,7 @@ $(document).ready(function() {
   
   //get inital movies and set up interaction with show more button to more more calls
   $('#getMore').on('click', function(){
-    if(offset > limit){
+    if(offset+10 > total){
       $('#getMore').hide();
     }
     getMovies();
@@ -60,6 +60,7 @@ $(document).ready(function() {
               publish_date = result[i].publish_date,
               release_date = result[i].release_date,
               featured_recent = result[i].featured,
+              movie_id = result[i].movie_id,
               score_recentContainer;
               
               if (featured_recent){featured_recent = 'featured'} else {featured_recent = ''}
@@ -75,7 +76,7 @@ $(document).ready(function() {
           score_recentContainer = '<div class="score">';
           score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
 
-          fullItems = $('<div data-released="'+release_date+'" data-published="'+publish_date+'" class="recent-item '+genres_forID+' '+featured_recent+'" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div><div class="featured-text">'+featured_recent+'</div></div>');
+          fullItems = $('<div data-id="'+movie_id+'" data-released="'+release_date+'" data-published="'+publish_date+'" class="recent-item '+genres_forID+' '+featured_recent+'" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div><div class="featured-text"><i class="fa fa-bolt"></i></div></div>');
 
           $('#recentMovies').isotope('insert', fullItems ).isotope('layout');
         }
@@ -86,20 +87,30 @@ $(document).ready(function() {
   
   function initControls(){
     $('.recent-item').on('click', function(){
-        $('.recent-item').not(this).each(function(){
-          $(this).removeClass('featured');
-          $(this).find($('.featured-text')).html('');
-        });
+      
+      var id = $(this).data('id'),
+          clicked = $(this);
+      
+      $.ajax({
+        type: "POST",
+        data: {id:id},
+        url: "php/db_featured.php",             
+        dataType: "html",                
+        success: function(result) {
+          console.log(result);
+          if (result) {
+            $('.recent-item').not(this).each(function(){
+              $(this).removeClass('featured');
+              $(this).find($('.featured-text')).html('');
+            });
+            
+            console.log(clicked);
 
-        $(this).addClass('featured');
-        $(this).find($('.featured-text')).html('featured');
-
-        var movieTitle = $(this).find($('.info h2')).html();
-
-        $('[name=movie_title]').val(movieTitle);
-
-        $('[name=submit]').trigger('click');
+            clicked.addClass('featured');
+            clicked.find($('.featured-text')).html('<i class="fa fa-bolt"></i>');
+          }
+        }
+      });
     });
-  };
-  
+  }
 });

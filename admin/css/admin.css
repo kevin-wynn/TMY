@@ -158,11 +158,19 @@ th {
     .recent #recentMovies .recent-item img {
       width: 100%;
       height: auto; }
+    .recent #recentMovies .recent-item .featured-text {
+      display: none; }
   .recent #recentMovies .featured {
     background: #ffffff; }
     .recent #recentMovies .featured .featured-text {
       font-weight: 700;
-      text-align: center; }
+      text-align: center;
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      color: #fff;
+      font-size: 40px; }
 .recent .show-more-button {
   color: #59ABE3;
   cursor: pointer;
@@ -438,5 +446,67 @@ th {
   font-size: 18px;
   font-weight: 100;
   margin-left: 15px; }
+
+.discovery-movies #discoveryMovies {
+  display: block;
+  height: auto;
+  width: 100%; }
+.discovery-movies .loading {
+  height: 200px;
+  padding-top: 75px;
+  text-align: center;
+  display: block; }
+  .discovery-movies .loading i {
+    font-size: 50px; }
+.discovery-movies h5 {
+  display: inline-block; }
+.discovery-movies p.getmovies {
+  display: inline-block;
+  font-size: 10px;
+  color: #59ABE3;
+  margin-left: 10px;
+  cursor: pointer; }
+.discovery-movies .discovery-item {
+  width: 10%;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block; }
+  .discovery-movies .discovery-item.discovery-featured {
+    border: 1px solid #59ABE3; }
+  .discovery-movies .discovery-item .info {
+    padding: 0; }
+    .discovery-movies .discovery-item .info h2 {
+      font-size: 12px;
+      margin: 5px 0px;
+      letter-spacing: 2px; }
+    .discovery-movies .discovery-item .info p {
+      font-size: 8px;
+      letter-spacing: 1px; }
+  .discovery-movies .discovery-item .score-container {
+    padding: 0;
+    text-align: right;
+    padding-top: 5px; }
+    .discovery-movies .discovery-item .score-container .score {
+      position: relative;
+      color: #E87E04; }
+      .discovery-movies .discovery-item .score-container .score .rating-number {
+        color: #fff;
+        position: absolute;
+        font-size: 12px;
+        left: 10px;
+        top: 9px;
+        font-weight: 700; }
+      .discovery-movies .discovery-item .score-container .score .fa {
+        font-size: 30px;
+        position: relative;
+        float: right; }
+  .discovery-movies .discovery-item img {
+    width: 100%;
+    height: auto; }
 
 /*# sourceMappingURL=admin.css.map */

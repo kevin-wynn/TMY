@@ -20,6 +20,7 @@
   $poster = $row['poster_path'];
   $score = $row['score'];
   $cast = $row['cast'];
+  $trailer = $row['trailer'];
 
   $cast = preg_replace('/\.$/', '', $cast); //Remove dot at end if exists
   $array = explode(', ', $cast); //split string into array seperated by ', '
@@ -68,6 +69,7 @@
        <h3>Release Date: <?php echo $row['release_date']; ?></h3>
        <h3>Reviewed: <?php echo $row['publish_date']; ?></h3>
        <h3>Popular Vote: <?php echo $row['popular_vote']; ?></h3>
+       <div id="movieTrailer" class="trailer-container"><iframe src="<?php echo $trailer ?>?modestbranding=1;controls=0;showinfo=0;rel=0;fs=1" frameborder="0" allowfullscreen></iframe></div>
        <p><?php echo nl2br($row['review']); ?></p>
       </div>
     </div>

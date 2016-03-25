@@ -21,7 +21,8 @@
       'published_date' => $row['published_date'],
       'popular_vote' => $row['popular_vote'],
       'genre' => $row['genre'],
-      'featured' => $row['featured']
+      'featured' => $row['featured'],
+      'trailer' => $row['trailer']
     );
     array_push($json, $bus);
   }

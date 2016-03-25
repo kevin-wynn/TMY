@@ -2,6 +2,7 @@ $blue : #59ABE3;
 $red  : #EF4836;
 $grey : #666666;
 $gold : #E87E04;
+$green: #03A678;
 .overlay-footer {
   background: rgba(0,0,0,.5);
   width: 100%;
@@ -75,15 +76,15 @@ $gold : #E87E04;
 .intro {
   margin-top: 5%;
   color: #fff;
+  text-align: center;
   
   .title {
-    font-size: 75px;
+    font-size: 55px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     display: block;
     width: 100%;
-    text-align: center;
   }
   .genres {
     font-size: 20px;
@@ -92,10 +93,8 @@ $gold : #E87E04;
     font-weight: 100;
     display: block;
     width: 100%;
-    text-align: center;
   }
   .credits {
-    text-align: center;
     width: 100%;
     margin-bottom: 10px;
     .director, .cast {
@@ -117,13 +116,9 @@ $gold : #E87E04;
     letter-spacing: 1px;
     font-weight: 300;
     display: block;
-    text-align: center;
-    width: 90%;
-    padding-left: 10%;
   }
   .score {
     font-size: 24px;
-    text-align: center;
   }
 }
 
@@ -138,9 +133,13 @@ $gold : #E87E04;
 	}
 }
 
+.trailer-container {
+  margin-bottom: 25px;
+}
+
 
 .recent {
-  margin-top: -100px;
+  margin-top: -200px;
   display: block;
   height: 100%;
   
@@ -148,7 +147,7 @@ $gold : #E87E04;
     background: #fff;
   }
   
-  #recentMovies {
+  #recentMovies, .discover {
     padding: 0;
     
     .recent-item {
@@ -179,6 +178,9 @@ $gold : #E87E04;
       &:hover::before {
 	      -webkit-animation: shine .75s;
         animation: shine .75s;
+      }
+      .poster {
+        height: 365px;
       }
       .info {
         padding: 0;
@@ -291,7 +293,7 @@ $gold : #E87E04;
 .sort {
   background: #fff;
   cursor: pointer;
-  border-radius: 5px 5px 0 0;
+//  border-radius: 5px 5px 0 0;
   padding: 15px 15px 0px;
   .sort-filter {
     margin-right: 10px;
@@ -318,6 +320,11 @@ $gold : #E87E04;
     width: 250px;
     height: auto;
   }
+}
+.discover {
+  background: #fff;
+  border-radius: 5px 5px 0 0;
+  padding: 15px 15px 0px;
 }
 * {
   box-sizing: border-box;

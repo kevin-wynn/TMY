@@ -39,17 +39,9 @@
                   <h5>Movies Added:</h5>
                   <canvas id="moviesAdded" style="width:100%; height: 300px;"></canvas> 
                 </div>
-                <div class="col-md-12">
-                   <h5>Database Tools:</h5>
-                  <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/db_reset.php" method="post">
-                    <input class="btn button-primary" type="submit" value="Reset All">
-                  </form>
-                  <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/movies_reset.php" method="post">
-                    <input class="btn button-primary" type="submit" value="Reset Movies">
-                  </form>
-                  <form class="server-reset" action="<?php echo dirname($_SERVER['PHP_SELF']);?>/includes/users_reset.php" method="post">
-                    <input class="btn button-primary" type="submit" value="Reset Users">
-                  </form>
+                <div class="col-md-12 discovery-movies" id="discovery">
+                  <h5>Discovery Movies:</h5><p class="getmovies">retrieve new discovery movies</p>
+                  <div id="discoveryMovies"></div>
                 </div>
                 <div class="col-md-12" id="users">
                   <h5>Users:</h5>

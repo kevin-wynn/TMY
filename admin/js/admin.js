@@ -18,6 +18,7 @@ $(document).ready(function(){
       movieGenres = $('[name=genre]'),
       moviePopularVote = $('[name=popular_vote]'),
       movieActorIds = $('[name=cast]'),
+      movieTrailer = $('[name=trailer]'),
       categories, movieData, movieId, movieName, posterPath, posterUrl, overview, releaseDate, poster, posterBackdropUrl, posterBackdrop,
       posterSize, baseUrl, title, cast, firstThree, director, genreId, genres, popularVote;
   
@@ -176,5 +177,18 @@ $(document).ready(function(){
       movieActorIds.val(actorIds);
       
     }, errorCB);
+    
+    theMovieDb.movies.getTrailers({"id":movieId}, function(data){
+      var youtubePrefix = 'https://www.youtube.com/embed/',
+          youtubeTrailer = $.parseJSON(data).youtube;
+      if(youtubeTrailer==''){
+        alert('no trailers for this movie');
+      } else {
+        youtubeTrailer = youtubeTrailer[0].source;
+        youtubeTrailer = youtubePrefix+youtubeTrailer;
+        movieTrailer.val(youtubeTrailer);
+      }
+    }, errorCB);
+    
   }
 })

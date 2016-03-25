@@ -216,6 +216,9 @@ th {
         width: 100%;
         height: auto;
       }
+      .featured-text {
+        display: none;
+      }
     } 
     .featured {
       background: #ffffff;
@@ -223,6 +226,12 @@ th {
       .featured-text {
         font-weight: 700;
         text-align: center;
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        color: #fff;
+        font-size: 40px;
       }
     }
   }
@@ -599,4 +608,87 @@ th {
     font-weight: 100;
     margin-left: 15px;
   }
+}
+
+.discovery-movies {
+  #discoveryMovies{
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+  
+  .loading {
+    height: 200px;
+    padding-top: 75px;
+    text-align: center;
+    display: block;
+    i {
+      font-size: 50px;
+    }
+  }
+  
+  h5 {
+    display: inline-block;
+  }
+  p.getmovies {
+    display: inline-block;  
+    font-size: 10px;
+    color: $blue;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+    .discovery-item {
+      width: 10%;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      &.discovery-featured {
+        border: 1px solid $blue;
+      }
+      
+      .info {
+        padding: 0;
+        h2 {
+          font-size: 12px;
+          margin: 5px 0px;
+          letter-spacing: 2px;
+        }
+        p {
+          font-size: 8px;
+          letter-spacing: 1px;
+        } 
+      }
+      .score-container {
+        padding: 0;
+        text-align: right;
+        padding-top: 5px;
+        .score {
+          position: relative;
+          color: $gold;
+          .rating-number {
+            color: #fff;
+            position: absolute;
+            font-size: 12px;
+            left: 10px;
+            top: 9px;
+            font-weight: 700;
+          }
+          .fa {
+            font-size: 30px;
+            position: relative;
+            float: right;
+          }
+        } 
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    } 
 }
