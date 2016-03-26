@@ -1,97 +1,97 @@
 $(document).ready(function(){
   var categories, movieData, movieId, movieName, posterPath, posterUrl, overview, releaseDate, cast, director, posterBackdrop, posterBackdropUrl, popularVote, firstThree;
   
-  // BUILD DISCOVERY SECTION
-  var discoveryMovies = $('#discoveryMovies'); 
-  discoveryMovies.isotope({
-    itemSelector: '.discovery-item',
+  // BUILD NOWPLAYING SECTION
+  var nowplayingMovies = $('#nowplayingMovies'); 
+  nowplayingMovies.isotope({
+    itemSelector: '.nowplaying-item',
     percentPosition: true,
     masonry: {
       // use element for option
-      columnWidth: '.discovery-item'
+      columnWidth: '.nowplaying-item'
     }
   });
   
-  function initDiscoveryItems() {
-    discoveryMovies.html('');
-    // get discovery items in database
+  function initNowplayingItems() {
+    nowplayingMovies.html('');
+    // get nowplaying items in database
     $.ajax({
       type: "GET",
-      url: "php/getDiscover.php",
+      url: "php/getNowplaying.php",
       dataType: "json",
       success: function(result) {
           for(i=0; i<result.length; i++){
             var poster_recent = prefixUrl + result[i].poster_path,
-                discovery_id = result[i].discovery_id,
+                nowplaying_id = result[i].nowplaying_id,
                 featured = result[i].featured;
             
             if (featured == 1){
-              featured = 'discovery-featured';
+              featured = 'nowplaying-featured';
             } else {
               featured = '';
             }
             poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
-            fullItems = $('<div class="discovery-item '+featured+'" id="movie" data-discovery_id="'+discovery_id+'">'+poster_recent+'</div>');
-            discoveryMovies.isotope('insert', fullItems );
-            initDiscoveryFeature();
+            fullItems = $('<div class="nowplaying-item '+featured+'" id="movie" data-nowplaying_id="'+nowplaying_id+'">'+poster_recent+'</div>');
+            nowplayingMovies.isotope('insert', fullItems );
+            initNowplayingFeature();
           }
           // layout Isotope after each image loads
-          discoveryMovies.imagesLoaded().progress( function() {
-            discoveryMovies.isotope('layout');
+          nowplayingMovies.imagesLoaded().progress( function() {
+            nowplayingMovies.isotope('layout');
           });
       }
     }); 
   }
   
-  initDiscoveryItems();
+  initNowplayingItems();
   
-  function initDiscoveryFeature(){
-    $('.discovery-item').unbind().on('click', function(){
+  function initNowplayingFeature(){
+    $('.nowplaying-item').unbind().on('click', function(){
       
-      if ($(this).hasClass('discovery-featured')) {
-        discoveryId = $(this).data('discovery_id');
-        removeFeatured(discoveryId);
-      } else if ( $('.discovery-featured').length > 3 ) {
+      if ($(this).hasClass('nowplaying-featured')) {
+        nowplayingId = $(this).data('nowplaying_id');
+        removeFeatured(nowplayingId);
+      } else if ( $('.nowplaying-featured').length > 3 ) {
         console.log('max featured hit');
       } else {
-        discoveryId = $(this).data('discovery_id');
-        addFeatured(discoveryId);
+        nowplayingId = $(this).data('nowplaying_id');
+        addFeatured(nowplayingId);
       }
         
     });
   }
   
-  function addFeatured(discoveryId){
-    movieIds = $.extend({}, discoveryId);
+  function addFeatured(nowplayingId){
+    movieIds = $.extend({}, nowplayingId);
     
     $.ajax({
       type:"POST",
-      url: "php/setDiscoverFeature.php",
-      data: {discoveryId:discoveryId},
+      url: "php/setNowplayingFeatured.php",
+      data: {nowplayingId:nowplayingId},
       dataType: "html",
       success: function(result){
-        initDiscoveryItems();
+        initNowplayingItems();
       }
     });
   }
   
-  function removeFeatured(discoveryId){
+  function removeFeatured(nowplayingId){
     movieIds = $.extend({}, discoveryId);
     
     $.ajax({
       type:"POST",
-      url: "php/removeDiscoverFeature.php",
-      data: {discoveryId:discoveryId},
+      url: "php/removeNowplayingFeature.php",
+      data: {nowplayingId:nowplayingId},
       dataType: "html",
       success: function(result){
-        initDiscoveryItems();
+        initNowplayingItems();
       }
     });
   }
   
-  $('.getmovies').on('click', function(){
-    discoveryMovies.css({height:'200px'});
-    discoveryMovies.html('<div class="loading"><i class="fa fa-film"></i><br>Loading...</div>');
+  $('.getmovies-nowplaying').on('click', function(){
+    nowplayingMovies.css({height:'200px'});
+    nowplayingMovies.html('<div class="loading"><i class="fa fa-film"></i><br>Loading...</div>');
     
     $('.loading').bind('fade-cycle', function() {
         $(this).fadeOut('slow', function() {
@@ -105,23 +105,23 @@ $(document).ready(function(){
     // clear discovery table
     $.ajax({
       type: "POST",
-      url: "php/discoverClear.php",
+      url: "php/nowplayingClear.php",
       dataType: "html",                
       success: function(result) {
-        seedDiscoveryTable();
+        seedNowplayingTable();
       }
     });
   });
   
-  function seedDiscoveryTable(){
+  function seedNowplayingTable(){
     // get config from tMDB
     theMovieDb.configurations.getConfiguration(function(data){
           posterSize = $.parseJSON(data).images.poster_sizes;
           baseUrl = $.parseJSON(data).images.base_url.slice(0,-1);
     }, errorCB);
     
-    // get new discovery items
-    theMovieDb.discover.getMovies({"vote_average.gte": 7}, function(data){
+    // get new nowplaying items
+    theMovieDb.movies.getNowPlaying({}, function(data){
       var discovery = $.parseJSON(data).results;
       for(i=0; i < discovery.length; ++i) {
         categories = $.parseJSON(data).results[i].genre_ids;
@@ -147,7 +147,7 @@ $(document).ready(function(){
   function insertData(){
     $.ajax({
       type: "POST",
-      url: "php/discoverInsert.php",
+      url: "php/nowplayingInsert.php",
       data: {
         categories:categories,
         movieName:movieName,
@@ -173,10 +173,10 @@ $(document).ready(function(){
     $.ajax({
       type: "GET",
       data: {offset:offset, limit:limit},
-      url: "php/getDiscover.php",             
+      url: "php/getNowplaying.php",             
       dataType: "json",                
       success: function(result) {
-        discoveryMovies.html('');
+        nowplayingMovies.html('');
         for(i=0; i<result.length; i++){
           var poster_recent = prefixUrl + result[i].poster_path,
               featured_recent = result[i].featured;
@@ -189,9 +189,9 @@ $(document).ready(function(){
 
           poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
 
-          fullItems = $('<div class="discovery-item '+featured_recent+'" id="movie">'+poster_recent+'</div>');
+          fullItems = $('<div class="nowplaying-item '+featured_recent+'" id="movie">'+poster_recent+'</div>');
 
-          discoveryMovies.isotope('insert', fullItems ).isotope('layout');
+          nowplayingMovies.isotope('insert', fullItems ).isotope('layout');
         }
         initControls();
       }

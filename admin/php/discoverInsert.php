@@ -24,6 +24,7 @@
   $backdrop = copy($_POST[posterBackdropUrl], $backdropSavePath);
 
   // escape any quotes so it doesnt break sql insert
+  $movieName = addslashes($_POST[movieName]);
   $overview = addslashes($_POST[overview]);
   $director = addslashes($_POST[director]);
 
@@ -44,7 +45,7 @@
     genre,
     featured
   ) VALUES (
-    '$_POST[movieName]',
+    '$movieName',
     '$overview',
     '$director',
     '$_POST[cast]',

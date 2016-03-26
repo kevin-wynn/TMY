@@ -4,7 +4,8 @@ $(document).ready(function(){
   var sortItems = $('#sortItems'),
       sortAction = $('#sortAction'),
       recentMovies = $('#recentMovies'),
-      discover = $('#discover');
+      discover = $('#discover'),
+      nowplaying = $('#nowplaying');
   
   recentMovies.isotope({
     itemSelector: '#movie',
@@ -22,6 +23,15 @@ $(document).ready(function(){
   
   discover.isotope({
     itemSelector: '#discovery',
+    percentPosition: true,
+    masonry: {
+      // use element for option
+      columnWidth: '.recent-item'
+    }
+  });
+  
+  nowplaying.isotope({
+    itemSelector: '#nowplaying',
     percentPosition: true,
     masonry: {
       // use element for option

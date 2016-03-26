@@ -173,7 +173,7 @@
       border-radius: 3px;
       position: relative;
       overflow: hidden;
-      height: 450px; }
+      display: block; }
       .recent #recentMovies .recent-item:before, .recent .discover .recent-item:before, .recent .nowplaying .recent-item:before {
         position: absolute;
         top: 0;
@@ -192,7 +192,7 @@
         -webkit-animation: shine .75s;
         animation: shine .75s; }
       .recent #recentMovies .recent-item .poster, .recent .discover .recent-item .poster, .recent .nowplaying .recent-item .poster {
-        height: 365px; }
+        height: auto; }
       .recent #recentMovies .recent-item .info, .recent .discover .recent-item .info, .recent .nowplaying .recent-item .info {
         padding: 0; }
         .recent #recentMovies .recent-item .info h2, .recent .discover .recent-item .info h2, .recent .nowplaying .recent-item .info h2 {
@@ -225,9 +225,13 @@
         height: auto; }
     .recent #recentMovies.discover .recent-item, .recent #recentMovies.nowplaying .recent-item, .recent .discover.discover .recent-item, .recent .discover.nowplaying .recent-item, .recent .nowplaying.discover .recent-item, .recent .nowplaying.nowplaying .recent-item {
       cursor: default;
-      height: 200px; }
+      display: block; }
       .recent #recentMovies.discover .recent-item:before, .recent #recentMovies.nowplaying .recent-item:before, .recent .discover.discover .recent-item:before, .recent .discover.nowplaying .recent-item:before, .recent .nowplaying.discover .recent-item:before, .recent .nowplaying.nowplaying .recent-item:before {
         display: none; }
+      .recent #recentMovies.discover .recent-item .poster, .recent #recentMovies.nowplaying .recent-item .poster, .recent .discover.discover .recent-item .poster, .recent .discover.nowplaying .recent-item .poster, .recent .nowplaying.discover .recent-item .poster, .recent .nowplaying.nowplaying .recent-item .poster {
+        height: auto; }
+  .recent #recentMovies .recent-item {
+    height: 450px; }
 
 .movie-details {
   margin-top: -200;

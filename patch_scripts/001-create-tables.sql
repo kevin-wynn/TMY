@@ -1,3 +1,5 @@
+DROP TABLE movies, discovery, nowplaying, users;
+
 CREATE TABLE IF NOT EXISTS movies (
     movie_id int(11) NOT NULL auto_increment,
     PRIMARY KEY (movie_id),
@@ -6,7 +8,10 @@ CREATE TABLE IF NOT EXISTS movies (
     director varchar(255),
     cast varchar(255),
     poster_path varchar(255),
+    poster2_path varchar(255),
     backdrop_path varchar(255),
+    backdrop2_path varchar(255),
+    backdrop3_path varchar(255),
     score int,
     review varchar(10000),
     release_date varchar(255),
@@ -20,6 +25,22 @@ CREATE TABLE IF NOT EXISTS movies (
 CREATE TABLE IF NOT EXISTS discovery (
     discovery_id int(11) NOT NULL auto_increment,
     PRIMARY KEY (discovery_id),
+    movie_title varchar(255),
+    overview varchar(10000),
+    director varchar(255),
+    cast varchar(255),
+    poster_path varchar(255),
+    backdrop_path varchar(255),
+    release_date varchar(255),
+    featured boolean,
+    popular_vote varchar(255),
+    genre varchar(255),
+    trailer varchar(255)
+  );
+  
+CREATE TABLE IF NOT EXISTS nowplaying (
+    nowplaying_id int(11) NOT NULL auto_increment,
+    PRIMARY KEY (nowplaying_id),
     movie_title varchar(255),
     overview varchar(10000),
     director varchar(255),

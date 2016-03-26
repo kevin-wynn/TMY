@@ -656,8 +656,8 @@ th {
   }
 }
 
-.discovery-movies {
-  #discoveryMovies{
+.discovery-movies, .nowplaying-movies {
+  #discoveryMovies, #nowplayingMovies{
     display: block;
     height: auto;
     width: 100%;
@@ -676,7 +676,7 @@ th {
   h5 {
     display: inline-block;
   }
-  p.getmovies {
+  p.getmovies, p.getmovies-nowplaying {
     display: inline-block;  
     font-size: 10px;
     color: $blue;
@@ -684,7 +684,7 @@ th {
     cursor: pointer;
   }
   
-    .discovery-item {
+    .discovery-item, .nowplaying-item {
       width: 10%;
       margin-bottom: 10px;
       text-transform: uppercase;
@@ -694,7 +694,7 @@ th {
       position: relative;
       overflow: hidden;
       display: inline-block;
-      &.discovery-featured {
+      &.discovery-featured, &.nowplaying-featured {
         position: relative;
         &::after {
           font-family: 'fontAwesome';

@@ -59,6 +59,10 @@
                   <h5>Discovery Movies:</h5><p class="getmovies">retrieve new discovery movies</p>
                   <div id="discoveryMovies"></div>
                 </div>
+                <div class="col-md-12 nowplaying-movies" id="nowplaying">
+                  <h5>Now Playing Movies:</h5><p class="getmovies-nowplaying">retrieve new now playing movies</p>
+                  <div id="nowplayingMovies"></div>
+                </div>
               </div>
               <div class="col-md-4 no-padding" id="recentMoviesDash">
                 <h5>Recently Added Movie:</h5>

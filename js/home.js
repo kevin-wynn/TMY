@@ -124,11 +124,15 @@ $(document).ready(function() {
         director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
         score_recentContainer = '<div class="score">';
         score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
-
+        
         fullItems = $('<div data-released="'+release_date+'" data-published="'+publish_date+'" data-category="'+genres_forID+'" class="recent-item" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></div>');
 
-        $('#recentMovies').isotope('insert', fullItems ).isotope('layout');
+        $('#recentMovies').isotope('insert', fullItems ); 
       }
+      
+        $('#recentMovies').imagesLoaded().progress( function() {
+          $('#recentMovies').isotope('layout');
+        });
       
         // clean up array for filters
         filters = filters.split(' ');
@@ -172,8 +176,51 @@ $(document).ready(function() {
 
         fullItems = $('<div data-released="'+release_date+'" class="recent-item '+genres_forID+'" id="discovery">'+poster_recent+'</div>');
 
-        $('#discover').isotope('insert', fullItems ).isotope('layout');
+        $('#discover').isotope('insert', fullItems );
       }
+        $('#discover').imagesLoaded().progress( function() {
+          $('#discover').isotope('layout');
+        });
+        initControls();
+    }
+  });
+  
+  // GET NOWPLAYING MOVIES
+  $.ajax({
+    type: "GET",
+    url: "php/nowplaying.php",
+    dataType: "json",
+    success: function(result) {
+      // clear current movies here
+      $('#nowplaying').html('');
+
+      for(i=0; i<result.length; i++){
+        // grab content from json returned
+        var poster_recent = prefixUrl + result[i].poster_path,
+            title_recent = result[i].movie_title,
+            genres_recent = result[i].genre,
+            overview_recent = result[i].overview,
+            score_recent = result[i].score,
+            director_recent = result[i].director,
+            publish_date = result[i].publish_date,
+            release_date = result[i].release_date;
+
+        var genres_forID = genres_recent.replace(/,/g, "");
+            genres_forID = genres_forID.toLowerCase();
+
+        poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
+        title_recent = '<h2 id="movie_title">'+title_recent+'</h2>';
+        genres_recent = '<p id="genres">'+genres_recent+'</p>';
+        overview_recent = '<p>'+overview_recent+'</p>';
+        director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
+
+        fullItems = $('<div data-released="'+release_date+'" class="recent-item '+genres_forID+'" id="nowplaying">'+poster_recent+'</div>');
+
+        $('#nowplaying').isotope('insert', fullItems );
+      }
+        $('#nowplaying').imagesLoaded().progress( function() {
+          $('#nowplaying').isotope('layout');
+        });
         initControls();
     }
   });

@@ -148,7 +148,7 @@
       border-radius: 3px;
       position: relative;
       overflow: hidden;
-      height: 450px;
+      display: block;
       &:before {
         position: absolute;
         top: 0;
@@ -169,7 +169,7 @@
         animation: shine .75s;
       }
       .poster {
-        height: 365px;
+        height: auto;
       }
       .info {
         padding: 0;
@@ -212,10 +212,18 @@
     }
     &.discover .recent-item, &.nowplaying .recent-item {
       cursor: default;
-      height: 200px;
+      display: block;
       &:before {
         display: none;
       }
+      .poster {
+        height: auto;
+      }
+    }
+  }
+  #recentMovies{
+    .recent-item {
+      height: 450px;
     }
   }
 }

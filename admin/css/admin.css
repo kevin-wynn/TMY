@@ -482,26 +482,26 @@ th {
   font-weight: 100;
   margin-left: 15px; }
 
-.discovery-movies #discoveryMovies {
+.discovery-movies #discoveryMovies, .discovery-movies #nowplayingMovies, .nowplaying-movies #discoveryMovies, .nowplaying-movies #nowplayingMovies {
   display: block;
   height: auto;
   width: 100%; }
-.discovery-movies .loading {
+.discovery-movies .loading, .nowplaying-movies .loading {
   height: 200px;
   padding-top: 75px;
   text-align: center;
   display: block; }
-  .discovery-movies .loading i {
+  .discovery-movies .loading i, .nowplaying-movies .loading i {
     font-size: 50px; }
-.discovery-movies h5 {
+.discovery-movies h5, .nowplaying-movies h5 {
   display: inline-block; }
-.discovery-movies p.getmovies {
+.discovery-movies p.getmovies, .discovery-movies p.getmovies-nowplaying, .nowplaying-movies p.getmovies, .nowplaying-movies p.getmovies-nowplaying {
   display: inline-block;
   font-size: 10px;
   color: #59ABE3;
   margin-left: 10px;
   cursor: pointer; }
-.discovery-movies .discovery-item {
+.discovery-movies .discovery-item, .discovery-movies .nowplaying-item, .nowplaying-movies .discovery-item, .nowplaying-movies .nowplaying-item {
   width: 10%;
   margin-bottom: 10px;
   text-transform: uppercase;
@@ -511,9 +511,9 @@ th {
   position: relative;
   overflow: hidden;
   display: inline-block; }
-  .discovery-movies .discovery-item.discovery-featured {
+  .discovery-movies .discovery-item.discovery-featured, .discovery-movies .discovery-item.nowplaying-featured, .discovery-movies .nowplaying-item.discovery-featured, .discovery-movies .nowplaying-item.nowplaying-featured, .nowplaying-movies .discovery-item.discovery-featured, .nowplaying-movies .discovery-item.nowplaying-featured, .nowplaying-movies .nowplaying-item.discovery-featured, .nowplaying-movies .nowplaying-item.nowplaying-featured {
     position: relative; }
-    .discovery-movies .discovery-item.discovery-featured::after {
+    .discovery-movies .discovery-item.discovery-featured::after, .discovery-movies .discovery-item.nowplaying-featured::after, .discovery-movies .nowplaying-item.discovery-featured::after, .discovery-movies .nowplaying-item.nowplaying-featured::after, .nowplaying-movies .discovery-item.discovery-featured::after, .nowplaying-movies .discovery-item.nowplaying-featured::after, .nowplaying-movies .nowplaying-item.discovery-featured::after, .nowplaying-movies .nowplaying-item.nowplaying-featured::after {
       font-family: 'fontAwesome';
       content: '\f0e7';
       position: absolute;
@@ -522,36 +522,36 @@ th {
       color: #EF4836;
       font-size: 20px;
       z-index: 9999; }
-    .discovery-movies .discovery-item.discovery-featured .poster {
+    .discovery-movies .discovery-item.discovery-featured .poster, .discovery-movies .discovery-item.nowplaying-featured .poster, .discovery-movies .nowplaying-item.discovery-featured .poster, .discovery-movies .nowplaying-item.nowplaying-featured .poster, .nowplaying-movies .discovery-item.discovery-featured .poster, .nowplaying-movies .discovery-item.nowplaying-featured .poster, .nowplaying-movies .nowplaying-item.discovery-featured .poster, .nowplaying-movies .nowplaying-item.nowplaying-featured .poster {
       border-bottom: 2px solid #EF4836; }
-  .discovery-movies .discovery-item .info {
+  .discovery-movies .discovery-item .info, .discovery-movies .nowplaying-item .info, .nowplaying-movies .discovery-item .info, .nowplaying-movies .nowplaying-item .info {
     padding: 0; }
-    .discovery-movies .discovery-item .info h2 {
+    .discovery-movies .discovery-item .info h2, .discovery-movies .nowplaying-item .info h2, .nowplaying-movies .discovery-item .info h2, .nowplaying-movies .nowplaying-item .info h2 {
       font-size: 12px;
       margin: 5px 0px;
       letter-spacing: 2px; }
-    .discovery-movies .discovery-item .info p {
+    .discovery-movies .discovery-item .info p, .discovery-movies .nowplaying-item .info p, .nowplaying-movies .discovery-item .info p, .nowplaying-movies .nowplaying-item .info p {
       font-size: 8px;
       letter-spacing: 1px; }
-  .discovery-movies .discovery-item .score-container {
+  .discovery-movies .discovery-item .score-container, .discovery-movies .nowplaying-item .score-container, .nowplaying-movies .discovery-item .score-container, .nowplaying-movies .nowplaying-item .score-container {
     padding: 0;
     text-align: right;
     padding-top: 5px; }
-    .discovery-movies .discovery-item .score-container .score {
+    .discovery-movies .discovery-item .score-container .score, .discovery-movies .nowplaying-item .score-container .score, .nowplaying-movies .discovery-item .score-container .score, .nowplaying-movies .nowplaying-item .score-container .score {
       position: relative;
       color: #E87E04; }
-      .discovery-movies .discovery-item .score-container .score .rating-number {
+      .discovery-movies .discovery-item .score-container .score .rating-number, .discovery-movies .nowplaying-item .score-container .score .rating-number, .nowplaying-movies .discovery-item .score-container .score .rating-number, .nowplaying-movies .nowplaying-item .score-container .score .rating-number {
         color: #fff;
         position: absolute;
         font-size: 12px;
         left: 10px;
         top: 9px;
         font-weight: 700; }
-      .discovery-movies .discovery-item .score-container .score .fa {
+      .discovery-movies .discovery-item .score-container .score .fa, .discovery-movies .nowplaying-item .score-container .score .fa, .nowplaying-movies .discovery-item .score-container .score .fa, .nowplaying-movies .nowplaying-item .score-container .score .fa {
         font-size: 30px;
         position: relative;
         float: right; }
-  .discovery-movies .discovery-item img {
+  .discovery-movies .discovery-item img, .discovery-movies .nowplaying-item img, .nowplaying-movies .discovery-item img, .nowplaying-movies .nowplaying-item img {
     width: 100%;
     height: auto; }
 
