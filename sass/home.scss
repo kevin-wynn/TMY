@@ -31,6 +31,19 @@
     letter-spacing: 2px;
     display: block;
     width: 100%;
+    .featured-title {
+      position: relative;
+      &:after {
+        position: absolute;
+        top: 0;
+        left: -70px;
+        z-index: 9999;
+        color: $blue;
+        content: 'TMY FEATURED';
+        font-size: 18px;
+        transform: rotate(-15deg);
+      }
+    }
   }
   .genres {
     font-size: 20px;

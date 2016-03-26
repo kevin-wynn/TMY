@@ -47,7 +47,7 @@
     '$_POST[movieName]',
     '$overview',
     '$director',
-    '$_POST[actorIds]',
+    '$_POST[cast]',
     '$posterLocalPath',
     '$backdropLocalPath',
     '$_POST[releaseDate]',

@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS movies (
-    movie_id int,
+    movie_id int(11) NOT NULL auto_increment,
+    PRIMARY KEY (movie_id),
     movie_title varchar(255),
     overview varchar(10000),
     director varchar(255),

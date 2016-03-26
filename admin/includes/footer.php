@@ -12,7 +12,10 @@ if (strpos($pageurl, 'includes') !== false) { ?>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/../js/vender/jquery.raty.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/../js/vender/chart.min.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/../js/permissions.js"></script>
+  <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/../js/loginTracker.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/../js/sortfilter.js"></script>
+  <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/../js/dashDiscovery.js"></script>
+  <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/../js/dashChart.js"></script>
 <?php } else { ?>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/vender/jquery-2.2.1.min.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/vender/bootstrap.min.js"></script>
@@ -23,5 +26,8 @@ if (strpos($pageurl, 'includes') !== false) { ?>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/vender/jquery.raty.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/vender/chart.min.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/permissions.js"></script>
+  <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/loginTracker.js"></script>
   <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/sortfilter.js"></script>
+  <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/dashDiscovery.js"></script>
+  <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/dashChart.js"></script>
 <?php }; ?>

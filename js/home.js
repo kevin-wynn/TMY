@@ -32,7 +32,7 @@ $(document).ready(function() {
       
       heroImage.css('background-image', 'url('+backdrop+')');
       $('.footer').css('background-image', 'url('+backdrop+')');
-      movieTitle.html(title);
+      movieTitle.html('<span class="featured-title">'+title+'</span>');
       movieGenres.html(genres);
       movieOverview.html(overview);
       movieCast.html(cast);
@@ -69,6 +69,7 @@ $(document).ready(function() {
     dataType: "json",
     data: {offset:0, limit:8},
     success: function(result) {
+      var filterGenres = [], filters = '';
       // clear current movies here
       $('#recentMovies').html('');
 
@@ -86,6 +87,35 @@ $(document).ready(function() {
 
         var genres_forID = genres_recent.replace(/,/g, "");
             genres_forID = genres_forID.toLowerCase();
+        
+        // need to replace science fiction with science-fiction
+        if (genres_forID.indexOf('science fiction') > -1) {
+          
+          // create an array from genres
+          genres_forID = genres_forID.split(' ');
+          
+          // find the word science and get its place in the array
+          var n = $.inArray('science', genres_forID);
+          
+          // since fiction will always be next in the array, combine the two
+          var scifi = genres_forID[n]+'-'+genres_forID[n+1];
+          
+          // now we need to remove both from the original array
+          genres_forID.splice(n+1, 1);
+          genres_forID.splice(n, 1);
+          
+          // and put the combined science-fiction back in
+          genres_forID.push(scifi);
+          
+          // now we need to convert it back to a string
+          genres_forID = genres_forID.toString();
+          
+          // and replace commas with spaces so we have individual items for the data-attr
+          genres_forID = genres_forID.replace(/,/g , " ");
+        }
+          
+        // we need to build an array to pass to the filter now        
+        filters += genres_forID+' ';
 
         poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
         title_recent = '<h2 id="movie_title">'+title_recent+'</h2>';
@@ -95,10 +125,17 @@ $(document).ready(function() {
         score_recentContainer = '<div class="score">';
         score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
 
-        fullItems = $('<div data-released="'+release_date+'" data-published="'+publish_date+'" class="recent-item '+genres_forID+'" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></div>');
+        fullItems = $('<div data-released="'+release_date+'" data-published="'+publish_date+'" data-category="'+genres_forID+'" class="recent-item" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></div>');
 
         $('#recentMovies').isotope('insert', fullItems ).isotope('layout');
       }
+      
+        // clean up array for filters
+        filters = filters.split(' ');
+        filters = $.unique(filters);
+        filters.pop();
+      
+//        buildFilters(filters);
 
       initControls();
     }
@@ -122,8 +159,7 @@ $(document).ready(function() {
             score_recent = result[i].score,
             director_recent = result[i].director,
             publish_date = result[i].publish_date,
-            release_date = result[i].release_date,
-            score_recentContainer;
+            release_date = result[i].release_date;
 
         var genres_forID = genres_recent.replace(/,/g, "");
             genres_forID = genres_forID.toLowerCase();

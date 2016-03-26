@@ -35,24 +35,32 @@
             <div class="col-lg-12 recent home">
               <h1>Dashboard</h1>
               <div class="col-md-8 controls">
-                <div class="col-md-12">
-                  <h5>Movies Added:</h5>
-                  <canvas id="moviesAdded" style="width:100%; height: 300px;"></canvas> 
+                <div class="col-md-6 no-padding">
+                  <div class="col-md-3 no-padding">
+                    <h5>Movies:</h5>
+                    <span class="chart-label" id="totalMovies">Total: </span>
+                    <span class="chart-label" id="recentMoviesChart">Recent: </span>
+                  </div>
+                  <div class="col-md-9 no-padding">
+                    <canvas id="movies" style="width:100%;"></canvas>
+                  </div>
+                </div>
+                <div class="col-md-6 no-padding">
+                  <div class="col-md-3 no-padding">
+                    <h5>Users:</h5>
+                    <span class="chart-label" id="totalUsers">Total: </span>
+                    <span class="chart-label" id="activeUsers">Active: </span>
+                  </div>
+                  <div class="col-md-9 no-padding">
+                    <canvas id="users" style="width:100%;"></canvas>
+                  </div>
                 </div>
                 <div class="col-md-12 discovery-movies" id="discovery">
                   <h5>Discovery Movies:</h5><p class="getmovies">retrieve new discovery movies</p>
                   <div id="discoveryMovies"></div>
                 </div>
-                <div class="col-md-12" id="users">
-                  <h5>Users:</h5>
-                  <div class="col-md-1 header">ID</div>
-                  <div class="col-md-4 header">Username</div>
-                  <div class="col-md-3 header">Email</div>
-                  <div class="col-md-2 header">Permissions</div>
-                  <div class="col-md-2 header">Signup</div>
-                </div>
               </div>
-              <div class="col-md-4" id="recentMovies">
+              <div class="col-md-4 no-padding" id="recentMoviesDash">
                 <h5>Recently Added Movie:</h5>
               </div>
             </div>

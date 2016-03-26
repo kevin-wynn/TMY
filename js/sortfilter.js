@@ -1,3 +1,5 @@
+//var filterItems = $('#filterItems');
+
 $(document).ready(function(){
   var sortItems = $('#sortItems'),
       sortAction = $('#sortAction'),
@@ -8,7 +10,8 @@ $(document).ready(function(){
     itemSelector: '#movie',
     getSortData: {
       published: '[data-published]',
-      released: '[data-released]'
+      released: '[data-released]',
+      category: '[data-category]'
     },
     percentPosition: true,
     masonry: {
@@ -19,10 +22,6 @@ $(document).ready(function(){
   
   discover.isotope({
     itemSelector: '#movie',
-    getSortData: {
-      published: '[data-published]',
-      released: '[data-released]'
-    },
     percentPosition: true,
     masonry: {
       // use element for option
@@ -65,12 +64,9 @@ $(document).ready(function(){
     recentMovies.isotope({filter:category});
   });
   
-  filterAction.on('click', function(){
-    genres = $('#genres').html();
-    filterItems.slideToggle();
-    arr = $.unique(genres.split(' '));
-    buildFilters(arr);
-  });
+//  filterAction.on('click', function(){
+//    filterItems.slideToggle();
+//  });
   
   $('#sortReviewed').on('click', function(){        
     recentMovies.isotope({
@@ -86,11 +82,21 @@ $(document).ready(function(){
     });
   });
   
-  function buildFilters(genres) {
-    var filterItems = $('#filterItems');
-    filterItems.html('<li id="#all">#all</li>');
-    for(i=0; i<genres.length; i++){
-      filterItems.append('<li id="' + genres[i] + '">' + genres[i] + '</li>');
-    }
-  }
+//  filterItems.on('click', function(){
+//    recentMovies.isotope({
+//      sortBy : 'category',
+//      sortAscending: false
+//    });
+//  });
 });
+
+//function buildFilters(filters) {
+//  console.log(filters);
+//  filterItems.html('<li id="#all">#all</li>');
+//  
+//  for(i=0; i<filters.length; i++){
+//    console.log(filters[i]);
+//    filterItems.append('<li id="' + filters[i] + '">' + filters[i] + '</li>');
+//  }
+//  
+//}

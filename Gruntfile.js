@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 //          '<%= grunt.template.today("yyyy-mm-dd") %> */',
       },
       dist: {
-        src: ['sass/variables.scss', 'sass/*.scss'],
+        src: 'sass/global.scss',
         dest: 'sass/main.scss',
       },
     },
