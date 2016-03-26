@@ -6,7 +6,7 @@ function errorCB(data){
   console.log('error');
 }
 
-$(document).ready(function() {
+$(document).ready(function(){
   var heroImage = $('#heroImage'),
       movieTitle = $('#movieTitle'),
       movieOverview = $('#movieOverview'),
@@ -17,52 +17,71 @@ $(document).ready(function() {
       movieTrailer = $('#movieTrailer'),
       wave = 0;
   
-      for(i=0; i<score; i++){
-        movieScore.append('<i class="fa fa-star"></i> ');
-      }
-
-      movieTrailer.fitVids();  
+  movieTrailer.fitVids();
   
-      cast = cast0 + ',' + cast1 + ',' + cast2;
-      cast = cast.replace(/ /g,'');
-      cast = cast.split(',');
-      movieCast.html('<span class="intro-text">Starring - </span>');
-      for(i=0; i<cast.length; i++){
-        theMovieDb.people.getById({"id":cast[i]}, parseCast, errorCB);
-      }
+  var getUrlParameter = function getUrlParameter(sParam) {
+      var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+          sURLVariables = sPageURL.split('&'),
+          sParameterName,
+          i;
 
-      function parseCast(data){
-          var name = $.parseJSON(data).name;
-          if(wave == cast.length) {
-            movieCast.append(name);
-          } else {
-            movieCast.append(name + ', ');
+      for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+
+          if (sParameterName[0] === sParam) {
+              return sParameterName[1] === undefined ? true : sParameterName[1];
           }
       }
+  };
   
-//  // sets up interation with clicking a movie poster - redirects them to /movies/clicked
-//  function initControls(){
-//    var movie = $("[id=movie]"),
-//        movie_title, url;
-//
-//      movie.on('click', function(){
-//      // get the h2 value that holds the movie title
-//      movie_title = $(this).find($('h2')).html();
-//
-//      // if movie title has a space, replace it with a dash
-//      if(movie_title.indexOf(' ') != -1) {
-//        movie_title = movie_title.replace(' ', '-');
-//      }
-//
-//      // make sure its lowercase
-//      movie_title = movie_title.toLowerCase();
-//
-//      // prepend location to url
-//      url = prefixUrl+'/movies/'+movie_title;
-//
-//      // redirect
-//      window.location.href = url;
-//    });
-//  }
+  var movieId = getUrlParameter('movie_id');
+  
+  console.log(movieId);
+  
+  // FEATURED HERO IMAGE
+  $.ajax({
+    type: "GET",
+    url: "../php/pageDetails.php",  
+    data: {movie_id:movieId},
+    dataType: "json",                
+    success: function(result) {
+      var backdrop = prefixUrl + result[0].backdrop_path,
+          title = result[0].movie_title,
+          genres = result[0].genre,
+          overview = result[0].overview,
+          score = result[0].score,
+          director = result[0].director,
+          cast = result[0].cast,
+          wave = 0;
+      
+          for(i=0; i<score; i++){
+            movieScore.append('<i class="fa fa-star"></i> ');
+          }
+
+          cast = cast.replace(/ /g,'');
+          cast = cast.split(',');
+          movieCast.html('<span class="intro-text">Starring - </span>');
+          for(i=0; i<cast.length; i++){
+            theMovieDb.people.getById({"id":cast[i]}, parseCast, errorCB);
+          }
+
+          function parseCast(data){
+              var name = $.parseJSON(data).name;
+              if(wave == cast.length) {
+                movieCast.append(name);
+              } else {
+                movieCast.append(name + ', ');
+              }
+          }
+      
+      console.log(title);
+    }
+  });
   
 });
+
+function buildPage(score, review, cast){
+
+//  
+//  console.log(review);
+}

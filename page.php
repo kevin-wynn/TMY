@@ -17,6 +17,7 @@
   $row = mysql_fetch_array($result);
   
   // get backdrop path for css background image on hero
+  $movieTitle = $row['movie_title'];
   $backdrop = $row['backdrop_path'];
   $poster = $row['poster_path'];
   $score = $row['score'];
@@ -25,21 +26,13 @@
 
   $cast = preg_replace('/\.$/', '', $cast); //Remove dot at end if exists
   $array = explode(', ', $cast); //split string into array seperated by ', '
+
+  $movieReview = str_replace(array("\n", "\t", "\r"), '<br>', ($row['review']));
+
+  $movieReview = (string)$movieReview;
 ?>
-<script>
-  var score = <?php echo $score ?>;
-  var <?php
-  
-  foreach($array as $key=>$value) //loop over values
-  {
-      echo 'cast' . $key . '=' . $value . ';'; //print value
-  }
-  
-  ?>
-  
-</script>
 <?php include 'components/head.php' ?>
-<title>This Movie Year</title>
+<title>This Movie Year - <?php echo $movieTitle ?></title>
 <body>
 <div class="wrapper">
   <div class="main-holder">
@@ -70,6 +63,7 @@
        <span class="popular-vote movie-info">Popular Vote: <span class="prop"><?php echo $row['popular_vote']; ?></span></span>
      </div>
      <div class="col-md-8 movie-review">
+       <h1 class="movie-title"><?php echo $movieTitle ?></h1>
        <div id="movieTrailer" class="trailer-container"><iframe src="<?php echo $trailer ?>?modestbranding=1;controls=0;showinfo=0;rel=0;fs=1" frameborder="0" allowfullscreen></iframe></div>
        <p><?php echo nl2br($row['review']); ?></p>
       </div>
@@ -91,5 +85,24 @@
   </div>
 </div>
 <?php include 'components/footer.php' ?>
+<script>
+  $(document).ready(function(){
+    function movieData(){
+      var score = <?php echo $score ?>;
+      var review = "<?php echo $movieReview ?>";
+      var <?php
+
+      foreach($array as $key=>$value) //loop over values
+      {
+          echo 'cast' . $key . '=' . $value . ';'; //print value
+      }
+
+      ?> 
+
+      buildPage(score, review, cast);
+    }
+  });
+</script>
+<script src="../js/page.js"></script>
 </body>
 </html>

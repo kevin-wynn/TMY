@@ -10,7 +10,6 @@
     <script src="../js/vender/imagesloaded.pkgd.min"></script>
     <script src="../js/vender/isotope.pkgd.min.js"></script>
     <script src="../js/vender/themoviedb.js"></script>
-    <script src="../js/page.js"></script>
     <script src="../js/vender/jquery.fitvids.js"></script>
 <?php } else if (strpos($page, 'all-movies.php') !== false) { ?>
   <div class="footer">

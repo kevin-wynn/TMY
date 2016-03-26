@@ -247,6 +247,8 @@
     margin-bottom: 5px; }
     .movie-details .movie-info .prop {
       color: #59ABE3; }
+  .movie-details .movie-review .movie-title {
+    margin-top: 0; }
   .movie-details .movie-review h3 {
     margin-top: 0; }
   .movie-details .movie-review p {
