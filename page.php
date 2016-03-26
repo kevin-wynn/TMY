@@ -8,10 +8,11 @@
 
   // gather url for htaccess redirect
   $movie = mysql_real_escape_string($_GET['movie_title']);
+  $movieId = mysql_real_escape_string($_GET['movie_id']);
   $movie = str_replace('-', ' ', $movie);
 
   //Remove LIMIT 1 to show/do this to all results.
-  $query = "SELECT * FROM movies WHERE movie_title = '" . $movie . "' LIMIT 1";
+  $query = "SELECT * FROM movies WHERE movie_id = '" . $movieId . "' LIMIT 1";
   $result = mysql_query($query);
   $row = mysql_fetch_array($result);
   
@@ -64,11 +65,11 @@
     <div class="col-md-10 col-md-offset-1 movie-details" id="movieDetails">
      <div class="col-md-4">
        <img class="poster" src="<?php echo $pagefinal; echo $poster; ?>">
+       <span class="release-date movie-info">Release Date: <span class="prop"><?php echo $row['release_date']; ?></span></span>
+       <span class="review-date movie-info">Reviewed: <span class="prop"><?php echo $row['publish_date']; ?></span></span>
+       <span class="popular-vote movie-info">Popular Vote: <span class="prop"><?php echo $row['popular_vote']; ?></span></span>
      </div>
      <div class="col-md-8 movie-review">
-       <h3>Release Date: <?php echo $row['release_date']; ?></h3>
-       <h3>Reviewed: <?php echo $row['publish_date']; ?></h3>
-       <h3>Popular Vote: <?php echo $row['popular_vote']; ?></h3>
        <div id="movieTrailer" class="trailer-container"><iframe src="<?php echo $trailer ?>?modestbranding=1;controls=0;showinfo=0;rel=0;fs=1" frameborder="0" allowfullscreen></iframe></div>
        <p><?php echo nl2br($row['review']); ?></p>
       </div>

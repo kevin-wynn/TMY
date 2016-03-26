@@ -240,7 +240,13 @@
   padding: 35px 15px; }
   .movie-details .poster {
     width: 100%;
-    height: auto; }
+    height: auto;
+    margin-bottom: 15px; }
+  .movie-details .movie-info {
+    display: block;
+    margin-bottom: 5px; }
+    .movie-details .movie-info .prop {
+      color: #59ABE3; }
   .movie-details .movie-review h3 {
     margin-top: 0; }
   .movie-details .movie-review p {

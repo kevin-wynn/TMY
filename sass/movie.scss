@@ -6,6 +6,14 @@
   .poster {
     width: 100%;
     height: auto;
+    margin-bottom: 15px;
+  }
+  .movie-info {
+    display: block;
+    margin-bottom: 5px;
+    .prop {
+      color: $blue;
+    }
   }
   .movie-review {
     h3 {
