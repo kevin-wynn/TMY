@@ -20,5 +20,14 @@ function initControls(){
       
     // redirect
     window.location.href = url;
+      
+  });
+  
+  $('.discover-help').unbind().on('click', function(){
+    $('#discoverTooltip').slideToggle();
+  });
+  
+  $('.nowplaying-help').unbind().on('click', function(){
+    $('#nowplayingTooltip').slideToggle();
   });
 }

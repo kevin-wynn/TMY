@@ -10,7 +10,7 @@
   $offset = $_GET['offset'];
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT $limit OFFSET $offset");
+  $result = mysql_query("SELECT * FROM movies WHERE featured=0 ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT $limit OFFSET $offset");
 
   while($row = mysql_fetch_array($result))     
   {

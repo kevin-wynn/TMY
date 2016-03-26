@@ -21,7 +21,7 @@ $(document).ready(function(){
   });
   
   discover.isotope({
-    itemSelector: '#movie',
+    itemSelector: '#discovery',
     percentPosition: true,
     masonry: {
       // use element for option

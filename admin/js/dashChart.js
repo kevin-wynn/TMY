@@ -18,11 +18,6 @@ $(document).ready(function(){
       $('#totalUsers').append(users);
       $('#activeUsers').append(last_login);
       
-      console.log('movies:', movies);
-      console.log('recent_movies:', recent_movies);
-      console.log('users:', users);
-      console.log('last_login:', last_login);
-      
     var userData = [
         {
           value: last_login,
@@ -31,10 +26,10 @@ $(document).ready(function(){
           label: "Active Users"
         },
         {
-          value : users,
+          value : users-last_login,
           color : "#03A678",
           highlight: "#019875",
-          label: "Total Users"
+          label: "Inactive Users"
         }
       ];
 
@@ -51,10 +46,10 @@ $(document).ready(function(){
             label: "Recent Movies"
           },
           {
-            value : movies,
+            value : movies-recent_movies,
             color : "#EF4836",
             highlight: "#C0392B",
-            label: "Total Movies"
+            label: "Existing Movies"
           }
         ];
 

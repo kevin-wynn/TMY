@@ -25,6 +25,7 @@
   </div>
   <div class="container-fluid recent">
     <?php include 'components/discover.php' ?>
+    <?php include 'components/nowPlaying.php' ?>
     <?php include 'components/sort.php' ?>
     <?php include 'components/moviesContainer.php' ?>
   </div>

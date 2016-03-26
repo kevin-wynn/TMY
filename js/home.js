@@ -170,7 +170,7 @@ $(document).ready(function() {
         overview_recent = '<p>'+overview_recent+'</p>';
         director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
 
-        fullItems = $('<div data-released="'+release_date+'" class="recent-item '+genres_forID+'" id="movie">'+poster_recent+'<div class="col-md-12 info">'+title_recent+genres_recent+director_recent+'</div></div>');
+        fullItems = $('<div data-released="'+release_date+'" class="recent-item '+genres_forID+'" id="discovery">'+poster_recent+'</div>');
 
         $('#discover').isotope('insert', fullItems ).isotope('layout');
       }

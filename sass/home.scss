@@ -38,7 +38,7 @@
         top: 0;
         left: -70px;
         z-index: 9999;
-        color: $blue;
+        color: $gold;
         content: 'TMY FEATURED';
         font-size: 18px;
         transform: rotate(-15deg);
@@ -102,11 +102,41 @@
   display: block;
   height: 100%;
   
+  .discover-section {
+    background: #fff;
+    border-radius: 5px 0 0 0;
+    .discover-help {
+      cursor: pointer;
+      color: $red;
+      &:hover {
+        color: darken($red, 10%);
+      }
+    }
+    #discoverTooltip {
+      display: none;
+    }
+  }
+  
+  .nowplaying-section {
+    background: #fff;
+    border-radius: 0 5px 0 0;
+    .nowplaying-help {
+      cursor: pointer;
+      color: $gold;
+      &:hover {
+        color: darken($gold, 10%);
+      }
+    }
+    #nowplayingTooltip {
+      display: none;
+    }
+  }
+  
   .col-md-10 {
     background: #fff;
   }
   
-  #recentMovies, .discover {
+  #recentMovies, .discover, .nowplaying {
     padding: 0;
     
     .recent-item {
@@ -179,6 +209,13 @@
         width: 100%;
         height: auto;
       }
-    } 
+    }
+    &.discover .recent-item, &.nowplaying .recent-item {
+      cursor: default;
+      height: 200px;
+      &:before {
+        display: none;
+      }
+    }
   }
 }

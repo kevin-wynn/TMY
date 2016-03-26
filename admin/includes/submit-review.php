@@ -44,7 +44,8 @@
     genre,
     review,
     score,
-    trailer
+    trailer,
+    featured
   ) VALUES (
     '$_POST[movie_title]',
     '$overview',
@@ -58,7 +59,8 @@
     '$_POST[genre]',
     '$review',
     '$_POST[score]',
-    '$_POST[trailer]'
+    '$_POST[trailer]',
+    '0'
   )";
 
   // run it
