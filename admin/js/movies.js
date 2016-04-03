@@ -63,7 +63,7 @@ $(document).ready(function() {
               movie_id = result[i].movie_id,
               score_recentContainer;
               
-              if (featured_recent){
+              if (featured_recent == 1){
                 featured_recent = 'featured';
               } else {
                 featured_recent = '';

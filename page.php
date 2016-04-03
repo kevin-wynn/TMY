@@ -60,12 +60,11 @@
        <img class="poster" src="<?php echo $pagefinal; echo $poster; ?>">
        <span class="release-date movie-info">Release Date: <span class="prop"><?php echo $row['release_date']; ?></span></span>
        <span class="review-date movie-info">Reviewed: <span class="prop"><?php echo $row['publish_date']; ?></span></span>
-       <span class="popular-vote movie-info">Popular Vote: <span class="prop"><?php echo $row['popular_vote']; ?></span></span>
+       <span class="popular-vote movie-info">Popular Vote: <span class="prop"><?php echo $row['popular_vote']; ?>/10</span></span>
      </div>
      <div class="col-md-8 movie-review">
        <h1 class="movie-title"><?php echo $movieTitle ?></h1>
-       <div id="movieTrailer" class="trailer-container"><iframe src="<?php echo $trailer ?>?modestbranding=1;controls=0;showinfo=0;rel=0;fs=1" frameborder="0" allowfullscreen></iframe></div>
-       <p><?php echo nl2br($row['review']); ?></p>
+       <div id="pageContent"></div>
       </div>
     </div>
   </div>

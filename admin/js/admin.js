@@ -8,6 +8,7 @@ $(document).ready(function(){
       resultsContainer = $('#resultsContainer'),
       movieDetails = $('#movieDetails'),
       movie_title = $('[name=movie_title]'),
+      moviedb_id = $('[name=moviedb_id]'),
       movieOverview = $('[name=overview]'),
       movieDirector = $('[name=director]'),
       moviePoster = $('[name=poster_path]'),
@@ -18,7 +19,10 @@ $(document).ready(function(){
       moviePopularVote = $('[name=popular_vote]'),
       movieActorIds = $('[name=cast]'),
       movieTrailer = $('[name=trailer]'),
-      categories, movieData, movieId, movieName, posterPath, posterUrl, overview, releaseDate, poster, posterBackdropUrl, posterBackdrop,
+      movieBackdrop2 = $('[name=backdrop2_path]'),
+      movieBackdrop3 = $('[name=backdrop3_path]'),
+      moviePoster2 = $('[name=poster2_path]'),
+      categories, movieData, movieId, movieName, posterPath, posterUrl, overview, releaseDate, poster, posterBackdropUrl, posterBackdrop, posterBackdrop2Url, posterBackdrop3Url, poster2Url,
       posterSize, baseUrl, title, cast, firstThree, director, genreId, genres, popularVote;
   
   // define success and error callback functions
@@ -51,7 +55,15 @@ $(document).ready(function(){
     var searchResult = searchBox.val();
 
     theMovieDb.search.getMovie({"query":searchResult}, function(data){
+      resultsContainer.html('');
+      $('.submit-error').html('');
+      
       var length = $.parseJSON(data).total_results;
+      
+      // error handling for 0 results
+      if (length === 0 ) {
+        resultsContainer.html("<span class='no-results'>Sorry. We couldn't find any results for this search, try again.</span>");
+      }
       
       // FOR NOW TEMPORARY FIX JUST LIMIT TO ONE PAGE
       if (length > 20) {
@@ -98,6 +110,10 @@ $(document).ready(function(){
   
   // build movie data into form fields
   function getSelected(movieId){
+    
+    // show review writer and stars
+    $('.review').fadeIn();
+    
     theMovieDb.movies.getById({"id":movieId}, function(data){
       title = $.parseJSON(data).title;
       overview = $.parseJSON(data).overview;
@@ -131,6 +147,7 @@ $(document).ready(function(){
         }
       }
       
+      moviedb_id.val(movieId);
       movie_title.val(title);
       movieOverview.val(overview);
       moviePoster.val(posterUrl);
@@ -177,6 +194,7 @@ $(document).ready(function(){
       
     }, errorCB);
     
+    // get trailers for movie
     theMovieDb.movies.getTrailers({"id":movieId}, function(data){
       var youtubePrefix = 'https://www.youtube.com/embed/',
           youtubeTrailer = $.parseJSON(data).youtube;
@@ -188,6 +206,123 @@ $(document).ready(function(){
         movieTrailer.val(youtubeTrailer);
       }
     }, errorCB);
+    
+    // get extra backdrops and posters
+    theMovieDb.movies.getImages({"id":movieId }, function(data){
+      var backdropPathComplete, postersPathComplete,
+          backdrops = $.parseJSON(data).backdrops;
+      resultsContainer.append('<div class="col-md-12 backdrop-selection"><h5 class="image-header">Backdrops:</h5></div>');
+      resultsContainer.append('<div class="col-md-12 poster-selection"><h5 class="image-header">Posters:</h5></div>');
+      
+      if (backdrops.length > 18){
+        for (i=0; i<18; i++){
+          backdropPathComplete = baseUrl + '/original' + backdrops[i].file_path;
+
+          $('.backdrop-selection').append('<div class="col-md-2 select-image backdrop" id="backdropSelection"><img src="'+backdropPathComplete+'"/></div>');
+        }
+      } else {
+        for (i=0; i<backdrops.length; i++){
+          backdropPathComplete = baseUrl + '/original' + backdrops[i].file_path;
+
+          $('.backdrop-selection').append('<div class="col-md-2 select-image backdrop" id="backdropSelection"><img src="'+backdropPathComplete+'"/></div>');
+        }
+      }
+      
+      var posters = $.parseJSON(data).posters;
+      
+      if (posters.length > 6) {
+        for (i=0; i<6; i++){
+          postersPathComplete = baseUrl + '/w500' + posters[i].file_path;    
+          $('.poster-selection').append('<div class="col-md-2 select-image poster" id="posterSelection"><img src="'+postersPathComplete+'"/></div>');
+        }
+      } else {
+        for (i=0; i<posters.length; i++){
+          postersPathComplete = baseUrl + '/w500' + posters[i].file_path;    
+          $('.poster-selection').append('<div class="col-md-2 select-image poster" id="posterSelection"><img src="'+postersPathComplete+'"/></div>');
+        }
+      }
+      
+      initSelectImageControls();
+      
+    }, errorCB);
+    
+    function initSelectImageControls(){
+      $('.select-image').unbind().on('click', function(){
+        
+        var posters = $('.poster.selected'),
+            backdrops = $('.backdrop.selected');
+        
+        if ($(this).hasClass('backdrop')){
+          if(backdrops.length < 3){
+            if ($(this).hasClass('selected')) {
+              $(this).removeClass('selected');
+            } else {
+              $(this).addClass('selected');
+              console.log($(this).find('img').attr("src"));
+            }
+          }  
+        } else if ($(this).hasClass('poster')){
+          if(posters.length < 2){
+            if ($(this).hasClass('selected')) {
+              $(this).removeClass('selected');
+            } else {
+              $(this).addClass('selected');
+            }
+          }
+        } else {
+          console.log('what happened');
+        }
+
+      });
+    }
+    
+    // do some work before submitting to get images ready and check validation stuff
+    $('.review').submit(function(e){
+      e.preventDefault();
+      
+      var poster = $('.poster.selected'),
+          backdrop = $('.backdrop.selected'),
+          count;
+      
+      for (i=0; i<poster.length; i++){
+        if(poster.length === 1){
+          moviePoster.val(poster[0].getElementsByTagName('img')[0].src);          
+        } else if (poster.length === 2){
+          moviePoster2.val(poster[1].getElementsByTagName('img')[0].src);          
+        }
+      }
+      for (i=0; i<backdrop.length; i++){
+        if(backdrop.length === 1){
+          movieBackdrop.val(backdrop[0].getElementsByTagName('img')[0].src); 
+        } else if (backdrop.length === 2){
+          movieBackdrop2.val(backdrop[1].getElementsByTagName('img')[0].src);
+        } else if (backdrop.length === 3){
+          movieBackdrop3.val(backdrop[2].getElementsByTagName('img')[0].src);          
+        }
+      }
+      
+      var empties = $('input:hidden').filter(function() { return $(this).val() === ""; });
+      
+      empties.attr('disabled', true);
+      
+      $.ajax({
+        type: "GET",
+        url: "php/checkExisting.php", 
+        data: {movieId:movieId},
+        dataType: "json",
+        success: function(result) {
+          if (result.length > 0){
+            console.log('exists');
+            moviedb_id = result[0].moviedb_id;
+            console.log(moviedb_id);
+            $('.submit-error').html("You've already reviewed this movie.");
+          } else {
+            console.log('does not exist');
+            $('.review').unbind().submit();
+          }
+        }
+      });
+    });
     
   }
 });

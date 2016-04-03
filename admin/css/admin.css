@@ -22,6 +22,31 @@ th {
 .sidebar-item {
   display: none; }
 
+.submit-error {
+  color: #EF4836;
+  vertical-align: bottom; }
+
+.backdrop-selection .select-image, .poster-selection .select-image {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative; }
+  .backdrop-selection .select-image img, .poster-selection .select-image img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ffffff; }
+  .backdrop-selection .select-image.selected img, .poster-selection .select-image.selected img {
+    border-bottom: 2px solid #EF4836; }
+  .backdrop-selection .select-image.selected::after, .poster-selection .select-image.selected::after {
+    font-family: 'fontAwesome';
+    content: '\f0e7';
+    position: absolute;
+    left: 11px;
+    top: 5px;
+    color: #EF4836;
+    font-size: 20px;
+    z-index: 9999; }
+
 .button-primary {
   background: #59ABE3;
   color: #fff;
@@ -78,6 +103,7 @@ th {
   cursor: pointer; }
 
 .review {
+  display: none;
   margin-top: 25px; }
   .review .movie-title {
     width: 300px; }

@@ -76,6 +76,12 @@
   background-size: cover;
   z-index: -1; }
 
+.see-review {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  vertical-align: middle; }
+
 .intro {
   margin-top: 5%;
   color: #fff;
@@ -137,7 +143,7 @@
   margin-bottom: 25px; }
 
 .recent {
-  margin-top: -200px;
+  margin-top: -150px;
   display: block;
   height: 100%; }
   .recent .discover-section {
@@ -254,6 +260,12 @@
   .movie-details .movie-review p {
     font-size: 16px;
     letter-spacing: 1px; }
+  .movie-details .interior-image {
+    display: block;
+    margin-bottom: 15px; }
+    .movie-details .interior-image img {
+      width: 100%;
+      height: auto; }
 
 .navbar .logo a {
   color: #fff;

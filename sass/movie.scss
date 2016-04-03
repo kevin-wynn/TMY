@@ -1,4 +1,4 @@
-.movie-details {
+.movie-details { 
   margin-top: -200;
   border-radius: 3px 3px 0 0;
   background: #ffffff;
@@ -27,4 +27,14 @@
       letter-spacing: 1px;
     }
   }
+  
+  .interior-image {
+    display: block;
+    margin-bottom: 15px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
 }

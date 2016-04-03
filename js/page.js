@@ -52,6 +52,11 @@ $(document).ready(function(){
           score = result[0].score,
           director = result[0].director,
           cast = result[0].cast,
+          review = result[0].review,
+          trailer = result[0].trailer,
+          poster2 = result[0].poster2_path,
+          backdrop2_path = result[0].backdrop2_path,
+          backdrop3_path = result[0].backdrop3_path,
           wave = 0;
       
           for(i=0; i<score; i++){
@@ -74,14 +79,43 @@ $(document).ready(function(){
               }
           }
       
-      console.log(title);
+      review = review.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+      
+      Array.prototype.clean = function(deleteValue) {
+        for (var i = 0; i < this.length; i++) {
+          if (this[i] == deleteValue) {         
+            this.splice(i, 1);
+            i--;
+          }
+        }
+        return this;
+      };
+      
+      review = review.split('<br/>');
+      
+      console.log(review.clean(""));
+      
+      trailer = '<div id="movieTrailer" class="trailer-container"><iframe src="'+trailer+'modestbranding=1;controls=0;showinfo=0;rel=0;fs=1" frameborder="0" allowfullscreen></iframe></div>';
+      
+      backdrop2_path = '<img src="..'+backdrop2_path+'">';
+      backdrop3_path = '<img src="..'+backdrop3_path+'">';
+      
+      var pageContent = $('#pageContent');
+      
+      pageContent.append('<div class="col-md-6 interior-image">'+backdrop2_path+'</div>');
+      pageContent.append('<div class="col-md-6 interior-image">'+backdrop3_path+'</div>');
+      
+      for(i=0; i<review.length; i++) {
+        pageContent.append('<div class="col-md-12">'+review[i]+'<br><br></div>');  
+      }
+      pageContent.append('<div class="col-md-12">'+trailer+'</div>');
+      
+      $('#movieTrailer').fitVids();
     }
   });
   
 });
 
 function buildPage(score, review, cast){
-
-//  
 //  console.log(review);
 }

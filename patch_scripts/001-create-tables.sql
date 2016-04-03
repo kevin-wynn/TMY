@@ -3,6 +3,7 @@ DROP TABLE movies, discovery, nowplaying, users;
 CREATE TABLE IF NOT EXISTS movies (
     movie_id int(11) NOT NULL auto_increment,
     PRIMARY KEY (movie_id),
+    moviedb_id int,
     movie_title varchar(255),
     overview varchar(10000),
     director varchar(255),
@@ -25,6 +26,7 @@ CREATE TABLE IF NOT EXISTS movies (
 CREATE TABLE IF NOT EXISTS discovery (
     discovery_id int(11) NOT NULL auto_increment,
     PRIMARY KEY (discovery_id),
+    moviedb_id int,
     movie_title varchar(255),
     overview varchar(10000),
     director varchar(255),
@@ -41,6 +43,7 @@ CREATE TABLE IF NOT EXISTS discovery (
 CREATE TABLE IF NOT EXISTS nowplaying (
     nowplaying_id int(11) NOT NULL auto_increment,
     PRIMARY KEY (nowplaying_id),
+    moviedb_id int,
     movie_title varchar(255),
     overview varchar(10000),
     director varchar(255),

@@ -20,6 +20,7 @@
           </div>
           <div class="overview" id="movieOverview"></div>
           <div class="score" id="movieScore"></div>
+          <div class="review-link" id="seeReview"></div>
       </div>
     </div>
   </div>

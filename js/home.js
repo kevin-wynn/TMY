@@ -14,6 +14,7 @@ $(document).ready(function() {
       movieScore = $('#movieScore'),
       movieDirector = $('#movieDirector'),
       movieCast = $('#movieCast'),
+      seeReview = $('#seeReview'),
       wave = 0;
   
   // FEATURED HERO IMAGE
@@ -23,6 +24,7 @@ $(document).ready(function() {
     dataType: "json",                
     success: function(result) {
       var backdrop = prefixUrl + result[0].backdrop_path,
+          movie_id = result[0].movie_id,
           title = result[0].movie_title,
           genres = result[0].genre,
           overview = result[0].overview,
@@ -32,7 +34,7 @@ $(document).ready(function() {
       
       heroImage.css('background-image', 'url('+backdrop+')');
       $('.footer').css('background-image', 'url('+backdrop+')');
-      movieTitle.html('<span class="featured-title">'+title+'</span>');
+      movieTitle.html('<span data-movie-id="'+movie_id+'" class="featured-title">'+title+'</span>');
       movieGenres.html(genres);
       movieOverview.html(overview);
       movieCast.html(cast);
@@ -59,6 +61,8 @@ $(document).ready(function() {
       for(i=0; i<score; i++){
         movieScore.append('<i class="fa fa-star"></i> ');
       }
+      
+      seeReview.append('<span class="see-review">See Review</span>');
     }
   });
   

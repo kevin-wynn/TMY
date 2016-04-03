@@ -19,6 +19,13 @@
   z-index: -1;
 }
 
+.see-review {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
 .intro {
   margin-top: 5%;
   color: #fff;
@@ -98,7 +105,7 @@
 
 
 .recent {
-  margin-top: -200px;
+  margin-top: -150px;
   display: block;
   height: 100%;
   

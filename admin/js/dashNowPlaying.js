@@ -76,7 +76,7 @@ $(document).ready(function(){
   }
   
   function removeFeatured(nowplayingId){
-    movieIds = $.extend({}, discoveryId);
+    movieIds = $.extend({}, nowplayingId);
     
     $.ajax({
       type:"POST",

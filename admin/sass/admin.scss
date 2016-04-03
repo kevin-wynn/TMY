@@ -30,6 +30,40 @@ th {
   display: none;
 }
 
+.submit-error {
+  color: $red;
+  vertical-align: bottom;
+}
+
+.backdrop-selection, .poster-selection {
+  .select-image {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    img {
+      width: 100%;
+      height: auto;
+      border-bottom: 2px solid #ffffff;
+    }
+    &.selected {
+      img {
+        border-bottom: 2px solid $red;  
+      }
+      &::after {
+        font-family: 'fontAwesome';
+        content: '\f0e7';
+        position: absolute;
+        left: 11px;
+        top: 5px;
+        color: $red;
+        font-size: 20px;
+        z-index: 9999;
+      }
+    }
+  }
+}
+
 .button-primary {
   background: $blue;
   color: #fff;
@@ -104,6 +138,7 @@ th {
 }
 
 .review {
+  display: none;
   margin-top: 25px;
   .movie-title {
     width: 300px;

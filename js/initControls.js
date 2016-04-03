@@ -27,6 +27,30 @@ function initControls(){
       
   });
   
+  $('.see-review').on('click', function(){
+    // get the h2 value that holds the movie title
+    movie_title = $('.featured-title').html();
+      
+    movie_id = $('.featured-title').data('movie-id');
+      
+    console.log(movie_id);
+    
+    // if movie title has a space, replace it with a dash
+    if(movie_title.indexOf(' ') != -1) {
+      movie_title = movie_title.replace(' ', '-');
+    }
+    
+    // make sure its lowercase
+    movie_title = movie_title.toLowerCase();
+    
+    // prepend location to url
+    url = prefixUrl+'/movies/'+movie_title+'?movie_id='+movie_id;
+      
+    // redirect
+    window.location.href = url;
+      
+  });
+  
   $('.discover-help').unbind().on('click', function(){
     $('#discoverTooltip').slideToggle();
   });
