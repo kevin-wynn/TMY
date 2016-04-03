@@ -12,9 +12,18 @@
   $posterSavePath = '../../assets/images/posters/'. $posterHash . '.jpg';
   $poster2SavePath = '../../assets/images/posters/'. $poster2Hash . '.jpg';
   $posterLocalPath = '/assets/images/posters/'. $posterHash . '.jpg';
-  $poster2LocalPath = '/assets/images/posters/'. $poster2Hash . '.jpg';
+
+  if("" == trim($_POST['poster2_path'])){
+    $poster2LocalPath = '/assets/images/posters/'. $poster2Hash . '.jpg';
+  } else {
+    $poster2LocalPath = NULL;
+  }
+
   $poster = copy($_POST[poster_path], $posterSavePath);
-  $poster2 = copy($_POST[poster2_path], $poster2SavePath);
+
+  if("" == trim($_POST['poster2_path'])){
+    $poster2 = copy($_POST[poster2_path], $poster2SavePath);
+  }
 
   // do the same stuff with backdrops
   $backdropHash = hash('sha1', rand());
@@ -24,12 +33,28 @@
   $backdrop2SavePath = '../../assets/images/backdrops/'. $backdrop2Hash . '.jpg';
   $backdrop3SavePath = '../../assets/images/backdrops/'. $backdrop3Hash . '.jpg';
   $backdropLocalPath = '/assets/images/backdrops/'. $backdropHash . '.jpg';
-  $backdrop2LocalPath = '/assets/images/backdrops/'. $backdrop2Hash . '.jpg';
-  $backdrop3LocalPath = '/assets/images/backdrops/'. $backdrop3Hash . '.jpg';
+
+  if("" == trim($_POST['backdrop2_path'])){
+    $backdrop2LocalPath = '/assets/images/backdrops/'. $backdrop2Hash . '.jpg';
+  } else {
+    $backdrop2LocalPath = NULL;
+  }
+
+  if("" == trim($_POST['backdrop3_path'])){
+    $backdrop3LocalPath = '/assets/images/backdrops/'. $backdrop3Hash . '.jpg';
+  } else {
+    $backdrop3LocalPath = NULL;
+  }
 
   $backdrop = copy($_POST[backdrop_path], $backdropSavePath);
-  $backdrop2 = copy($_POST[backdrop2_path], $backdrop2SavePath);
-  $backdrop3 = copy($_POST[backdrop3_path], $backdrop3SavePath);
+
+  if("" == trim($_POST['backdrop2_path'])){
+    $backdrop2 = copy($_POST[backdrop2_path], $backdrop2SavePath);
+  }
+
+  if("" == trim($_POST['backdrop3_path'])){
+    $backdrop3 = copy($_POST[backdrop3_path], $backdrop3SavePath);
+  }
 
   // escape any quotes so it doesnt break sql insert
   $movieName = addslashes($_POST[movie_title]);
