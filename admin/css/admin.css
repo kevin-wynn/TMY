@@ -26,6 +26,12 @@ th {
   color: #EF4836;
   vertical-align: bottom; }
 
+.update-movie {
+  color: #59ABE3;
+  display: inline-block;
+  vertical-align: bottom;
+  cursor: pointer; }
+
 .backdrop-selection .select-image, .poster-selection .select-image {
   margin-top: 5px;
   margin-bottom: 10px;

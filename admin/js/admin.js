@@ -288,15 +288,22 @@ $(document).ready(function(){
         if(poster.length === 1){
           moviePoster.val(poster[0].getElementsByTagName('img')[0].src);          
         } else if (poster.length === 2){
+          moviePoster.val(poster[0].getElementsByTagName('img')[0].src);          
           moviePoster2.val(poster[1].getElementsByTagName('img')[0].src);          
         }
       }
+      
+      console.log(backdrop);
+      
       for (i=0; i<backdrop.length; i++){
         if(backdrop.length === 1){
           movieBackdrop.val(backdrop[0].getElementsByTagName('img')[0].src); 
         } else if (backdrop.length === 2){
+          movieBackdrop.val(backdrop[0].getElementsByTagName('img')[0].src);
           movieBackdrop2.val(backdrop[1].getElementsByTagName('img')[0].src);
         } else if (backdrop.length === 3){
+          movieBackdrop.val(backdrop[0].getElementsByTagName('img')[0].src);          
+          movieBackdrop2.val(backdrop[1].getElementsByTagName('img')[0].src);          
           movieBackdrop3.val(backdrop[2].getElementsByTagName('img')[0].src);          
         }
       }
@@ -312,12 +319,21 @@ $(document).ready(function(){
         dataType: "json",
         success: function(result) {
           if (result.length > 0){
-            console.log('exists');
             moviedb_id = result[0].moviedb_id;
-            console.log(moviedb_id);
-            $('.submit-error').html("You've already reviewed this movie.");
+            $('.submit-error').html("You've already reviewed this movie. <div class='update-movie'>Update?</div>");
+            $('.update-movie').on('click', function(){
+              var formData = $('.review').serialize();
+              $.ajax({
+                type: "POST",
+                url: "includes/update-review.php",
+                data: formData,
+                dataType: "json",
+                success: function(response) {
+                  console.log('response');
+                }
+              });
+            });
           } else {
-            console.log('does not exist');
             $('.review').unbind().submit();
           }
         }

@@ -10,11 +10,12 @@
   $num_rows = mysql_num_rows($count);
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT $limit OFFSET $offset");
+  $result = mysql_query("SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date ASC LIMIT $limit OFFSET $offset");
 
   while($row = mysql_fetch_array($result))     
   {
     $bus = array(
+      'movie_id' => $row['movie_id'],
       'movie_title' => $row['movie_title'],
       'overview' => $row['overview'],
       'director' => $row['director'],

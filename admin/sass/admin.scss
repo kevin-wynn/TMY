@@ -35,6 +35,13 @@ th {
   vertical-align: bottom;
 }
 
+.update-movie {
+  color: $blue;
+  display: inline-block;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+
 .backdrop-selection, .poster-selection {
   .select-image {
     margin-top: 5px;

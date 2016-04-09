@@ -5,56 +5,32 @@
   connect();
 
   // build poster url and hash image name from movie title
-  $posterHash = hash('sha1', rand());
-  $poster2Hash = hash('sha1', rand());
+  $posterHash = substr($_POST[poster_path], strrpos($_POST[poster_path], '/') + 1);
+  $poster2Hash = substr($_POST[poster2_path], strrpos($_POST[poster2_path], '/') + 1);
 
   // build out local and save paths
-  $posterSavePath = '../../assets/images/posters/'. $posterHash . '.jpg';
-  $poster2SavePath = '../../assets/images/posters/'. $poster2Hash . '.jpg';
-  $posterLocalPath = '/assets/images/posters/'. $posterHash . '.jpg';
-
-  if("" == trim($_POST['poster2_path'])){
-    $poster2LocalPath = '/assets/images/posters/'. $poster2Hash . '.jpg';
-  } else {
-    $poster2LocalPath = NULL;
-  }
+  $posterSavePath = '../../assets/images/posters/'. $posterHash;
+  $poster2SavePath = '../../assets/images/posters/'. $poster2Hash;
+  $posterLocalPath = '/assets/images/posters/'. $posterHash;
+  $poster2LocalPath = '/assets/images/posters/'. $poster2Hash;
 
   $poster = copy($_POST[poster_path], $posterSavePath);
-
-  if("" == trim($_POST['poster2_path'])){
-    $poster2 = copy($_POST[poster2_path], $poster2SavePath);
-  }
+  $poster2 = copy($_POST[poster2_path], $poster2SavePath);
 
   // do the same stuff with backdrops
-  $backdropHash = hash('sha1', rand());
-  $backdrop2Hash = hash('sha1', rand());
-  $backdrop3Hash = hash('sha1', rand());
-  $backdropSavePath = '../../assets/images/backdrops/'. $backdropHash . '.jpg';
-  $backdrop2SavePath = '../../assets/images/backdrops/'. $backdrop2Hash . '.jpg';
-  $backdrop3SavePath = '../../assets/images/backdrops/'. $backdrop3Hash . '.jpg';
-  $backdropLocalPath = '/assets/images/backdrops/'. $backdropHash . '.jpg';
-
-  if("" == trim($_POST['backdrop2_path'])){
-    $backdrop2LocalPath = '/assets/images/backdrops/'. $backdrop2Hash . '.jpg';
-  } else {
-    $backdrop2LocalPath = NULL;
-  }
-
-  if("" == trim($_POST['backdrop3_path'])){
-    $backdrop3LocalPath = '/assets/images/backdrops/'. $backdrop3Hash . '.jpg';
-  } else {
-    $backdrop3LocalPath = NULL;
-  }
+  $backdropHash = substr($_POST[backdrop_path], strrpos($_POST[backdrop_path], '/') + 1);
+  $backdrop2Hash = substr($_POST[backdrop2_path], strrpos($_POST[backdrop2_path], '/') + 1);
+  $backdrop3Hash = substr($_POST[backdrop3_path], strrpos($_POST[backdrop3_path], '/') + 1);
+  $backdropSavePath = '../../assets/images/backdrops/'. $backdropHash;
+  $backdrop2SavePath = '../../assets/images/backdrops/'. $backdrop2Hash ;
+  $backdrop3SavePath = '../../assets/images/backdrops/'. $backdrop3Hash;
+  $backdropLocalPath = '/assets/images/backdrops/'. $backdropHash;
+  $backdrop2LocalPath = '/assets/images/backdrops/'. $backdrop2Hash;
+  $backdrop3LocalPath = '/assets/images/backdrops/'. $backdrop3Hash;
 
   $backdrop = copy($_POST[backdrop_path], $backdropSavePath);
-
-  if("" == trim($_POST['backdrop2_path'])){
-    $backdrop2 = copy($_POST[backdrop2_path], $backdrop2SavePath);
-  }
-
-  if("" == trim($_POST['backdrop3_path'])){
-    $backdrop3 = copy($_POST[backdrop3_path], $backdrop3SavePath);
-  }
+  $backdrop2 = copy($_POST[backdrop2_path], $backdrop2SavePath);
+  $backdrop3 = copy($_POST[backdrop3_path], $backdrop3SavePath);
 
   // escape any quotes so it doesnt break sql insert
   $movieName = addslashes($_POST[movie_title]);
@@ -109,6 +85,6 @@
   // run it
   $run = mysql_query($query) or die(mysql_error());
               
-  echo "submitted dude <br>";
+  echo "<br> submitted dude <br>";
 
 ?>

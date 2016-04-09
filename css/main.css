@@ -8,13 +8,6 @@
     padding: 2.5%;
     border-radius: 5px 5px 0 0; }
 
-.show-more-button {
-  color: #59ABE3;
-  cursor: pointer;
-  margin-bottom: 25px; }
-  .show-more-button:hover {
-    color: #2d95dc; }
-
 .discover {
   background: #fff;
   border-radius: 5px 5px 0 0;
@@ -309,6 +302,17 @@
   .no-filter-items img {
     width: 250px;
     height: auto; }
+
+.show-more-button {
+  color: #59ABE3;
+  cursor: pointer;
+  margin-bottom: 25px; }
+  .show-more-button:hover {
+    color: #2d95dc; }
+
+.all-movies #recentMovies .recent-item {
+  width: 16.6% !important;
+  height: 350px; }
 
 * {
   box-sizing: border-box; }

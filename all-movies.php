@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid recent">
+  <div class="container-fluid recent all-movies">
   <?php include 'components/sort.php' ?>
   <?php include 'components/moviesContainer.php' ?>
     <div class="col-md-10 col-md-offset-1">
