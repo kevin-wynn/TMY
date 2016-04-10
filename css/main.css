@@ -27,6 +27,9 @@
   z-index: 0;
   background-position: bottom left;
   background-size: cover; }
+  .footer .login-button {
+    border-left: 1px solid #fff;
+    padding-left: 15px; }
   .footer .logo {
     z-index: 2;
     color: #fff; }
@@ -190,8 +193,10 @@
       .recent #recentMovies .recent-item:hover::before, .recent .discover .recent-item:hover::before, .recent .nowplaying .recent-item:hover::before {
         -webkit-animation: shine .75s;
         animation: shine .75s; }
+      .recent #recentMovies .recent-item a, .recent .discover .recent-item a, .recent .nowplaying .recent-item a {
+        color: #666; }
       .recent #recentMovies .recent-item .poster, .recent .discover .recent-item .poster, .recent .nowplaying .recent-item .poster {
-        height: auto; }
+        height: 370px; }
       .recent #recentMovies .recent-item .info, .recent .discover .recent-item .info, .recent .nowplaying .recent-item .info {
         padding: 0; }
         .recent #recentMovies .recent-item .info h2, .recent .discover .recent-item .info h2, .recent .nowplaying .recent-item .info h2 {
@@ -260,6 +265,18 @@
       width: 100%;
       height: auto; }
 
+#similarMovies {
+  padding: 0; }
+  #similarMovies a {
+    color: #666; }
+  #similarMovies .similar {
+    padding: 5px; }
+    #similarMovies .similar p {
+      font-size: 12px; }
+    #similarMovies .similar img {
+      width: 100%;
+      height: auto; }
+
 .navbar .logo a {
   color: #fff;
   letter-spacing: 5px; }
@@ -277,6 +294,12 @@
   .navbar .login a:hover {
     text-decoration: none;
     color: #e6e6e6; }
+  .navbar .login li {
+    display: inline-block;
+    margin-left: 15px; }
+  .navbar .login .login-button {
+    border-left: 1px solid #fff;
+    padding-left: 15px; }
 
 .sort {
   background: #fff;
@@ -313,6 +336,8 @@
 .all-movies #recentMovies .recent-item {
   width: 16.6% !important;
   height: 350px; }
+  .all-movies #recentMovies .recent-item .poster {
+    height: 240px; }
 
 * {
   box-sizing: border-box; }

@@ -37,14 +37,14 @@
 <div class="wrapper">
   <div class="main-holder">
     <div class="overlay"></div>
-    <div class="hero-image" id="heroImage" style="background-image:url('<?php echo $pagefinal; echo $backdrop; ?>')"></div>
+    <div class="hero-image" id="heroImage"></div>
     
     <?php include 'components/navbar.php' ?>
     
     <div class="container-fluid">
       <div class="col-md-10 col-md-offset-1 intro">
-        <div class="title" id="movieTitle"><?php echo $row['movie_title']; ?></div>
-        <div class="genres" id="movieGenres"><?php echo $row['genre']; ?></div>
+        <div class="title" id="movieTitle"></div>
+        <div class="genres" id="movieGenres"></div>
         <div class="credits">
           <div class="director" id="movieDirector"><span class="intro-text">Directed By - </span><?php echo $row['director']; ?></div>
           <div class="cast" id="movieCast"><span class="intro-text">Starring - </span><?php echo $row['cast']; ?></div>
@@ -56,8 +56,8 @@
   </div>
   <div class="container-fluid">
     <div class="col-md-10 col-md-offset-1 movie-details" id="movieDetails">
-     <div class="col-md-4">
-       <img class="poster" src="<?php echo $pagefinal; echo $poster; ?>">
+     <div class="col-md-4" id="moviePoster">
+       <div class="col-md-12" id="similarMovies"><h5>Similar Movies</h5></div>
        <span class="release-date movie-info">Release Date: <span class="prop"><?php echo $row['release_date']; ?></span></span>
        <span class="review-date movie-info">Reviewed: <span class="prop"><?php echo $row['publish_date']; ?></span></span>
        <span class="popular-vote movie-info">Popular Vote: <span class="prop"><?php echo $row['popular_vote']; ?>/10</span></span>
@@ -84,24 +84,6 @@
   </div>
 </div>
 <?php include 'components/footer.php' ?>
-<script>
-  $(document).ready(function(){
-    function movieData(){
-      var score = <?php echo $score ?>;
-      var review = "<?php echo $movieReview ?>";
-      var <?php
-
-      foreach($array as $key=>$value) //loop over values
-      {
-          echo 'cast' . $key . '=' . $value . ';'; //print value
-      }
-
-      ?> 
-
-      buildPage(score, review, cast);
-    }
-  });
-</script>
 <script src="../js/page.js"></script>
 </body>
 </html>

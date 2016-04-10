@@ -3,32 +3,32 @@
   
   connect();
 
-  $limit = $_GET['limit'];
-  $offset = $_GET['offset'];
-
-  $count = mysql_query("SELECT * FROM movies");
-  $num_rows = mysql_num_rows($count);
+  $movieName = $_GET['movieName'];
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT $limit OFFSET $offset");
+  $result = mysql_query("SELECT * FROM movies WHERE movie_title ='" . $movieName ."'");
 
   while($row = mysql_fetch_array($result))     
   {
     $bus = array(
-      'movie_id' => $row['movie_id'],
       'movie_title' => $row['movie_title'],
+      'moviedb_id' => $row['moviedb_id'],
       'overview' => $row['overview'],
       'director' => $row['director'],
       'cast' => $row['cast'],
       'poster_path' => $row['poster_path'],
+      'poster2_path' => $row['poster2_path'],
       'backdrop_path' => $row['backdrop_path'],
+      'backdrop2_path' => $row['backdrop2_path'],
+      'backdrop3_path' => $row['backdrop3_path'],
       'score' => $row['score'],
       'review' => $row['review'],
       'release_date' => $row['release_date'],
       'published_date' => $row['published_date'],
       'popular_vote' => $row['popular_vote'],
       'genre' => $row['genre'],
-      'total' => $num_rows
+      'featured' => $row['featured'],
+      'trailer' => $row['trailer']
     );
     array_push($json, $bus);
   }

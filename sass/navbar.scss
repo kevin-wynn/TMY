@@ -23,5 +23,13 @@
       text-decoration: none;
       color: darken(#fff, 10%);
     }
+    li {
+      display: inline-block;
+      margin-left: 15px;
+    }
+    .login-button {
+      border-left: 1px solid #fff;
+      padding-left: 15px;
+    }
   }
 }

@@ -12,6 +12,7 @@
   {
     $bus = array(
       'movie_title' => $row['movie_title'],
+      'moviedb_id' => $row['moviedb_id'],
       'overview' => $row['overview'],
       'director' => $row['director'],
       'cast' => $row['cast'],

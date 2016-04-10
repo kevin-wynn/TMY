@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^movies/([^/]*)$ page.php?movie_id=$1 [QSA]
+RewriteRule ^movies/([^/]*)$ page.php [QSA]

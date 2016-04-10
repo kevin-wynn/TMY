@@ -157,7 +157,8 @@ $(document).ready(function(){
         posterBackdropUrl:posterBackdropUrl,
         cast:firstThree,
         director:director,
-        popularVote:popularVote
+        popularVote:popularVote,
+        movieId:movieId
       }, 
       dataType: "html",                
       success: function(result) {

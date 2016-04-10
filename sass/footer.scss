@@ -14,6 +14,11 @@
   background-position: bottom left;
   background-size: cover;
   
+  .login-button {
+    border-left: 1px solid #fff;
+    padding-left: 15px;
+  }
+  
   .logo {
     z-index: 2;
     color: #fff;

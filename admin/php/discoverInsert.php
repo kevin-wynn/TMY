@@ -43,6 +43,7 @@
     release_date,
     popular_vote,
     genre,
+    moviedb_id,
     featured
   ) VALUES (
     '$movieName',
@@ -54,6 +55,7 @@
     '$_POST[releaseDate]',
     '$_POST[popularVote]',
     '$_POST[categories]',
+    '$_POST[movieId]',
     '0'
   )";
 

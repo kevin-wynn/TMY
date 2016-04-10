@@ -17,7 +17,8 @@
       'backdrop_path' => $row['backdrop_path'],
       'release_date' => $row['release_date'],
       'popular_vote' => $row['popular_vote'],
-      'genre' => $row['genre']
+      'genre' => $row['genre'],
+      'moviedb_id' => $row['moviedb_id']
     );
     array_push($json, $bus);
   }

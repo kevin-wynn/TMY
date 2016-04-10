@@ -36,5 +36,21 @@
       height: auto;
     }
   }
-  
+}
+
+#similarMovies {
+  a {
+    color: #666;
+  }
+  padding: 0;
+  .similar {
+    padding: 5px;
+    p {
+      font-size: 12px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }

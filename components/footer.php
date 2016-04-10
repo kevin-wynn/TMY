@@ -22,6 +22,7 @@
         <li><a href="all-movies">All Movies</a></li>
         <li><a href="about">About TMY</a></li>
         <li><a href="contact">Contact</a></li>
+        <li class="login-button"><a href="<?php echo $link ?>admin/login.php">Log in</a></li>
       </ul>
     </div>
   </div>
@@ -47,6 +48,7 @@
         <li><a href="all-movies">All Movies</a></li>
         <li><a href="about">About TMY</a></li>
         <li><a href="contact">Contact</a></li>
+        <li class="login-button"><a href="<?php echo $link ?>admin/login.php">Log in</a></li>
       </ul>
     </div>
   </div>
@@ -73,6 +75,7 @@
         <li><a href="all-movies">All Movies</a></li>
         <li><a href="about">About TMY</a></li>
         <li><a href="contact">Contact</a></li>
+        <li class="login-button"><a href="<?php echo $link ?>admin/login.php">Log in</a></li>
       </ul>
     </div>
   </div>

@@ -108,6 +108,10 @@ $(document).ready(function() {
 
           var genres_forID = genres_recent.replace(/,/g, "");
               genres_forID = genres_forID.toLowerCase();
+          
+          var urlTitle = title_recent.replace(/\s+/g, '-').toLowerCase(),
+              urlId = movie_id,
+              urlString = prefixUrl+'/movies/'+urlTitle+'?movie_id='+urlId;
 
           poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
           title_recent = '<h2 id="movie_title">'+title_recent+'</h2>';
@@ -117,7 +121,7 @@ $(document).ready(function() {
           score_recentContainer = '<div class="score">';
           score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
 
-          fullItems = $('<div data-movie-id="'+movie_id+'" data-released="'+release_date+'" data-published="'+publish_date+'" class="recent-item '+genres_forID+'" id="movie">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></div>');
+          fullItems = $('<div data-movie-id="'+movie_id+'" data-released="'+release_date+'" data-published="'+publish_date+'" class="recent-item '+genres_forID+'" id="movie"><a href="'+urlString+'">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></a></div>');
 
           $('#recentMovies').isotope('insert', fullItems ).isotope('layout');
         }

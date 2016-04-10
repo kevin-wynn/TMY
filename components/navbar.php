@@ -11,7 +11,12 @@
   <div class="col-md-3 logo">
     <h1><a href="<?php echo $link ?>">TMY</a></h1>
   </div>
-  <div class="col-md-2 col-md-offset-7 login">
-    <a href="<?php echo $link ?>admin/login.php">Log in</a>
-  </div>
+    <div class="col-md-9 nav login">
+      <ul>
+        <li><a href="all-movies">All Movies</a></li>
+        <li><a href="about">About TMY</a></li>
+        <li><a href="contact">Contact</a></li>
+        <li class="login-button"><a href="<?php echo $link ?>admin/login.php">Log in</a></li>
+      </ul>
+    </div>
 </div>

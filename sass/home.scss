@@ -174,8 +174,11 @@
 	      -webkit-animation: shine .75s;
         animation: shine .75s;
       }
+      a {
+        color: #666;
+      }
       .poster {
-        height: auto;
+        height: 370px;
       }
       .info {
         padding: 0;

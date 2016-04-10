@@ -12,6 +12,9 @@
     .recent-item {
       width: 16.6% !important;
       height: 350px;
+      .poster {
+        height: 240px;
+      }
     }
   }
 }
