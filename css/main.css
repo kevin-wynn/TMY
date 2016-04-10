@@ -176,23 +176,6 @@
       position: relative;
       overflow: hidden;
       display: block; }
-      .recent #recentMovies .recent-item:before, .recent .discover .recent-item:before, .recent .nowplaying .recent-item:before {
-        position: absolute;
-        top: 0;
-        left: -90%;
-        z-index: 2;
-        display: block;
-        content: '';
-        width: 50%;
-        height: 100%;
-        background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
-        background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
-        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
-        -webkit-transform: skewX(-25deg);
-        transform: skewX(-25deg); }
-      .recent #recentMovies .recent-item:hover::before, .recent .discover .recent-item:hover::before, .recent .nowplaying .recent-item:hover::before {
-        -webkit-animation: shine .75s;
-        animation: shine .75s; }
       .recent #recentMovies .recent-item a, .recent .discover .recent-item a, .recent .nowplaying .recent-item a {
         color: #666; }
       .recent #recentMovies .recent-item .poster, .recent .discover .recent-item .poster, .recent .nowplaying .recent-item .poster {
@@ -272,7 +255,8 @@
   #similarMovies .similar {
     padding: 5px; }
     #similarMovies .similar p {
-      font-size: 12px; }
+      font-size: 12px;
+      margin-top: 10px; }
     #similarMovies .similar img {
       width: 100%;
       height: auto; }
@@ -339,6 +323,24 @@
   .all-movies #recentMovies .recent-item .poster {
     height: 240px; }
 
+.oops {
+  margin-top: 5%; }
+  .oops h1 {
+    font-size: 100px; }
+  .oops .tmy-input {
+    border: none;
+    border-bottom: 1px solid #59ABE3;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: 24px; }
+    .oops .tmy-input.login-input {
+      margin-left: 25px;
+      width: 75%;
+      background: none; }
+    .oops .tmy-input:focus {
+      outline: 0; }
+
 * {
   box-sizing: border-box; }
 
@@ -359,5 +361,14 @@ a:hover {
 .recent-item {
   /*I removed "transform 0.5s" and "!important"*/
   transition: opacity 0.5s, background-color 0.25s linear, border-color 0.25s linear; }
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -ms-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  transition-duration: 0s; }
 
 /*# sourceMappingURL=main.css.map */

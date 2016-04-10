@@ -1,36 +1,3 @@
-<?php include 'admin/includes/connection.php' ?>
-<?php
-  connect();  
-  
-  // get local instance of url and strip down to base
-  $pageurl = $_SERVER['PHP_SELF'];
-  $pagefinal = substr($pageurl, 0, strrpos( $pageurl, '/'));
-
-  // gather url for htaccess redirect
-  $movie = mysql_real_escape_string($_GET['movie_title']);
-  $movieId = mysql_real_escape_string($_GET['movie_id']);
-  $movie = str_replace('-', ' ', $movie);
-
-  //Remove LIMIT 1 to show/do this to all results.
-  $query = "SELECT * FROM movies WHERE movie_id = '" . $movieId . "' LIMIT 1";
-  $result = mysql_query($query);
-  $row = mysql_fetch_array($result);
-  
-  // get backdrop path for css background image on hero
-  $movieTitle = $row['movie_title'];
-  $backdrop = $row['backdrop_path'];
-  $poster = $row['poster_path'];
-  $score = $row['score'];
-  $cast = $row['cast'];
-  $trailer = $row['trailer'];
-
-  $cast = preg_replace('/\.$/', '', $cast); //Remove dot at end if exists
-  $array = explode(', ', $cast); //split string into array seperated by ', '
-
-  $movieReview = str_replace(array("\n", "\t", "\r"), '<br>', ($row['review']));
-
-  $movieReview = (string)$movieReview;
-?>
 <?php include 'components/head.php' ?>
 <title>This Movie Year - <?php echo $movieTitle ?></title>
 <body>
@@ -57,13 +24,12 @@
   <div class="container-fluid">
     <div class="col-md-10 col-md-offset-1 movie-details" id="movieDetails">
      <div class="col-md-4" id="moviePoster">
-       <div class="col-md-12" id="similarMovies"><h5>Similar Movies</h5></div>
-       <span class="release-date movie-info">Release Date: <span class="prop"><?php echo $row['release_date']; ?></span></span>
-       <span class="review-date movie-info">Reviewed: <span class="prop"><?php echo $row['publish_date']; ?></span></span>
-       <span class="popular-vote movie-info">Popular Vote: <span class="prop"><?php echo $row['popular_vote']; ?>/10</span></span>
+       <div class="col-md-12" id="similarMovies"></div>
+       <span class="release-date movie-info">Release Date: </span>
+       <span class="review-date movie-info">Reviewed: </span>
+       <span class="popular-vote movie-info">Popular Vote: </span>
      </div>
      <div class="col-md-8 movie-review">
-       <h1 class="movie-title"><?php echo $movieTitle ?></h1>
        <div id="pageContent"></div>
       </div>
     </div>
@@ -84,6 +50,6 @@
   </div>
 </div>
 <?php include 'components/footer.php' ?>
-<script src="../js/page.js"></script>
+<script src="../js/min/page.min.js"></script>
 </body>
 </html>

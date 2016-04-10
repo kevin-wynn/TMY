@@ -7,6 +7,7 @@
 @import 'navbar';
 @import 'sortfilter';
 @import 'all-movies';
+@import '404';
 
 * {
   box-sizing: border-box;
@@ -32,4 +33,14 @@ a:hover {
 .recent-item {
     /*I removed "transform 0.5s" and "!important"*/
     transition: opacity 0.5s, background-color 0.25s linear, border-color 0.25s linear;
+}
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
 }

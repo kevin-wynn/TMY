@@ -24,7 +24,7 @@
       'score' => $row['score'],
       'review' => $row['review'],
       'release_date' => $row['release_date'],
-      'published_date' => $row['published_date'],
+      'publish_date' => $row['publish_date'],
       'popular_vote' => $row['popular_vote'],
       'genre' => $row['genre'],
       'featured' => $row['featured'],

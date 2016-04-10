@@ -18,13 +18,6 @@ $(document).ready(function(){
       moviePoster = $('#moviePoster'),
       wave = 0;
   
-  var baseUrl, imageUrl;
-
-  theMovieDb.configurations.getConfiguration(function(data){
-    baseUrl = $.parseJSON(data).images.base_url;
-    imageUrl = baseUrl + 'w500';
-  }, errorCB);
-  
   movieTrailer.fitVids();
   
   var getUrlParameter = function getUrlParameter(sParam) {
@@ -54,6 +47,8 @@ $(document).ready(function(){
   
   movieName = toTitleCase(movieName);
   
+  document.title = "This Movie Year - " + movieName;
+  
   // GET MOVIE AND BUILD PAGE
   if(movieId){
     $.ajax({
@@ -72,7 +67,12 @@ $(document).ready(function(){
       data: {movieName:movieName},
       dataType: "json",                
       success: function(result) {
-        buildPage(result);
+        console.log(result);
+        if(result.length === 0){
+          window.location = prefixUrl+"/404.php";
+        } else {
+          buildPage(result);  
+        }
       }
     });
   }
@@ -92,6 +92,9 @@ $(document).ready(function(){
         backdrop2_path = result[0].backdrop2_path,
         backdrop3_path = result[0].backdrop3_path,
         moviedb_id = result[0].moviedb_id,
+        release_date = result[0].release_date,
+        publish_date = result[0].publish_date,
+        popular_vote = result[0].popular_vote,
         wave = 0;
 
       heroImage.css('background-image', 'url('+backdrop+')');
@@ -100,6 +103,9 @@ $(document).ready(function(){
       movieGenres.html(genres);
       movieOverview.html(overview);
       moviePoster.prepend('<img class="poster" src="..'+poster+'">');
+      $('.release-date').append('<span class="prop">'+release_date+'</span>');
+      $('.review-date').append('<span class="prop">'+publish_date+'</span>');
+      $('.popular-vote').append('<span class="prop">'+popular_vote+'</span>');
 
       for(i=0; i<score; i++){
         movieScore.append('<i class="fa fa-star"></i> ');
@@ -161,32 +167,46 @@ $(document).ready(function(){
 
     $('#movieTrailer').fitVids();
     
-    theMovieDb.movies.getSimilarMovies({"id":moviedb_id }, function(data){
-      var results = $.parseJSON(data).results;
+    var baseUrl, imageUrl;
+
+    theMovieDb.configurations.getConfiguration(function(data){
+      baseUrl = $.parseJSON(data).images.base_url;
+      imageUrl = baseUrl + 'w500';
       
-      for(i=0; i<3; i++){
-        var poster = results[i].poster_path,
-            title = results[i].original_title,
-            movie_id = results[i].id,
-            similarMovies = $('#similarMovies');
-        
-        poster = imageUrl + poster;
-        
-        similarMovies.append('<div data-movie-id="'+movie_id+'" class="col-md-4 similar"><img src="'+poster+'"><p>'+title+'</p></div>');
-        
-        buildExternalLink(movie_id);
-      }
+      buildSimilar();
     }, errorCB);
     
-    // get IMDB id and wrap div in link
-    function buildExternalLink(movie_id){
-      theMovieDb.movies.getById({"id":movie_id }, function(data){
-        var imdbId = $.parseJSON(data).imdb_id,
-            imdbPrefix = 'http://www.imdb.com/title/',
-            imdbFullLink = imdbPrefix + imdbId,
-            poster = $('[data-movie-id="'+movie_id+'"]');
-        poster.wrap('<a target="_blank" href="' + imdbFullLink + '"></a>');
+    function buildSimilar(){
+      theMovieDb.movies.getSimilarMovies({"id":moviedb_id }, function(data){
+        var results = $.parseJSON(data).results;
+
+        if(results.length > 0){
+          var similarMovies = $('#similarMovies');
+          similarMovies.append('<h5>Similar Movies</h5>');
+          for(i=0; i<3; i++){
+            var poster = results[i].poster_path,
+                title = results[i].original_title,
+                movie_id = results[i].id;
+
+            poster = imageUrl + poster;
+
+            similarMovies.append('<div data-movie-id="'+movie_id+'" class="col-md-4 similar"><img src="'+poster+'"><p>'+title+'</p></div>');
+
+            buildExternalLink(movie_id);
+          }
+        }
       }, errorCB);
+
+      // get IMDB id and wrap div in link
+      function buildExternalLink(movie_id){
+        theMovieDb.movies.getById({"id":movie_id }, function(data){
+          var imdbId = $.parseJSON(data).imdb_id,
+              imdbPrefix = 'http://www.imdb.com/title/',
+              imdbFullLink = imdbPrefix + imdbId,
+              poster = $('[data-movie-id="'+movie_id+'"]');
+          poster.wrap('<a target="_blank" href="' + imdbFullLink + '"></a>');
+        }, errorCB);
+      } 
     }
   }
   

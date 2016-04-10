@@ -1,8 +1,6 @@
 <?php 
   $pageurl = $_SERVER['PHP_SELF'];
-
   $page = substr($pageurl, strrpos($pageurl, '/') + 1);
-
 ?>
 
     <link rel="stylesheet" href="<?php echo $pageurl ?>/../css/bootstrap.min.css">

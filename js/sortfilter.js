@@ -9,6 +9,7 @@ $(document).ready(function(){
   
   recentMovies.isotope({
     itemSelector: '#movie',
+    transitionDuration: 0,
     getSortData: {
       published: '[data-published]',
       released: '[data-released]',
@@ -24,6 +25,7 @@ $(document).ready(function(){
   discover.isotope({
     itemSelector: '#discovery',
     percentPosition: true,
+    transitionDuration: 0,
     masonry: {
       // use element for option
       columnWidth: '.recent-item'
@@ -33,6 +35,7 @@ $(document).ready(function(){
   nowplaying.isotope({
     itemSelector: '#nowplaying',
     percentPosition: true,
+    transitionDuration: 0,
     masonry: {
       // use element for option
       columnWidth: '.recent-item'
