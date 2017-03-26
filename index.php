@@ -12,7 +12,7 @@
     <?php include 'components/navbar.php' ?>
 
     <div class="container-fluid">
-      <div class="col-md-10 col-md-offset-1 intro">
+      <div class="col-md-8 col-md-offset-2 intro">
           <div class="title" id="movieTitle"></div>
           <div class="genres" id="movieGenres"></div>
           <div class="credits">
@@ -28,7 +28,6 @@
   <div class="container-fluid recent">
     <?php include 'components/discover.php' ?>
     <?php include 'components/nowPlaying.php' ?>
-    <?php include 'components/sort.php' ?>
     <?php include 'components/moviesContainer.php' ?>
   </div>
 </div>
