@@ -1,23 +1,32 @@
 $(document).ready(function(){
+  function cleanArray(actual) {
+    var newArray = new Array();
+    for (var i = 0; i < actual.length; i++) {
+      if (actual[i]) {
+        newArray.push(actual[i]);
+      }
+    }
+    return newArray;
+  }
   // get chart dates
   $.ajax({
     type: "GET",
-    url: "php/dashCharts.php",             
-    dataType: "json",                
+    url: "php/dashCharts.php",
+    dataType: "json",
     success: function(result) {
       var moviesContainer = $('#moviesContainer');
       var usersContainer = $('#usersContainer');
-      
+
       var movies = result[0].movies;
       var recent_movies = result[1].recent_movies;
       var users = result[2].users;
       var last_login = result[3].last_login;
-      
+
       $('#totalMovies').append(movies);
       $('#recentMoviesChart').append(recent_movies);
       $('#totalUsers').append(users);
       $('#activeUsers').append(last_login);
-      
+
     var userData = [
         {
           value: last_login,
@@ -37,7 +46,7 @@ $(document).ready(function(){
         percentageInnerCutout : 50,
         animation : false
       });
-      
+
       var movieData = [
           {
             value: recent_movies,
@@ -57,8 +66,49 @@ $(document).ready(function(){
         percentageInnerCutout : 50,
         animation : false
       });
-      
     }
   });
-  
+
+  $.ajax({
+    type: "GET",
+    url: "php/getGenreCount.php",
+    dataType: "json",
+    success: function(result) {
+      var genreTitles = "",
+      genreCount = "";
+
+      $.each(result, function(i, data) {
+        for ( property in data ) {
+          genreTitles += property + ',';
+        }
+        for(key in data) {
+            if(data.hasOwnProperty(key)) {
+                genreCount += data[key] + ',';
+            }
+        }
+      });
+
+      genreTitles = genreTitles.split(',');
+      genreCount = genreCount.split(',');
+
+      var genreData = {
+        labels: genreTitles,
+        datasets: [
+          {
+            label: "My First dataset",
+            fillColor: "rgba(155, 89, 182, 0.8)",
+            strokeColor: "rgba(145, 61, 136, 0.8)",
+            highlightFill: "rgba(154, 18, 179 ,0.8)",
+            highlightStroke: "rgba(145, 61, 136, 0.8)",
+            data: genreCount,
+          }
+        ]
+      };
+
+      var genreChart = new Chart(document.getElementById("genres").getContext("2d")).Bar(genreData, {
+        percentageInnerCutout : 50,
+        animation : false
+      });
+    }
+  });
 });

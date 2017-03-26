@@ -1,6 +1,6 @@
 <?php include '../includes/connection.php' ?>
 <?php
-  
+
   connect();
 
   $json = array();

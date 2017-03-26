@@ -55,6 +55,10 @@
                     <canvas id="users" style="width:100%;"></canvas>
                   </div>
                 </div>
+                <div class="col-md-12 no-padding genres">
+                  <h5>Genres:</h5>
+                  <canvas id="genres" style="width:100%;"></canvas>
+                </div>
                 <div class="col-md-12 discovery-movies" id="discovery">
                   <h5>Discovery Movies <small>Choose 4</small></h5><p class="getmovies">retrieve new discovery movies</p>
                   <div id="discoveryMovies"></div>
