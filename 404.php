@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <?php include 'components/head.php';
-  
+
   $pageurl = $_SERVER['PHP_SELF'];
   $uri = $_SERVER['REQUEST_URI'];
   $page = substr($pageurl, strrpos($pageurl, '/') + 1);
-  $check = str_replace($test, $page);
+  $check = str_replace($test, "", $page);
   $link = str_replace($page, "", $pageurl);
 ?>
 <title>This Movie Year - 404</title>

@@ -14,7 +14,7 @@
             var id = <?php echo $_SESSION['user_id'] ?>;
           </script>
     <?php try {
-            include 'credentials.php';
+            include 'includes/credentials.php';
             $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $dbh->prepare("SELECT username FROM users WHERE user_id = :user_id");

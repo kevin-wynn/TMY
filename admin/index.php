@@ -13,7 +13,7 @@
         }
         else {
           try {
-            include 'credentials.php';
+            include 'includes/credentials.php';
             $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $dbh->prepare("SELECT username FROM users WHERE user_id = :user_id");
@@ -56,7 +56,7 @@
                   </div>
                 </div>
                 <div class="col-md-12 discovery-movies" id="discovery">
-                  <h5>Discovery Movies:</h5><p class="getmovies">retrieve new discovery movies</p>
+                  <h5>Discovery Movies <small>Choose 4</small></h5><p class="getmovies">retrieve new discovery movies</p>
                   <div id="discoveryMovies"></div>
                 </div>
                 <div class="col-md-12 nowplaying-movies" id="nowplaying">

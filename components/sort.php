@@ -3,10 +3,10 @@
 
   // get all genres and group together
   $query = "SELECT CONCAT('#',REPLACE(REPLACE(GROUP_CONCAT(genre SEPARATOR ','), ' ', ''), ',', ' #')) FROM movies";
-  
+
   // run it
   $getAvail= mysql_query($query) or die(mysql_error());
-  
+
   // combine all the results and remove duplicates
   while($row = mysql_fetch_assoc($getAvail)){
       foreach($row as $cname => $cvalue){

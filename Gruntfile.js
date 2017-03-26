@@ -36,7 +36,7 @@ module.exports = function(grunt) {
             host: 'localhost',
             user: 'root',
             password: 'mariocart64',
-            database: 'tmydbLocal',
+            database: 'tmydblocal',
             multipleStatements: true
         },
         create: {
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
                 user: 'root',
                 password: 'mariocart64'
             },
-            createDB: 'tmydbLocal',
+            createDB: 'tmydblocal',
             createUser: 'kevin',
             createPass: 'mariocart64',
             createHost: 'localhost'

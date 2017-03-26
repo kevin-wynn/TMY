@@ -16,12 +16,12 @@ $(document).ready(function() {
       movieCast = $('#movieCast'),
       seeReview = $('#seeReview'),
       wave = 0;
-  
+
   // FEATURED HERO IMAGE
   $.ajax({
     type: "GET",
-    url: "php/heroImage.php",             
-    dataType: "json",                
+    url: "php/heroImage.php",
+    dataType: "json",
     success: function(result) {
       var backdrop = prefixUrl + result[0].backdrop_path,
           movie_id = result[0].movie_id,
@@ -31,11 +31,11 @@ $(document).ready(function() {
           score = result[0].score,
           director = result[0].director,
           cast = result[0].cast;
-      
+
       var urlTitle = title.replace(/\s+/g, '-').toLowerCase(),
           urlId = movie_id,
           urlString = prefixUrl+'/movies/'+urlTitle+'?movie_id='+urlId;
-      
+
       heroImage.css('background-image', 'url('+backdrop+')');
       $('.footer').css('background-image', 'url('+backdrop+')');
       movieTitle.html('<span data-movie-id="'+movie_id+'" class="featured-title">'+title+'</span>');
@@ -44,36 +44,36 @@ $(document).ready(function() {
       movieCast.html(cast);
       movieDirector.html('<span class="intro-text">Directed By - </span>' + director);
       movieCast.html('<span class="intro-text">Starring - </span>');
-      
+
       cast = cast.replace(/ /g,'');
       cast = cast.split(',');
-      
+
       for(i=0; i<cast.length; i++){
         theMovieDb.people.getById({"id":cast[i]}, parseCast, errorCB);
       }
-      
+
       function parseCast(data){
           var name = $.parseJSON(data).name;
-        
+
           if(wave == cast.length) {
             movieCast.append(name);
           } else {
             movieCast.append(name + ', ');
           }
       }
-      
+
       for(i=0; i<score; i++){
         movieScore.append('<i class="fa fa-star"></i> ');
       }
-      
+
       seeReview.append('<span class="see-review"><a href="'+urlString+'">See Review</a></span>');
     }
   });
-  
+
   // GET MOST RECENT MOVIES ADDED
   $.ajax({
     type: "GET",
-    url: "php/moviesReviewed.php",             
+    url: "php/moviesReviewed.php",
     dataType: "json",
     data: {offset:0, limit:8},
     success: function(result) {
@@ -93,41 +93,41 @@ $(document).ready(function() {
             release_date = result[i].release_date,
             movie_id = result[i].movie_id,
             score_recentContainer;
-        
+
         var urlTitle = title_recent.replace(/\s+/g, '-').toLowerCase(),
             urlId = movie_id,
             urlString = prefixUrl+'/movies/'+urlTitle+'?movie_id='+urlId;
 
         var genres_forID = genres_recent.replace(/,/g, "");
             genres_forID = genres_forID.toLowerCase();
-        
+
         // need to replace science fiction with science-fiction
         if (genres_forID.indexOf('science fiction') > -1) {
-          
+
           // create an array from genres
           genres_forID = genres_forID.split(' ');
-          
+
           // find the word science and get its place in the array
           var n = $.inArray('science', genres_forID);
-          
+
           // since fiction will always be next in the array, combine the two
           var scifi = genres_forID[n]+'-'+genres_forID[n+1];
-          
+
           // now we need to remove both from the original array
           genres_forID.splice(n+1, 1);
           genres_forID.splice(n, 1);
-          
+
           // and put the combined science-fiction back in
           genres_forID.push(scifi);
-          
+
           // now we need to convert it back to a string
           genres_forID = genres_forID.toString();
-          
+
           // and replace commas with spaces so we have individual items for the data-attr
           genres_forID = genres_forID.replace(/,/g , " ");
         }
-          
-        // we need to build an array to pass to the filter now        
+
+        // we need to build an array to pass to the filter now
         filters += genres_forID+' ';
 
         poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
@@ -136,32 +136,32 @@ $(document).ready(function() {
         overview_recent = '<p>'+overview_recent+'</p>';
         director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
         score_recentContainer = '<div class="score">';
-        score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
-        
+        score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>';
+
         fullItems = $('<div data-released="'+release_date+'" data-movie-id="'+movie_id+'" data-published="'+publish_date+'" data-category="'+genres_forID+'" class="recent-item" id="movie"><a href="'+urlString+'">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></a></div>');
 
-        $('#recentMovies').isotope('insert', fullItems ); 
+        $('#recentMovies').isotope('insert', fullItems );
       }
-      
+
         $('#recentMovies').imagesLoaded().progress( function() {
           $('#recentMovies').isotope('layout');
         });
-      
+
         // clean up array for filters
         filters = filters.split(' ');
         filters = $.unique(filters);
         filters.pop();
-      
+
 //        buildFilters(filters);
 
       initControls();
     }
   });
-  
+
   // GET DISCOVERY MOVIES
   $.ajax({
     type: "GET",
-    url: "php/discovery.php",             
+    url: "php/discovery.php",
     dataType: "json",
     success: function(result) {
       // clear current movies here
@@ -191,7 +191,7 @@ $(document).ready(function() {
         fullItems = $('<div data-released="'+release_date+'" class="recent-item '+genres_forID+'" id="discovery">'+poster_recent+'</div>');
 
         $('#discover').isotope('insert', fullItems );
-        
+
         buildExternalLink(movie_id);
       }
         $('#discover').imagesLoaded().progress( function() {
@@ -200,7 +200,7 @@ $(document).ready(function() {
       initControls();
     }
   });
-  
+
   // GET NOWPLAYING MOVIES
   $.ajax({
     type: "GET",
@@ -234,7 +234,7 @@ $(document).ready(function() {
         fullItems = $('<div data-released="'+release_date+'" class="recent-item '+genres_forID+'" id="nowplaying">'+poster_recent+'</div>');
 
         $('#nowplaying').isotope('insert', fullItems );
-        
+
         buildExternalLink(movie_id);
       }
         $('#nowplaying').imagesLoaded().progress( function() {
@@ -243,7 +243,7 @@ $(document).ready(function() {
         initControls();
     }
   });
-  
+
   // get IMDB id and wrap div in link
   function buildExternalLink(movie_id){
     theMovieDb.movies.getById({"id":movie_id }, function(data){
@@ -254,5 +254,5 @@ $(document).ready(function() {
       poster.wrap('<a target="_blank" href="' + imdbFullLink + '"></a>');
     }, errorCB);
   }
-  
+
 });

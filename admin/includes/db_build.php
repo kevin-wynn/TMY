@@ -1,5 +1,5 @@
-<?php include 'build.php'; ?>  
-<?php include 'connection.php'; ?>  
+<?php include 'build.php'; ?>
+<?php include 'connection.php'; ?>
 <link rel="stylesheet" type="text/css" href="../css/admin.css">
 
 <?php
@@ -17,7 +17,7 @@
     poster_path varchar(255),
     backdrop_path varchar(255),
     score int,
-    review varchar(10000),
+    review text,
     release_date varchar(255),
     publish_date varchar(255),
     featured boolean,

@@ -1,8 +1,8 @@
 $(document).ready(function(){
   var categories, movieData, movieId, movieName, posterPath, posterUrl, overview, releaseDate, cast, director, posterBackdrop, posterBackdropUrl, popularVote, firstThree;
-  
+
   // BUILD DISCOVERY SECTION
-  var discoveryMovies = $('#discoveryMovies'); 
+  var discoveryMovies = $('#discoveryMovies');
   discoveryMovies.isotope({
     itemSelector: '.discovery-item',
     percentPosition: true,
@@ -11,7 +11,7 @@ $(document).ready(function(){
       columnWidth: '.discovery-item'
     }
   });
-  
+
   function initDiscoveryItems() {
     discoveryMovies.html('');
     // get discovery items in database
@@ -24,13 +24,13 @@ $(document).ready(function(){
             var poster_recent = prefixUrl + result[i].poster_path,
                 discovery_id = result[i].discovery_id,
                 featured = result[i].featured;
-            
+
             if (featured == 1){
               featured = 'discovery-featured';
             } else {
               featured = '';
             }
-            poster_recent = '<div class="poster"><img src="'+poster_recent+'"/></div>';
+            poster_recent = '<div class="poster"><img src="'+poster_recent+'"></div>';
             fullItems = $('<div class="discovery-item '+featured+'" id="movie" data-discovery_id="'+discovery_id+'">'+poster_recent+'</div>');
             discoveryMovies.isotope('insert', fullItems );
             initDiscoveryFeature();
@@ -40,14 +40,14 @@ $(document).ready(function(){
             discoveryMovies.isotope('layout');
           });
       }
-    }); 
+    });
   }
-  
+
   initDiscoveryItems();
-  
+
   function initDiscoveryFeature(){
     $('.discovery-item').unbind().on('click', function(){
-      
+
       if ($(this).hasClass('discovery-featured')) {
         discoveryId = $(this).data('discovery_id');
         removeFeatured(discoveryId);
@@ -57,13 +57,13 @@ $(document).ready(function(){
         discoveryId = $(this).data('discovery_id');
         addFeatured(discoveryId);
       }
-        
+
     });
   }
-  
+
   function addFeatured(discoveryId){
     movieIds = $.extend({}, discoveryId);
-    
+
     $.ajax({
       type:"POST",
       url: "php/setDiscoverFeature.php",
@@ -74,10 +74,10 @@ $(document).ready(function(){
       }
     });
   }
-  
+
   function removeFeatured(discoveryId){
     movieIds = $.extend({}, discoveryId);
-    
+
     $.ajax({
       type:"POST",
       url: "php/removeDiscoverFeature.php",
@@ -88,11 +88,11 @@ $(document).ready(function(){
       }
     });
   }
-  
+
   $('.getmovies').on('click', function(){
     discoveryMovies.css({height:'200px'});
     discoveryMovies.html('<div class="loading"><i class="fa fa-film"></i><br>Loading...</div>');
-    
+
     $('.loading').bind('fade-cycle', function() {
         $(this).fadeOut('slow', function() {
             $(this).fadeIn('slow', function() {
@@ -100,26 +100,26 @@ $(document).ready(function(){
             });
         });
     });
-    
+
     $('.loading').trigger('fade-cycle');
     // clear discovery table
     $.ajax({
       type: "POST",
       url: "php/discoverClear.php",
-      dataType: "html",                
+      dataType: "html",
       success: function(result) {
         seedDiscoveryTable();
       }
     });
   });
-  
+
   function seedDiscoveryTable(){
     // get config from tMDB
     theMovieDb.configurations.getConfiguration(function(data){
           posterSize = $.parseJSON(data).images.poster_sizes;
           baseUrl = $.parseJSON(data).images.base_url.slice(0,-1);
     }, errorCB);
-    
+
     // get new discovery items
     theMovieDb.discover.getMovies({"vote_average.gte": 7}, function(data){
       var discovery = $.parseJSON(data).results;
@@ -137,13 +137,13 @@ $(document).ready(function(){
         popularVote = $.parseJSON(data).results[i].vote_average;
         cast = $.parseJSON(data).results[i].cast;
         director = $.parseJSON(data).results[i].director;
-        
+
         insertData();
       }
 
-    }, errorCB); 
+    }, errorCB);
   }
-  
+
   function insertData(){
     $.ajax({
       type: "POST",
@@ -159,8 +159,8 @@ $(document).ready(function(){
         director:director,
         popularVote:popularVote,
         movieId:movieId
-      }, 
-      dataType: "html",                
+      },
+      dataType: "html",
       success: function(result) {
         if(result == 20){
           getMovies();
@@ -168,20 +168,20 @@ $(document).ready(function(){
       }
     });
   }
-  
+
   function getMovies(){
     var offset = 0, limit = 20;
     $.ajax({
       type: "GET",
       data: {offset:offset, limit:limit},
-      url: "php/getDiscover.php",             
-      dataType: "json",                
+      url: "php/getDiscover.php",
+      dataType: "json",
       success: function(result) {
         discoveryMovies.html('');
         for(i=0; i<result.length; i++){
           var poster_recent = prefixUrl + result[i].poster_path,
               featured_recent = result[i].featured;
-              
+
               if (featured_recent){
                 featured_recent = 'featured';
               } else {
@@ -198,8 +198,8 @@ $(document).ready(function(){
       }
     });
   }
-  
+
   function initControls(){
-    
+
   }
 });

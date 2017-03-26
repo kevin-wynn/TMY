@@ -1,12 +1,12 @@
 <?php include '../admin/includes/connection.php' ?>
 <?php
-  
+
   connect();
 
   $json = array();
   $result = mysql_query("SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT 8");
 
-  while($row = mysql_fetch_array($result))     
+  while($row = mysql_fetch_array($result))
   {
     $bus = array(
       'movie_title' => $row['movie_title'],

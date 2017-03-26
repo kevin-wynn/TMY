@@ -11,7 +11,7 @@
         }
         else {
           try {
-            include 'credentials.php';
+            include 'includes/credentials.php';
             $dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $dbh->prepare("SELECT username FROM users WHERE user_id = :user_id");
@@ -60,7 +60,7 @@
       } ?>
     </div>
     <!-- /#wrapper -->
-    
+
     <div class="modal fade" tabindex="-1" role="dialog" id="alert">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -77,7 +77,7 @@
         </div>
       </div>
     </div>
-    
+
 </body>
 <?php include 'includes/footer.php'; ?>
 <script src="<?php echo dirname($_SERVER['PHP_SELF']);?>/js/users.js"></script>

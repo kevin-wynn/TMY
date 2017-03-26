@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <?php include 'components/head.php' ?>
@@ -7,9 +8,9 @@
   <div class="main-holder">
     <div class="overlay"></div>
     <div class="hero-image" id="heroImage"></div>
-    
+
     <?php include 'components/navbar.php' ?>
-    
+
     <div class="container-fluid">
       <div class="col-md-10 col-md-offset-1 intro">
           <div class="title" id="movieTitle"></div>
