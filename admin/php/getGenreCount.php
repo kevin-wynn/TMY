@@ -111,6 +111,15 @@
     array_push($json, $bus);
   }
 
+  $count13 = mysql_query("SELECT COUNT(genre) AS 'documentary' FROM movies WHERE genre LIKE '%documentary%';");
+  while($row = mysql_fetch_array($count13))
+  {
+    $bus = array(
+      'Documentary' => $row['documentary']
+    );
+    array_push($json, $bus);
+  }
+
   $jsonstring = json_encode($json);
   echo $jsonstring;
 

@@ -95,7 +95,7 @@ $(document).ready(function(){
         labels: genreTitles,
         datasets: [
           {
-            label: "My First dataset",
+            label: "Genres",
             fillColor: "rgba(155, 89, 182, 0.8)",
             strokeColor: "rgba(145, 61, 136, 0.8)",
             highlightFill: "rgba(154, 18, 179 ,0.8)",
