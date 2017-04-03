@@ -220,6 +220,11 @@
   .recent #recentMovies .recent-item {
     height: 450px; }
 
+.featured-now-playing {
+  margin-bottom: 25px; }
+  .featured-now-playing .poster img {
+    width: 100%; }
+
 .movie-details {
   margin-top: -200;
   border-radius: 3px 3px 0 0;

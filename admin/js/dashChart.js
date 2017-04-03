@@ -1,6 +1,6 @@
 $(document).ready(function(){
   function cleanArray(actual) {
-    var newArray = new Array();
+    var newArray = [];
     for (var i = 0; i < actual.length; i++) {
       if (actual[i]) {
         newArray.push(actual[i]);
@@ -78,10 +78,10 @@ $(document).ready(function(){
       genreCount = "";
 
       $.each(result, function(i, data) {
-        for ( property in data ) {
+        for ( var property in data ) {
           genreTitles += property + ',';
         }
-        for(key in data) {
+        for( var key in data) {
             if(data.hasOwnProperty(key)) {
                 genreCount += data[key] + ',';
             }

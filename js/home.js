@@ -244,6 +244,45 @@ $(document).ready(function() {
     }
   });
 
+  // GET FEATURED NOW PLAYING MOVIE CALLED OUT
+  $.ajax({
+    type: "GET",
+    url: "php/homeFeatureNowPlaying.php",
+    dataType: "json",
+    success: function(result) {
+      console.log(result);
+      // clear current movies here
+      $('#featuredNowPlaying').html('');
+
+      for(i=0; i<result.length; i++){
+        // grab content from json returned
+        var poster_recent = prefixUrl + result[i].poster_path,
+            title_recent = result[i].movie_title,
+            genres_recent = result[i].genre,
+            overview_recent = result[i].overview,
+            score_recent = result[i].score,
+            director_recent = result[i].director,
+            publish_date = result[i].publish_date,
+            release_date = result[i].release_date,
+            movie_id = result[i].moviedb_id;
+
+        var genres_forID = genres_recent.replace(/,/g, "");
+            genres_forID = genres_forID.toLowerCase();
+
+        poster_recent = '<div data-movie-id="'+movie_id+'" class="poster"><img src="'+poster_recent+'"/></div>';
+        title_recent = '<h2 id="movie_title">'+title_recent+'</h2>';
+        genres_recent = '<p id="genres">'+genres_recent+'</p>';
+        overview_recent = '<p>'+overview_recent+'</p>';
+        director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
+
+        fullItems = '<div data-released="'+release_date+'" class="col-md-4 featured-now-playing recent-item '+genres_forID+'" id="nowplaying">'+poster_recent+'</div>' +
+                    '<div class="col-md-8">'+title_recent+genres_recent+overview_recent+director_recent+'</div>';
+
+        $('#featuredNowPlaying').html(fullItems);
+      }
+    }
+  });
+
   // get IMDB id and wrap div in link
   function buildExternalLink(movie_id){
     theMovieDb.movies.getById({"id":movie_id }, function(data){

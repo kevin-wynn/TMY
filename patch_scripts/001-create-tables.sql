@@ -52,7 +52,8 @@ CREATE TABLE IF NOT EXISTS nowplaying (
     featured boolean,
     popular_vote varchar(255),
     genre varchar(255),
-    trailer varchar(255)
+    trailer varchar(255),
+    view_on_home boolean default 0
   );
 
   CREATE TABLE IF NOT EXISTS users (

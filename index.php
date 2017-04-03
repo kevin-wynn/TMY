@@ -29,6 +29,7 @@
     <?php include 'components/discover.php' ?>
     <?php include 'components/nowPlaying.php' ?>
     <?php include 'components/moviesContainer.php' ?>
+    <?php include 'components/featureNowPlaying.php' ?>
   </div>
 </div>
 <?php include 'components/footer.php' ?>
