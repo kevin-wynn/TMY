@@ -1,12 +1,10 @@
 <?php include '../admin/includes/connection.php' ?>
 <?php
-  
-  connect();
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies WHERE featured = '1'");
+  $result = mysqli_query($connect, "SELECT * FROM movies WHERE featured = '1'");
 
-  while($row = mysql_fetch_array($result))     
+  while($row = mysqli_fetch_array($result))
   {
     $bus = array(
       'movie_id' => $row['movie_id'],
@@ -19,7 +17,7 @@
       'score' => $row['score'],
       'review' => $row['review'],
       'release_date' => $row['release_date'],
-      'published_date' => $row['published_date'],
+      'published_date' => $row['publish_date'],
       'popular_vote' => $row['popular_vote'],
       'genre' => $row['genre'],
       'featured' => $row['featured'],

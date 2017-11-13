@@ -1,12 +1,10 @@
 <?php include '../admin/includes/connection.php' ?>
 <?php
-  
-  connect();
 
   $json = array();
-  $result = mysql_query("SELECT * FROM discovery WHERE featured=1");
+  $result = mysqli_query($connect, "SELECT * FROM discovery WHERE featured=1");
 
-  while($row = mysql_fetch_array($result))     
+  while($row = mysqli_fetch_array($result))
   {
     $bus = array(
       'movie_title' => $row['movie_title'],

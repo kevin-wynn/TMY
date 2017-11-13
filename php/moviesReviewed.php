@@ -1,18 +1,17 @@
 <?php include '../admin/includes/connection.php' ?>
 <?php
 
-  connect();
+  $count = mysqli_query($connect, "SELECT * FROM movies");
 
-  $count = mysql_query("SELECT * FROM movies");
-  $num_rows = mysql_num_rows($count);
+  $num_rows = mysqli_num_rows($count);
 
   $limit = $_GET['limit'];
   $offset = $_GET['offset'];
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies WHERE featured=false ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT $limit OFFSET $offset");
+  $result = mysqli_query($connect, "SELECT * FROM movies WHERE featured=false ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT $limit OFFSET $offset");
 
-  while($row = mysql_fetch_array($result))
+  while($row = mysqli_fetch_array($result))
   {
     $bus = array(
       'movie_id' => $row['movie_id'],
@@ -33,8 +32,18 @@
     array_push($json, $bus);
   }
 
-  $jsonstring = json_encode($json);
-  echo $jsonstring;
+  function utf8ize($d) {
+      if (is_array($d)) {
+          foreach ($d as $k => $v) {
+              $d[$k] = utf8ize($v);
+          }
+      } else if (is_string ($d)) {
+          return utf8_encode($d);
+      }
+      return $d;
+  }
+
+  echo json_encode(utf8ize($json));
 
   die();
 ?>

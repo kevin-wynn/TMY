@@ -1,17 +1,17 @@
 <?php
   function connect() {
-    
+
       include 'credentials.php';
-        
+
       // connect to database based on submitted user/pass
-      $connect = mysql_connect($dbhost, $dbuser, $dbpass);
+      $connect = mysqli_connect($dbhost, $dbuser, $dbpass);
          if(! $connect )
          {
-           die('Could not connect: ' . mysql_error());
+           die('Could not connect: ' . mysqli_error());
          }
-    
+
       // select tmydb
-      mysql_select_db($dbname);
+      mysqli_select_db($dbname);
 
       return $connect;
     }

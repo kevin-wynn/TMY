@@ -15,7 +15,8 @@ $(document).ready(function() {
       movieDirector = $('#movieDirector'),
       movieCast = $('#movieCast'),
       seeReview = $('#seeReview'),
-      wave = 0;
+      wave = 0,
+      allGenres;
 
   // FEATURED HERO IMAGE
   $.ajax({
@@ -80,6 +81,8 @@ $(document).ready(function() {
       var filterGenres = [], filters = '';
       // clear current movies here
       $('#recentMovies').html('');
+
+      console.log(result);
 
       for(i=0; i<result.length; i++){
         // grab content from json returned
@@ -250,7 +253,6 @@ $(document).ready(function() {
     url: "php/homeFeatureNowPlaying.php",
     dataType: "json",
     success: function(result) {
-      console.log(result);
       // clear current movies here
       $('#featuredNowPlaying').html('');
 
@@ -266,19 +268,38 @@ $(document).ready(function() {
             release_date = result[i].release_date,
             movie_id = result[i].moviedb_id;
 
-        var genres_forID = genres_recent.replace(/,/g, "");
-            genres_forID = genres_forID.toLowerCase();
+            genres_recent = genres_recent.split(',');
+
+            for(i=0; i<genres_recent.length; i++) {
+              genres_recent[i] = parseInt(genres_recent[i], 10);
+            }
 
         poster_recent = '<div data-movie-id="'+movie_id+'" class="poster"><img src="'+poster_recent+'"/></div>';
         title_recent = '<h2 id="movie_title">'+title_recent+'</h2>';
-        genres_recent = '<p id="genres">'+genres_recent+'</p>';
+        genres_container = '<p id="featuredNowPlayingGenres"></p>';
         overview_recent = '<p>'+overview_recent+'</p>';
         director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
 
-        fullItems = '<div data-released="'+release_date+'" class="col-md-4 featured-now-playing recent-item '+genres_forID+'" id="nowplaying">'+poster_recent+'</div>' +
-                    '<div class="col-md-8">'+title_recent+genres_recent+overview_recent+director_recent+'</div>';
+        fullItems = '<div data-released="'+release_date+'" class="col-md-4 featured-now-playing recent-item" id="nowplaying">'+poster_recent+'</div>' +
+                    '<div class="col-md-8">'+title_recent+genres_container+overview_recent+director_recent+'</div>';
 
         $('#featuredNowPlaying').html(fullItems);
+        addGenres(genres_recent);
+      }
+
+      function addGenres(genres_recent) {
+        var genresContainer = $('#featuredNowPlayingGenres');
+        // build genre listing
+        theMovieDb.genres.getList({}, function(data){
+          data = $.parseJSON(data).genres;
+          for (i = 0; i < data.length; ++i) {
+            console.log('movie genre: ', genres_recent[i]);
+            console.log('imdb genre: ', data[i].id);
+            if(data[i].id == genres_recent[i]) {
+              console.log('true');
+            }
+          }
+        },errorCB);
       }
     }
   });

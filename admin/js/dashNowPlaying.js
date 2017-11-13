@@ -138,6 +138,8 @@ $(document).ready(function(){
         cast = $.parseJSON(data).results[i].cast;
         director = $.parseJSON(data).results[i].director;
 
+        categories = categories.toString();
+
         insertData();
       }
 
