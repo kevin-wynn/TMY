@@ -1,12 +1,11 @@
 <?php include '../includes/connection.php' ?>
 <?php
   session_start();
-  connect();
 
   $json = array();
-  $result = mysql_query("SELECT permissions FROM users WHERE user_id = " . $_SESSION['user_id'] . "");
+  $result = mysqli_query($connect, "SELECT permissions FROM users WHERE user_id = " . $_SESSION['user_id'] . "");
 
-  while($row = mysql_fetch_array($result))     
+  while($row = mysqli_fetch_array($result))
   {
     $bus = array(
       'permissions' => $row['permissions']

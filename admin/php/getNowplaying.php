@@ -1,12 +1,11 @@
 <?php include '../includes/connection.php' ?>
+<?php include '../includes/utf.php' ?>
 <?php
-  
-  connect();
 
   $json = array();
-  $result = mysql_query("SELECT * FROM nowplaying");
+  $result = mysqli_query($connect, "SELECT * FROM nowplaying");
 
-  while($row = mysql_fetch_array($result))     
+  while($row = mysqli_fetch_array($result))
   {
     $bus = array(
       'nowplaying_id' => $row['nowplaying_id'],
@@ -24,8 +23,7 @@
     array_push($json, $bus);
   }
 
-  $jsonstring = json_encode($json);
-  echo $jsonstring;
+  echo json_encode(utf8ize($json));
 
   die();
 ?>

@@ -1,8 +1,7 @@
 <?php include '../includes/connection.php'; ?>
+<?php include '../includes/utf.php'; ?>
 
 <?php
-
-  connect();
 
   // build poster url and hash image name from movie title
   $posterUrl = $_POST['posterUrl'];
@@ -60,10 +59,10 @@
   )";
 
   // run it
-  $run = mysql_query($query) or die(mysql_error());
+  $run = mysqli_query($connect, $query) or die(mysqli_error());
 
-  $count = mysql_query("SELECT * FROM nowplaying");
-  $num_rows = mysql_num_rows($count);
+  $count = mysqli_query($connect, "SELECT * FROM nowplaying");
+  $num_rows = mysqli_num_rows($count);
 
   echo $num_rows;
 

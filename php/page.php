@@ -1,13 +1,12 @@
 <?php include '../admin/includes/connection.php' ?>
+<?php include '../admin/includes/utf.php' ?>
 <?php
-  
-  connect();
 
   //Remove LIMIT 1 to show/do this to all results.
   $query = "SELECT * FROM movies WHERE movie_title = '" . $movie . "' LIMIT 1";
-  $result = mysql_query($query);
+  $result = mysqli_query($connect, $query);
 
-  while($row = mysql_fetch_array($result))     
+  while($row = mysqli_fetch_array($result))
   {
     $bus = array(
       'movie_title' => $row['movie_title'],
@@ -27,8 +26,7 @@
     array_push($json, $bus);
   }
 
-  $jsonstring = json_encode($json);
-  echo $jsonstring;
+  echo json_encode(utf8ize($json));
 
   die();
 ?>

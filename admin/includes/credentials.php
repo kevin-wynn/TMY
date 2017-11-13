@@ -1,1 +1,1 @@
-<?php $dbuser = root; $dbpass = mariocart64; $dbhost = localhost; $dbname = tmydblocal?>
+<?php $dbuser = 'root'; $dbpass = 'mariocart64'; $dbhost = 'localhost'; $dbname = 'tmydblocal'?>

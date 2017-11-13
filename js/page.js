@@ -17,9 +17,9 @@ $(document).ready(function(){
       movieTrailer = $('#movieTrailer'),
       moviePoster = $('#moviePoster'),
       wave = 0;
-  
+
   movieTrailer.fitVids();
-  
+
   var getUrlParameter = function getUrlParameter(sParam) {
       var sPageURL = decodeURIComponent(window.location.search.substring(1)),
           sURLVariables = sPageURL.split('&'),
@@ -34,28 +34,28 @@ $(document).ready(function(){
           }
       }
   };
-  
+
   function toTitleCase(str) {
       return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
   }
-  
+
   var movieId = getUrlParameter('movie_id');
-  
+
   var movieName = /[^/]*$/.exec(window.location)[0];
-  
+
   movieName = movieName.replace(/-/g, ' ');
-  
+
   movieName = toTitleCase(movieName);
-  
+
   document.title = "This Movie Year - " + movieName;
-  
+
   // GET MOVIE AND BUILD PAGE
   if(movieId){
     $.ajax({
       type: "GET",
-      url: "../php/pageDetails.php",  
+      url: "../php/pageDetails.php",
       data: {movie_id:movieId},
-      dataType: "json",                
+      dataType: "json",
       success: function(result) {
         buildPage(result);
       }
@@ -63,20 +63,20 @@ $(document).ready(function(){
   } else if(movieId === '' || movieName){
     $.ajax({
       type: "GET",
-      url: "../php/pageDetailsMovieName.php",  
+      url: "../php/pageDetailsMovieName.php",
       data: {movieName:movieName},
-      dataType: "json",                
+      dataType: "json",
       success: function(result) {
         console.log(result);
         if(result.length === 0){
           window.location = prefixUrl+"/404.php";
         } else {
-          buildPage(result);  
+          buildPage(result);
         }
       }
     });
   }
-  
+
   function buildPage(result){
     var backdrop = prefixUrl + result[0].backdrop_path,
         title = result[0].movie_title,
@@ -107,6 +107,8 @@ $(document).ready(function(){
       $('.review-date').append('<span class="prop">'+publish_date+'</span>');
       $('.popular-vote').append('<span class="prop">'+popular_vote+'</span>');
 
+      $('#movieDirector').html('<span class="intro-text">Directed By - '+director+'</span>');
+
       for(i=0; i<score; i++){
         movieScore.append('<i class="fa fa-star"></i> ');
       }
@@ -131,7 +133,7 @@ $(document).ready(function(){
 
     Array.prototype.clean = function(deleteValue) {
       for (var i = 0; i < this.length; i++) {
-        if (this[i] == deleteValue) {         
+        if (this[i] == deleteValue) {
           this.splice(i, 1);
           i--;
         }
@@ -158,7 +160,7 @@ $(document).ready(function(){
 
     for(i=0; i<review.length; i++) {
       if(review[i].length < 50){
-        pageContent.append('<div class="col-md-12" style="font-size:24px;">'+review[i]+'<br></div>');  
+        pageContent.append('<div class="col-md-12" style="font-size:24px;">'+review[i]+'<br></div>');
       } else {
         pageContent.append('<div class="col-md-12">'+review[i]+'<br></div>');
       }
@@ -166,16 +168,16 @@ $(document).ready(function(){
     pageContent.append('<div class="col-md-12"><br>'+trailer+'</div>');
 
     $('#movieTrailer').fitVids();
-    
+
     var baseUrl, imageUrl;
 
     theMovieDb.configurations.getConfiguration(function(data){
       baseUrl = $.parseJSON(data).images.base_url;
       imageUrl = baseUrl + 'w500';
-      
+
       buildSimilar();
     }, errorCB);
-    
+
     function buildSimilar(){
       theMovieDb.movies.getSimilarMovies({"id":moviedb_id }, function(data){
         var results = $.parseJSON(data).results;
@@ -206,8 +208,8 @@ $(document).ready(function(){
               poster = $('[data-movie-id="'+movie_id+'"]');
           poster.wrap('<a target="_blank" href="' + imdbFullLink + '"></a>');
         }, errorCB);
-      } 
+      }
     }
   }
-  
+
 });

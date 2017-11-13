@@ -1,12 +1,11 @@
 <?php include '../includes/connection.php' ?>
+<?php include '../includes/utf.php' ?>
 <?php
-  
-  connect();
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT 1");
+  $result = mysqli_query($connect, "SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT 1");
 
-  while($row = mysql_fetch_array($result))
+  while($row = mysqli_fetch_array($result))
   {
     $bus = array(
       'movie_title' => $row['movie_title'],
@@ -26,8 +25,7 @@
     array_push($json, $bus);
   }
 
-  $jsonstring = json_encode($json);
-  echo $jsonstring;
+  echo json_encode(utf8ize($json));
 
   die();
 ?>

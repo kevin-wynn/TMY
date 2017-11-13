@@ -1,14 +1,14 @@
-<?php include 'admin/includes/connection.php'; connect(); ?>
+<?php include 'admin/includes/connection.php'; ?>
 <?php
 
   // get all genres and group together
   $query = "SELECT CONCAT('#',REPLACE(REPLACE(GROUP_CONCAT(genre SEPARATOR ','), ' ', ''), ',', ' #')) FROM movies";
 
   // run it
-  $getAvail= mysql_query($query) or die(mysql_error());
+  $getAvail= mysqli_query($connect, $query) or die(mysql_error());
 
   // combine all the results and remove duplicates
-  while($row = mysql_fetch_assoc($getAvail)){
+  while($row = mysqli_fetch_assoc($getAvail)){
       foreach($row as $cname => $cvalue){
           print '<div style="display:none;" id="genres">' . implode('#',array_unique(explode('#', $cvalue))) . '</div>';
       }

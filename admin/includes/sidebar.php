@@ -1,5 +1,4 @@
 <?php
-  session_start();
   if(!isset($_SESSION['user_id'])) {
     $message = 'You must be logged in to access this page';
   }
@@ -29,7 +28,7 @@
     <?php
       $pageurl = $_SERVER['PHP_SELF'];
       $page = substr($pageurl, strrpos($pageurl, '/') + 1);
-  
+
       if (strpos($pageurl, 'includes') !== false) { ?>
         <li class="sidebar-item" id="dashboard"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../index.php"><i class="fa fa-tachometer"></i> Dashboard</a></li>
         <li class="sidebar-item" id="sidebar-movies"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../movies.php"><i class="fa fa-film"></i> Movies</a></li>
@@ -43,7 +42,7 @@
         <li class="sidebar-item" id="sidebar-rating"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/rating.php"><i class="fa fa-star"></i> Rating</a></li>
         <li class="sidebar-item" id="sidebar-users"><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/users.php"><i class="fa fa-users"></i> Users</a></li>
       <?php }; ?>
-      
+
       <?php if($username == true) { ?>
         <div class="user-actions">
           <div class="profile">
@@ -54,7 +53,7 @@
           </div>
         </div>
       <?php }; ?>
-      
+
   </ul>
 </div>
 <!-- /#sidebar-wrapper -->

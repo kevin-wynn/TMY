@@ -82,8 +82,6 @@ $(document).ready(function() {
       // clear current movies here
       $('#recentMovies').html('');
 
-      console.log(result);
-
       for(i=0; i<result.length; i++){
         // grab content from json returned
         var poster_recent = prefixUrl + result[i].poster_path,

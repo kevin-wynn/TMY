@@ -5,18 +5,18 @@
   <div class="main-holder">
     <div class="overlay"></div>
     <div class="hero-image" id="heroImage"></div>
-    
+
     <?php include 'components/navbar.php' ?>
-    
+
     <div class="container-fluid">
       <div class="col-md-10 col-md-offset-1 intro">
         <div class="title" id="movieTitle"></div>
         <div class="genres" id="movieGenres"></div>
         <div class="credits">
-          <div class="director" id="movieDirector"><span class="intro-text">Directed By - </span><?php echo $row['director']; ?></div>
-          <div class="cast" id="movieCast"><span class="intro-text">Starring - </span><?php echo $row['cast']; ?></div>
+          <div class="director" id="movieDirector"><span class="intro-text">Directed By - </span></div>
+          <div class="cast" id="movieCast"><span class="intro-text">Starring - </span></div>
         </div>
-        <div class="overview" id="movieOverview"><?php echo $row['overview']; ?></div>
+        <div class="overview" id="movieOverview"></div>
         <div class="score" id="movieScore"></div>
       </div>
     </div>
@@ -35,7 +35,7 @@
     </div>
   </div>
 </div>
-<div class="footer" style="background-image:url('<?php echo $pagefinal; echo $backdrop; ?>')">
+<div class="footer">
   <div class="overlay-footer"></div>
   <div class="col-md-3 logo">
     <h1><a href="<?php echo $link ?>">TMY</a></h1>

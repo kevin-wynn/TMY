@@ -1,18 +1,17 @@
 <?php include '../includes/connection.php' ?>
+<?php include '../includes/utf.php' ?>
 <?php
-  
-  connect();
 
   $limit = $_GET['limit'];
   $offset = $_GET['offset'];
 
-  $count = mysql_query("SELECT * FROM discovery");
-  $num_rows = mysql_num_rows($count);
+  $count = mysqli_query($connect, "SELECT * FROM discovery");
+  $num_rows = mysqli_num_rows($count);
 
   $json = array();
-  $result = mysql_query("SELECT * FROM discovery LIMIT $limit OFFSET $offset");
+  $result = mysqli_query($connect, "SELECT * FROM discovery LIMIT $limit OFFSET $offset");
 
-  while($row = mysql_fetch_array($result))     
+  while($row = mysqli_fetch_array($result))
   {
     $bus = array(
       'movie_title' => $row['movie_title'],
@@ -30,8 +29,7 @@
     array_push($json, $bus);
   }
 
-  $jsonstring = json_encode($json);
-  echo $jsonstring;
+  echo json_encode(utf8ize($json));
 
   die();
 ?>

@@ -1,14 +1,13 @@
 <?php include '../includes/connection.php' ?>
+<?php include '../includes/utf.php' ?>
 <?php
-  
-  connect();
 
   $id = $_GET['id'];
 
   $json = array();
-  $result = mysql_query("SELECT * FROM users WHERE user_id=".$id."");
+  $result = mysqli_query($connect, "SELECT * FROM users WHERE user_id=".$id."");
 
-  while($row = mysql_fetch_array($result))     
+  while($row = mysqli_fetch_array($result))
   {
     $bus = array(
       'user_id' => $row['user_id'],
@@ -24,8 +23,7 @@
     array_push($json, $bus);
   }
 
-  $jsonstring = json_encode($json);
-  echo $jsonstring;
+  echo json_encode(utf8ize($json));
 
   die();
 ?>

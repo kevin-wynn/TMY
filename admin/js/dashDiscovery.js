@@ -123,6 +123,9 @@ $(document).ready(function(){
     // get new discovery items
     theMovieDb.discover.getMovies({"vote_average.gte": 7}, function(data){
       var discovery = $.parseJSON(data).results;
+
+      console.log(discovery);
+
       for(i=0; i < discovery.length; ++i) {
         categories = $.parseJSON(data).results[i].genre_ids;
         movieData = $.parseJSON(data).results[i];

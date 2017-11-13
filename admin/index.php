@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <?php include 'includes/head.php'; ?>
-<?php include 'includes/connection.php'; connect(); ?>
+<?php include 'includes/connection.php'; ?>
 <title>TMY Admin Page</title>
 <body>
     <div id="wrapper">
 
       <?php
-        session_start();
         if(!isset($_SESSION['user_id'])) {
           $message = 'You must be logged in to access this page';
         }

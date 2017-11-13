@@ -1,11 +1,11 @@
 <?php include '../includes/connection.php' ?>
+<?php include '../includes/utf.php' ?>
 <?php
-  connect();
 
   $nowplayingId = $_POST[nowplayingId];
 
   $setfeatured = "UPDATE nowplaying SET featured = '1' WHERE nowplaying_id = " . $nowplayingId . "";
-  $run = mysql_query($setfeatured) or die(mysql_error());
+  $run = mysqli_query($connect, $setfeatured) or die(mysqli_error());
 
   echo 'sweet';
 ?>
