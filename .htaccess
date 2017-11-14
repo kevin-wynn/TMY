@@ -1,3 +1,3 @@
 RewriteEngine On
-RewriteRule ^movies/([^/]*)$ page.php [QSA]
-ErrorDocument 404 http://localhost/~kevinwynn/TMY/404.php
+RewriteRule ^movies/([^/]*)$ /page.php [QSA]
+ErrorDocument 404 /404.php

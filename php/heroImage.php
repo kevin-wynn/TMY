@@ -1,4 +1,5 @@
 <?php include '../admin/includes/connection.php' ?>
+<?php include '../admin/includes/utf.php' ?>
 <?php
 
   $json = array();
@@ -26,8 +27,7 @@
     array_push($json, $bus);
   }
 
-  $jsonstring = json_encode($json);
-  echo $jsonstring;
+  echo json_encode(utf8ize($json));
 
   die();
 ?>

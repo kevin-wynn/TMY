@@ -1,4 +1,3 @@
-<!-- <?php include 'includes/admin_check.php'; ?> -->
 <head>
 <?php
   $pageurl = $_SERVER['PHP_SELF'];

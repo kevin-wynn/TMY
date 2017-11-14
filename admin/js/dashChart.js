@@ -42,10 +42,14 @@ $(document).ready(function(){
         }
       ];
 
-      var userChart = new Chart(document.getElementById("users").getContext("2d")).Doughnut(userData,{
-        percentageInnerCutout : 50,
-        animation : false
-      });
+      var userChart;
+
+      if(document.getElementById("users")) {
+        userChart = new Chart(document.getElementById("users").getContext("2d")).Doughnut(userData,{
+          percentageInnerCutout : 50,
+          animation : false
+        });
+      }
 
       var movieData = [
           {
@@ -62,10 +66,13 @@ $(document).ready(function(){
           }
         ];
 
-      var movieChart = new Chart(document.getElementById("movies").getContext("2d")).Doughnut(movieData,{
-        percentageInnerCutout : 50,
-        animation : false
-      });
+      var movieChart;
+      if(document.getElementById("movies")) {
+        movieChart = new Chart(document.getElementById("movies").getContext("2d")).Doughnut(movieData,{
+          percentageInnerCutout : 50,
+          animation : false
+        });
+      }
     }
   });
 
@@ -105,10 +112,13 @@ $(document).ready(function(){
         ]
       };
 
-      var genreChart = new Chart(document.getElementById("genres").getContext("2d")).Bar(genreData, {
-        percentageInnerCutout : 50,
-        animation : false
-      });
+      var genreChart;
+      if(document.getElementById("genres")) {
+        genreChart = new Chart(document.getElementById("genres").getContext("2d")).Bar(genreData, {
+          percentageInnerCutout : 50,
+          animation : false
+        });
+      }
     }
   });
 });
