@@ -1,14 +1,13 @@
 <?php include '../admin/includes/connection.php' ?>
+<?php include '../admin/includes/connection.php' ?>
 <?php
-  
-  connect();
 
   $movieName = $_GET['movieName'];
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies WHERE movie_title ='" . $movieName ."'");
+  $result = mysqli_query($connect, "SELECT * FROM movies WHERE movie_title ='" . $movieName ."'");
 
-  while($row = mysql_fetch_array($result))     
+  while($row = mysqli_fetch_array($result))
   {
     $bus = array(
       'movie_title' => $row['movie_title'],
@@ -32,9 +31,8 @@
     );
     array_push($json, $bus);
   }
-
-  $jsonstring = json_encode($json);
-  echo $jsonstring;
+  
+  echo json_encode(utf8ize($json));
 
   die();
 ?>

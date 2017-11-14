@@ -291,10 +291,8 @@ $(document).ready(function() {
         theMovieDb.genres.getList({}, function(data){
           data = $.parseJSON(data).genres;
           for (i = 0; i < data.length; ++i) {
-            console.log('movie genre: ', genres_recent[i]);
-            console.log('imdb genre: ', data[i].id);
             if(data[i].id == genres_recent[i]) {
-              console.log('true');
+              
             }
           }
         },errorCB);

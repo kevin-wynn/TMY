@@ -5,28 +5,27 @@
 <title>TMY Admin Page</title>
 <body>
     <div id="wrapper">
+
       <?php
-      echo $_SESSION['user_id'];
-      echo isset($_SESSION['user_id']);
-
-      if(isset($_SESSION['user_id'])) {
-        echo 'okay';
-        include 'includes/utf.php';
-        $result = mysqli_query($connect, "SELECT username FROM users WHERE user_id = " . $_SESSION['user_id'] . "");
-        $json = array();
-
-        while($row = mysqli_fetch_array($result))
-        {
-          $bus = array(
-            'username' => $row['username']
-          );
-          array_push($json, $bus);
+        if(!isset($_SESSION['user_id'])) {
+          $message = 'You must be logged in to access this page';
         }
-
-        $username = json_encode(utf8ize($json));
-      }
+        else {
+          try {
+            include 'includes/credentials.php';
+            $dbh = new PDO("mysql:host=$host_name;dbname=$database", $user_name, $password);
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $dbh->prepare("SELECT username FROM users WHERE user_id = :user_id");
+            $stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+            $stmt->execute();
+            $username = $stmt->fetchColumn();
+          }
+          catch (Exception $e) {
+            $message = 'We are unable to process your request. Please try again later"';
+          }
+        }
       ?>
-      <?php if($username) { ?>
+      <?php if($username == true) { ?>
       <?php include 'includes/sidebar.php'; ?>
       <!-- Page Content -->
       <div id="page-content-wrapper">
@@ -77,7 +76,7 @@
       </div>
       <!-- /#page-content-wrapper -->
       <?php } else {
-        header('Location: ' . dirname($_SERVER['PHP_SELF']) . '/login.php');
+        // header('Location: ' . dirname($_SERVER['PHP_SELF']) . '/login.php');
       } ?>
     </div>
     <!-- /#wrapper -->

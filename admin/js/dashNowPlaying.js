@@ -124,6 +124,9 @@ $(document).ready(function(){
     theMovieDb.movies.getNowPlaying({}, function(data){
       var discovery = $.parseJSON(data).results;
       for(i=0; i < discovery.length; ++i) {
+
+        console.log($.parseJSON(data).results[i]);
+
         categories = $.parseJSON(data).results[i].genre_ids;
         movieData = $.parseJSON(data).results[i];
         movieId = $.parseJSON(data).results[i].id;

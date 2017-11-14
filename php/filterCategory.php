@@ -1,21 +1,20 @@
 <?php include '../admin/includes/connection.php' ?>
+<?php include '../admin/includes/utf.php' ?>
 <?php
-  
-  connect();
 
   $limit = $_GET['limit'];
   $offset = $_GET['offset'];
   $category = $_GET['category'];
 
-  $count = mysql_query("SELECT * FROM movies");
-  $num_rows = mysql_num_rows($count);
+  $count = mysqli_query("SELECT * FROM movies");
+  $num_rows = mysqli_num_rows($count);
 
   $json = array();
-  $result = mysql_query("SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT $limit OFFSET $offset");
+  $result = mysqli_query($connect, "SELECT * FROM movies ORDER BY DATE(publish_date) DESC, publish_date DESC LIMIT $limit OFFSET $offset");
 
-  $result = mysql_query("SELECT * FROM movies WHERE genre LIKE '%$category%' ORDER BT DATE(publish_date) DESC, publish_date DESC LIMIT $limit OFFSET $offset")
+  $result = mysqli_query($connect, "SELECT * FROM movies WHERE genre LIKE '%$category%' ORDER BT DATE(publish_date) DESC, publish_date DESC LIMIT $limit OFFSET $offset")
 
-  while($row = mysql_fetch_array($result))     
+  while($row = mysqli_fetch_array($result))
   {
     $bus = array(
       'movie_title' => $row['movie_title'],
@@ -35,8 +34,7 @@
     array_push($json, $bus);
   }
 
-  $jsonstring = json_encode($json);
-  echo $jsonstring;
+  echo json_encode(utf8ize($json));
 
   die();
 ?>

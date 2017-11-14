@@ -4,15 +4,15 @@
     <title>Log In</title>
   </head>
   <body>
-  
+
   <div class="container-fluid navbar">
     <div class="col-md-3 logo">
       <h1><a href="<?php echo dirname($_SERVER['PHP_SELF']);?>/../">TMY</a></h1>
     </div>
-  </div>  
+  </div>
   <div class="overlay"></div>
   <div id="bannerContainer"></div>
-  
+
    <div id="login-container">
      <div class="col-md-8 col-md-offset-2 login-only">
        <div class="center-form">
