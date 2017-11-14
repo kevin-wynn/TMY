@@ -142,25 +142,26 @@
     background: #fff;
   }
 
-  #recentMovies, .discover, .nowplaying {
+  #homeRecentMovies, .discover, .nowplaying {
     padding: 0;
 
     .recent-item {
-      width: 25% !important;
-      margin-bottom: 25px;
       text-transform: uppercase;
       cursor: pointer;
-      padding: 5px;
-      border-radius: 3px;
-      position: relative;
-      overflow: hidden;
+      vertical-align: top;
       display: block;
       a {
         color: #666;
       }
+
       .poster {
-        height: 370px;
+        margin-bottom: 25px;
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
+
       .info {
         padding: 0;
         h2 {
@@ -198,6 +199,10 @@
       img {
         width: 100%;
         height: auto;
+      }
+
+      &.recent-reviewed {
+        height: 425px;
       }
     }
     &.discover .recent-item, &.nowplaying .recent-item {

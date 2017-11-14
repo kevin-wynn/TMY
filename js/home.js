@@ -80,7 +80,7 @@ $(document).ready(function() {
     success: function(result) {
       var filterGenres = [], filters = '';
       // clear current movies here
-      $('#recentMovies').html('');
+      $('#homeRecentMovies').html('');
 
       for(i=0; i<result.length; i++){
         // grab content from json returned
@@ -139,14 +139,10 @@ $(document).ready(function() {
         score_recentContainer = '<div class="score">';
         score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>';
 
-        fullItems = $('<div data-released="'+release_date+'" data-movie-id="'+movie_id+'" data-published="'+publish_date+'" data-category="'+genres_forID+'" class="recent-item" id="movie"><a href="'+urlString+'">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></a></div>');
+        fullItems = '<div data-released="'+release_date+'" data-movie-id="'+movie_id+'" data-published="'+publish_date+'" data-category="'+genres_forID+'" class="recent-item recent-reviewed col-md-3" id="movie"><a href="'+urlString+'">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></a></div>';
 
-        $('#recentMovies').isotope('insert', fullItems );
+        $('#homeRecentMovies').append(fullItems);
       }
-
-        $('#recentMovies').imagesLoaded().progress( function() {
-          $('#recentMovies').isotope('layout');
-        });
 
         // clean up array for filters
         filters = filters.split(' ');
@@ -166,7 +162,7 @@ $(document).ready(function() {
     dataType: "json",
     success: function(result) {
       // clear current movies here
-      $('#discover').html('');
+      $('#homeDiscover').html('');
 
       for(i=0; i<result.length; i++){
         // grab content from json returned
@@ -189,15 +185,13 @@ $(document).ready(function() {
         overview_recent = '<p>'+overview_recent+'</p>';
         director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
 
-        fullItems = $('<div data-released="'+release_date+'" class="recent-item '+genres_forID+'" id="discovery">'+poster_recent+'</div>');
+        fullItems = $('<div data-released="'+release_date+'" class="recent-item col-md-3 col-sm-6 col-xs-6 '+genres_forID+'" id="discovery">'+poster_recent+'</div>');
 
-        $('#discover').isotope('insert', fullItems );
+        $('#homeDiscover').append(fullItems);
 
         buildExternalLink(movie_id);
       }
-        $('#discover').imagesLoaded().progress( function() {
-          $('#discover').isotope('layout');
-        });
+
       initControls();
     }
   });
@@ -209,7 +203,7 @@ $(document).ready(function() {
     dataType: "json",
     success: function(result) {
       // clear current movies here
-      $('#nowplaying').html('');
+      $('#homeNowplaying').html('');
 
       for(i=0; i<result.length; i++){
         // grab content from json returned
@@ -232,15 +226,13 @@ $(document).ready(function() {
         overview_recent = '<p>'+overview_recent+'</p>';
         director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
 
-        fullItems = $('<div data-released="'+release_date+'" class="recent-item '+genres_forID+'" id="nowplaying">'+poster_recent+'</div>');
+        fullItems = $('<div data-released="'+release_date+'" class="recent-item col-md-3 col-sm-6 col-xs-6 '+genres_forID+'" id="nowplaying">'+poster_recent+'</div>');
 
-        $('#nowplaying').isotope('insert', fullItems );
+        $('#homeNowplaying').append(fullItems );
 
         buildExternalLink(movie_id);
       }
-        $('#nowplaying').imagesLoaded().progress( function() {
-          $('#nowplaying').isotope('layout');
-        });
+
         initControls();
     }
   });
@@ -292,7 +284,7 @@ $(document).ready(function() {
           data = $.parseJSON(data).genres;
           for (i = 0; i < data.length; ++i) {
             if(data[i].id == genres_recent[i]) {
-              
+
             }
           }
         },errorCB);

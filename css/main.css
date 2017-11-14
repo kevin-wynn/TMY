@@ -164,58 +164,58 @@
       display: none; }
   .recent .col-md-10 {
     background: #fff; }
-  .recent #recentMovies, .recent .discover, .recent .nowplaying {
+  .recent #homeRecentMovies, .recent .discover, .recent .nowplaying {
     padding: 0; }
-    .recent #recentMovies .recent-item, .recent .discover .recent-item, .recent .nowplaying .recent-item {
-      width: 25% !important;
-      margin-bottom: 25px;
+    .recent #homeRecentMovies .recent-item, .recent .discover .recent-item, .recent .nowplaying .recent-item {
       text-transform: uppercase;
       cursor: pointer;
-      padding: 5px;
-      border-radius: 3px;
-      position: relative;
-      overflow: hidden;
+      vertical-align: top;
       display: block; }
-      .recent #recentMovies .recent-item a, .recent .discover .recent-item a, .recent .nowplaying .recent-item a {
+      .recent #homeRecentMovies .recent-item a, .recent .discover .recent-item a, .recent .nowplaying .recent-item a {
         color: #666; }
-      .recent #recentMovies .recent-item .poster, .recent .discover .recent-item .poster, .recent .nowplaying .recent-item .poster {
-        height: 370px; }
-      .recent #recentMovies .recent-item .info, .recent .discover .recent-item .info, .recent .nowplaying .recent-item .info {
+      .recent #homeRecentMovies .recent-item .poster, .recent .discover .recent-item .poster, .recent .nowplaying .recent-item .poster {
+        margin-bottom: 25px; }
+        .recent #homeRecentMovies .recent-item .poster img, .recent .discover .recent-item .poster img, .recent .nowplaying .recent-item .poster img {
+          width: 100%;
+          height: auto; }
+      .recent #homeRecentMovies .recent-item .info, .recent .discover .recent-item .info, .recent .nowplaying .recent-item .info {
         padding: 0; }
-        .recent #recentMovies .recent-item .info h2, .recent .discover .recent-item .info h2, .recent .nowplaying .recent-item .info h2 {
+        .recent #homeRecentMovies .recent-item .info h2, .recent .discover .recent-item .info h2, .recent .nowplaying .recent-item .info h2 {
           font-size: 12px;
           margin: 5px 0px;
           letter-spacing: 2px; }
-        .recent #recentMovies .recent-item .info p, .recent .discover .recent-item .info p, .recent .nowplaying .recent-item .info p {
+        .recent #homeRecentMovies .recent-item .info p, .recent .discover .recent-item .info p, .recent .nowplaying .recent-item .info p {
           font-size: 8px;
           letter-spacing: 1px; }
-      .recent #recentMovies .recent-item .score-container, .recent .discover .recent-item .score-container, .recent .nowplaying .recent-item .score-container {
+      .recent #homeRecentMovies .recent-item .score-container, .recent .discover .recent-item .score-container, .recent .nowplaying .recent-item .score-container {
         padding: 0;
         text-align: right;
         padding-top: 5px; }
-        .recent #recentMovies .recent-item .score-container .score, .recent .discover .recent-item .score-container .score, .recent .nowplaying .recent-item .score-container .score {
+        .recent #homeRecentMovies .recent-item .score-container .score, .recent .discover .recent-item .score-container .score, .recent .nowplaying .recent-item .score-container .score {
           position: relative;
           color: #E87E04; }
-          .recent #recentMovies .recent-item .score-container .score .rating-number, .recent .discover .recent-item .score-container .score .rating-number, .recent .nowplaying .recent-item .score-container .score .rating-number {
+          .recent #homeRecentMovies .recent-item .score-container .score .rating-number, .recent .discover .recent-item .score-container .score .rating-number, .recent .nowplaying .recent-item .score-container .score .rating-number {
             color: #fff;
             position: absolute;
             font-size: 12px;
             left: 10px;
             top: 9px;
             font-weight: 700; }
-          .recent #recentMovies .recent-item .score-container .score .fa, .recent .discover .recent-item .score-container .score .fa, .recent .nowplaying .recent-item .score-container .score .fa {
+          .recent #homeRecentMovies .recent-item .score-container .score .fa, .recent .discover .recent-item .score-container .score .fa, .recent .nowplaying .recent-item .score-container .score .fa {
             font-size: 30px;
             position: relative;
             float: right; }
-      .recent #recentMovies .recent-item img, .recent .discover .recent-item img, .recent .nowplaying .recent-item img {
+      .recent #homeRecentMovies .recent-item img, .recent .discover .recent-item img, .recent .nowplaying .recent-item img {
         width: 100%;
         height: auto; }
-    .recent #recentMovies.discover .recent-item, .recent #recentMovies.nowplaying .recent-item, .recent .discover.discover .recent-item, .recent .discover.nowplaying .recent-item, .recent .nowplaying.discover .recent-item, .recent .nowplaying.nowplaying .recent-item {
+      .recent #homeRecentMovies .recent-item.recent-reviewed, .recent .discover .recent-item.recent-reviewed, .recent .nowplaying .recent-item.recent-reviewed {
+        height: 425px; }
+    .recent #homeRecentMovies.discover .recent-item, .recent #homeRecentMovies.nowplaying .recent-item, .recent .discover.discover .recent-item, .recent .discover.nowplaying .recent-item, .recent .nowplaying.discover .recent-item, .recent .nowplaying.nowplaying .recent-item {
       cursor: default;
       display: block; }
-      .recent #recentMovies.discover .recent-item:before, .recent #recentMovies.nowplaying .recent-item:before, .recent .discover.discover .recent-item:before, .recent .discover.nowplaying .recent-item:before, .recent .nowplaying.discover .recent-item:before, .recent .nowplaying.nowplaying .recent-item:before {
+      .recent #homeRecentMovies.discover .recent-item:before, .recent #homeRecentMovies.nowplaying .recent-item:before, .recent .discover.discover .recent-item:before, .recent .discover.nowplaying .recent-item:before, .recent .nowplaying.discover .recent-item:before, .recent .nowplaying.nowplaying .recent-item:before {
         display: none; }
-      .recent #recentMovies.discover .recent-item .poster, .recent #recentMovies.nowplaying .recent-item .poster, .recent .discover.discover .recent-item .poster, .recent .discover.nowplaying .recent-item .poster, .recent .nowplaying.discover .recent-item .poster, .recent .nowplaying.nowplaying .recent-item .poster {
+      .recent #homeRecentMovies.discover .recent-item .poster, .recent #homeRecentMovies.nowplaying .recent-item .poster, .recent .discover.discover .recent-item .poster, .recent .discover.nowplaying .recent-item .poster, .recent .nowplaying.discover .recent-item .poster, .recent .nowplaying.nowplaying .recent-item .poster {
         height: auto; }
   .recent #recentMovies .recent-item {
     height: 450px; }
@@ -346,6 +346,49 @@
     .oops .tmy-input:focus {
       outline: 0; }
 
+@media (max-width: 730px) {
+  .hero-image {
+    background-position: center center;
+    background-repeat: no-repeat; }
+
+  .navbar .logo {
+    text-align: center; }
+  .navbar .nav ul {
+    padding-left: 0;
+    text-align: center; }
+
+  .intro {
+    margin-top: 0; }
+    .intro .title {
+      font-size: 35px; }
+      .intro .title .featured-title:after {
+        display: none; }
+    .intro .overview {
+      display: none; }
+
+  .recent h4 {
+    text-align: center; }
+  .recent .discover-section, .recent .nowplaying-section {
+    padding-top: 10px;
+    height: 500px; }
+    .recent .discover-section h4, .recent .nowplaying-section h4 {
+      text-align: center;
+      margin-bottom: 10px; }
+
+  .recent-reviewed {
+    height: 635px !important; }
+    .recent-reviewed .info h2 {
+      font-size: 24px !important;
+      text-align: center; }
+    .recent-reviewed .info p {
+      font-size: 12px !important;
+      text-align: center; }
+    .recent-reviewed .score-container {
+      display: none; }
+
+  .footer .nav ul {
+    margin-top: 0;
+    float: none !important; } }
 * {
   box-sizing: border-box; }
 

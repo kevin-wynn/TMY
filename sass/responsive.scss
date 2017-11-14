@@ -1,0 +1,69 @@
+@media (max-width: 730px) {
+  .hero-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .navbar {
+    .logo {
+      text-align: center;
+    }
+    .nav {
+      ul {
+        padding-left: 0;
+        text-align: center;
+      }
+    }
+  }
+
+  .intro {
+    margin-top: 0;
+    .title {
+      font-size: 35px;
+      .featured-title:after {
+        display: none;
+      }
+    }
+    .overview {
+      display: none;
+    }
+  }
+
+  .recent {
+    h4 {
+      text-align: center;
+    }
+    .discover-section, .nowplaying-section {
+      padding-top: 10px;
+      height: 500px;
+      h4 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .recent-reviewed {
+    height: 635px !important;
+    .info {
+      h2 {
+        font-size: 24px !important;
+        text-align: center;
+      }
+
+      p {
+        font-size: 12px !important;
+        text-align: center;
+      }
+    }
+
+    .score-container {
+      display: none;
+    }
+  }
+
+  .footer .nav ul {
+    margin-top: 0;
+    float: none !important;
+  }
+}
