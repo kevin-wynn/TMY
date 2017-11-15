@@ -43,9 +43,6 @@
   <div class="col-md-9 nav">
     <ul>
       <li><a href="../all-movies">All Movies</a></li>
-      <li><a href="../categories">Categories</a></li>
-      <li><a href="../about">About TMY</a></li>
-      <li><a href="../contact">Contact</a></li>
     </ul>
   </div>
 </div>

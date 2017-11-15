@@ -164,60 +164,60 @@
       display: none; }
   .recent .col-md-10 {
     background: #fff; }
-  .recent #homeRecentMovies, .recent .discover, .recent .nowplaying {
+  .recent #homeRecentMovies, .recent .discover, .recent .nowplaying, .recent .all-movies-listed {
     padding: 0; }
-    .recent #homeRecentMovies .recent-item, .recent .discover .recent-item, .recent .nowplaying .recent-item {
+    .recent #homeRecentMovies .recent-item, .recent .discover .recent-item, .recent .nowplaying .recent-item, .recent .all-movies-listed .recent-item {
       text-transform: uppercase;
       cursor: pointer;
       vertical-align: top;
       display: block; }
-      .recent #homeRecentMovies .recent-item a, .recent .discover .recent-item a, .recent .nowplaying .recent-item a {
+      .recent #homeRecentMovies .recent-item a, .recent .discover .recent-item a, .recent .nowplaying .recent-item a, .recent .all-movies-listed .recent-item a {
         color: #666; }
-      .recent #homeRecentMovies .recent-item .poster, .recent .discover .recent-item .poster, .recent .nowplaying .recent-item .poster {
+      .recent #homeRecentMovies .recent-item .poster, .recent .discover .recent-item .poster, .recent .nowplaying .recent-item .poster, .recent .all-movies-listed .recent-item .poster {
         margin-bottom: 25px; }
-        .recent #homeRecentMovies .recent-item .poster img, .recent .discover .recent-item .poster img, .recent .nowplaying .recent-item .poster img {
+        .recent #homeRecentMovies .recent-item .poster img, .recent .discover .recent-item .poster img, .recent .nowplaying .recent-item .poster img, .recent .all-movies-listed .recent-item .poster img {
           width: 100%;
           height: auto; }
-      .recent #homeRecentMovies .recent-item .info, .recent .discover .recent-item .info, .recent .nowplaying .recent-item .info {
+      .recent #homeRecentMovies .recent-item .info, .recent .discover .recent-item .info, .recent .nowplaying .recent-item .info, .recent .all-movies-listed .recent-item .info {
         padding: 0; }
-        .recent #homeRecentMovies .recent-item .info h2, .recent .discover .recent-item .info h2, .recent .nowplaying .recent-item .info h2 {
+        .recent #homeRecentMovies .recent-item .info h2, .recent .discover .recent-item .info h2, .recent .nowplaying .recent-item .info h2, .recent .all-movies-listed .recent-item .info h2 {
           font-size: 12px;
           margin: 5px 0px;
           letter-spacing: 2px; }
-        .recent #homeRecentMovies .recent-item .info p, .recent .discover .recent-item .info p, .recent .nowplaying .recent-item .info p {
+        .recent #homeRecentMovies .recent-item .info p, .recent .discover .recent-item .info p, .recent .nowplaying .recent-item .info p, .recent .all-movies-listed .recent-item .info p {
           font-size: 8px;
           letter-spacing: 1px; }
-      .recent #homeRecentMovies .recent-item .score-container, .recent .discover .recent-item .score-container, .recent .nowplaying .recent-item .score-container {
+      .recent #homeRecentMovies .recent-item .score-container, .recent .discover .recent-item .score-container, .recent .nowplaying .recent-item .score-container, .recent .all-movies-listed .recent-item .score-container {
         padding: 0;
         text-align: right;
         padding-top: 5px; }
-        .recent #homeRecentMovies .recent-item .score-container .score, .recent .discover .recent-item .score-container .score, .recent .nowplaying .recent-item .score-container .score {
+        .recent #homeRecentMovies .recent-item .score-container .score, .recent .discover .recent-item .score-container .score, .recent .nowplaying .recent-item .score-container .score, .recent .all-movies-listed .recent-item .score-container .score {
           position: relative;
           color: #E87E04; }
-          .recent #homeRecentMovies .recent-item .score-container .score .rating-number, .recent .discover .recent-item .score-container .score .rating-number, .recent .nowplaying .recent-item .score-container .score .rating-number {
+          .recent #homeRecentMovies .recent-item .score-container .score .rating-number, .recent .discover .recent-item .score-container .score .rating-number, .recent .nowplaying .recent-item .score-container .score .rating-number, .recent .all-movies-listed .recent-item .score-container .score .rating-number {
             color: #fff;
             position: absolute;
             font-size: 12px;
             left: 10px;
             top: 9px;
             font-weight: 700; }
-          .recent #homeRecentMovies .recent-item .score-container .score .fa, .recent .discover .recent-item .score-container .score .fa, .recent .nowplaying .recent-item .score-container .score .fa {
+          .recent #homeRecentMovies .recent-item .score-container .score .fa, .recent .discover .recent-item .score-container .score .fa, .recent .nowplaying .recent-item .score-container .score .fa, .recent .all-movies-listed .recent-item .score-container .score .fa {
             font-size: 30px;
             position: relative;
             float: right; }
-      .recent #homeRecentMovies .recent-item img, .recent .discover .recent-item img, .recent .nowplaying .recent-item img {
+      .recent #homeRecentMovies .recent-item img, .recent .discover .recent-item img, .recent .nowplaying .recent-item img, .recent .all-movies-listed .recent-item img {
         width: 100%;
         height: auto; }
-      .recent #homeRecentMovies .recent-item.recent-reviewed, .recent .discover .recent-item.recent-reviewed, .recent .nowplaying .recent-item.recent-reviewed {
+      .recent #homeRecentMovies .recent-item.recent-reviewed, .recent .discover .recent-item.recent-reviewed, .recent .nowplaying .recent-item.recent-reviewed, .recent .all-movies-listed .recent-item.recent-reviewed {
         height: 425px; }
-    .recent #homeRecentMovies.discover .recent-item, .recent #homeRecentMovies.nowplaying .recent-item, .recent .discover.discover .recent-item, .recent .discover.nowplaying .recent-item, .recent .nowplaying.discover .recent-item, .recent .nowplaying.nowplaying .recent-item {
+    .recent #homeRecentMovies.discover .recent-item, .recent #homeRecentMovies.nowplaying .recent-item, .recent .discover.discover .recent-item, .recent .discover.nowplaying .recent-item, .recent .nowplaying.discover .recent-item, .recent .nowplaying.nowplaying .recent-item, .recent .all-movies-listed.discover .recent-item, .recent .all-movies-listed.nowplaying .recent-item {
       cursor: default;
       display: block; }
-      .recent #homeRecentMovies.discover .recent-item:before, .recent #homeRecentMovies.nowplaying .recent-item:before, .recent .discover.discover .recent-item:before, .recent .discover.nowplaying .recent-item:before, .recent .nowplaying.discover .recent-item:before, .recent .nowplaying.nowplaying .recent-item:before {
+      .recent #homeRecentMovies.discover .recent-item:before, .recent #homeRecentMovies.nowplaying .recent-item:before, .recent .discover.discover .recent-item:before, .recent .discover.nowplaying .recent-item:before, .recent .nowplaying.discover .recent-item:before, .recent .nowplaying.nowplaying .recent-item:before, .recent .all-movies-listed.discover .recent-item:before, .recent .all-movies-listed.nowplaying .recent-item:before {
         display: none; }
-      .recent #homeRecentMovies.discover .recent-item .poster, .recent #homeRecentMovies.nowplaying .recent-item .poster, .recent .discover.discover .recent-item .poster, .recent .discover.nowplaying .recent-item .poster, .recent .nowplaying.discover .recent-item .poster, .recent .nowplaying.nowplaying .recent-item .poster {
+      .recent #homeRecentMovies.discover .recent-item .poster, .recent #homeRecentMovies.nowplaying .recent-item .poster, .recent .discover.discover .recent-item .poster, .recent .discover.nowplaying .recent-item .poster, .recent .nowplaying.discover .recent-item .poster, .recent .nowplaying.nowplaying .recent-item .poster, .recent .all-movies-listed.discover .recent-item .poster, .recent .all-movies-listed.nowplaying .recent-item .poster {
         height: auto; }
-  .recent #recentMovies .recent-item {
+  .recent #recentMovies .recent-item, .recent #homeRecentMovies .recent-item {
     height: 450px; }
 
 .featured-now-playing {
@@ -385,6 +385,10 @@
       text-align: center; }
     .recent-reviewed .score-container {
       display: none; }
+
+  .movie-details .movie-info {
+    text-align: center;
+    font-size: 18px; }
 
   .footer .nav ul {
     margin-top: 0;

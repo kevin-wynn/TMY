@@ -142,7 +142,7 @@
     background: #fff;
   }
 
-  #homeRecentMovies, .discover, .nowplaying {
+  #homeRecentMovies, .discover, .nowplaying, .all-movies-listed {
     padding: 0;
 
     .recent-item {
@@ -216,7 +216,7 @@
       }
     }
   }
-  #recentMovies{
+  #recentMovies, #homeRecentMovies {
     .recent-item {
       height: 450px;
     }

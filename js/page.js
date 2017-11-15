@@ -192,7 +192,7 @@ $(document).ready(function(){
 
             poster = imageUrl + poster;
 
-            similarMovies.append('<div data-movie-id="'+movie_id+'" class="col-md-4 similar"><img src="'+poster+'"><p>'+title+'</p></div>');
+            similarMovies.append('<div data-movie-id="'+movie_id+'" class="col-md-4 col-sm-4 col-xs-4 similar"><img src="'+poster+'"><p>'+title+'</p></div>');
 
             buildExternalLink(movie_id);
           }

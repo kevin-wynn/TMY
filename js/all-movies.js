@@ -16,11 +16,11 @@ $(document).ready(function() {
       movieDirector = $('#movieDirector'),
       movieCast = $('#movieCast'),
       wave = 0;
-  
+
   $.ajax({
     type: "GET",
-    url: "php/heroImage.php",             
-    dataType: "json",                
+    url: "php/heroImage.php",
+    dataType: "json",
     success: function(result) {
       // grab content from json returned
       var backdrop = prefixUrl + result[0].backdrop_path,
@@ -30,7 +30,7 @@ $(document).ready(function() {
           score = result[0].score,
           director = result[0].director,
           cast = result[0].cast;
-      
+
       // build out and inject html for injection
       heroImage.css('background-image', 'url('+backdrop+')');
       $('.footer').css('background-image', 'url('+backdrop+')');
@@ -40,46 +40,46 @@ $(document).ready(function() {
       movieCast.html(cast);
       movieDirector.html('<span class="intro-text">Directed By - </span>' + director);
       movieCast.html('<span class="intro-text">Starring - </span>');
-      
+
       cast = cast.replace(/ /g,'');
       cast = cast.split(',');
-      
+
       for(i=0; i<cast.length; i++){
         theMovieDb.people.getById({"id":cast[i]}, parseCast, errorCB);
       }
-      
+
       function parseCast(data){
           var name = $.parseJSON(data).name;
-        
+
           if(wave == cast.length) {
             movieCast.append(name);
           } else {
             movieCast.append(name + ', ');
           }
       }
-      
+
       for(i=0; i<score; i++){
         movieScore.append('<i class="fa fa-star"></i> ');
       }
-      
+
       initControls();
     }
   });
   getMovies();
-  
+
   var sortItems = $('#sortItems'),
       sortAction = $('#sortAction');
-  
+
   sortItems.hide();
-  
+
   sortAction.on('click', function(){
     sortItems.slideDown('slow');
   });
-  
+
   sortItems.on('click', function(){
     sortItems.slideUp('slow');
   });
-  
+
   //get inital movies and set up interaction with show more button to more more calls
   $('#getMore').on('click', function(){
     getMovies();
@@ -89,8 +89,8 @@ $(document).ready(function() {
     $.ajax({
       type: "GET",
       data: {offset:offset, limit:limit},
-      url: "php/allReviewed.php",             
-      dataType: "json",                
+      url: "php/allReviewed.php",
+      dataType: "json",
       success: function(result) {
         offset += 12;
         total = result[0].total;
@@ -108,7 +108,7 @@ $(document).ready(function() {
 
           var genres_forID = genres_recent.replace(/,/g, "");
               genres_forID = genres_forID.toLowerCase();
-          
+
           var urlTitle = title_recent.replace(/\s+/g, '-').toLowerCase(),
               urlId = movie_id,
               urlString = prefixUrl+'/movies/'+urlTitle+'?movie_id='+urlId;
@@ -119,18 +119,18 @@ $(document).ready(function() {
           overview_recent = '<p>'+overview_recent+'</p>';
           director_recent = '<p><span class="intro-text">Directed By - </span>'+director_recent+'</p>';
           score_recentContainer = '<div class="score">';
-          score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>'; 
+          score_recentContainer += '<i class="fa fa-star"><span class="rating-number">'+score_recent+'</span></i></div>';
 
-          fullItems = $('<div data-movie-id="'+movie_id+'" data-released="'+release_date+'" data-published="'+publish_date+'" class="recent-item '+genres_forID+'" id="movie"><a href="'+urlString+'">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></a></div>');
+          fullItems = $('<div data-movie-id="'+movie_id+'" data-released="'+release_date+'" data-published="'+publish_date+'" class="recent-item col-md-3 col-sm-6 col-xs-6 '+genres_forID+'" id="movie"><a href="'+urlString+'">'+poster_recent+'<div class="col-md-10 info">'+title_recent+genres_recent+director_recent+'</div><div class="col-md-2 score-container">'+score_recentContainer+'</div></a></div>');
 
-          $('#recentMovies').isotope('insert', fullItems ).isotope('layout');
+          $('#homeRecentMovies').append(fullItems);
         }
         initControls();
-        
+
         if(offset > total){
           $('#getMore').hide();
         }
-        
+
       }
     });
   }
